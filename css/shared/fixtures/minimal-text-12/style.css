@@ -1,0 +1,14 @@
+.minimal-text-12 {
+  width: 410px;
+  height: 502px;
+  background-color: #000;
+}
+.minimal-text-12.narrow {
+  width: 402px;
+}
+.minimal-text-12 .box {
+  width: 80px;
+  height: 24px;
+  background-color: #1045a5;
+  color: #fff;
+}

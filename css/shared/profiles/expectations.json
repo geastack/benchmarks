@@ -1,0 +1,33 @@
+{
+  "box": {
+    "absent": [
+      "GEA_CSS_GRID",
+      "GEA_CSS_TRANSFORMS",
+      "GEA_CSS_SCROLLING",
+      "GEA_CSS_FLEX_WRAP",
+      "GEA_CSS_BOX_SHADOW",
+      "GEA_UI_NODE_LISTENERS",
+      "GEA_UI_NODE_ATTRIBUTES",
+      "GEA_UI_IMAGE_NODES",
+      "GEA_UI_INPUT_NODES"
+    ],
+    "present": [],
+    "allowed_css": []
+  },
+  "flex": {
+    "absent": ["GEA_CSS_GRID", "GEA_CSS_TRANSFORMS", "GEA_CSS_SCROLLING", "GEA_CSS_BOX_SHADOW"],
+    "present": ["GEA_CSS_FLEX_DIRECTION", "GEA_CSS_GAP"],
+    "allowed_css": ["GEA_CSS_DISPLAY_EXPLICIT", "GEA_CSS_FLEX_DIRECTION", "GEA_CSS_GAP"]
+  },
+  "complex": {
+    "absent": [],
+    "present": [
+      "GEA_CSS_GRID",
+      "GEA_CSS_TRANSFORMS",
+      "GEA_CSS_SCROLLING",
+      "GEA_CSS_FLEX_WRAP",
+      "GEA_CSS_BOX_SHADOW",
+      "GEA_CSS_OPACITY"
+    ]
+  }
+}

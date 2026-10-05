@@ -1,0 +1,18 @@
+.complex-profile {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  overflow-y: scroll;
+  height: 502px;
+}
+.complex-profile .card {
+  display: flex;
+  flex-wrap: wrap;
+  transform: rotate(2deg);
+  opacity: 0.8;
+  border: 2px solid #668899;
+  border-radius: 8px;
+  padding: 3px;
+  box-shadow: inset 1px 1px 2px #000000;
+  background: linear-gradient(90deg, #123444, #426622);
+}

@@ -1,0 +1,55 @@
+import { Display } from '@geastack/core';
+import * as benchmark from './benchmark';
+import { start as start0 } from './fixtures/flex-layout-16/Scene';
+import { start as start1 } from './fixtures/flex-layout-96/Scene';
+import { start as start2 } from './fixtures/grid-layout-64/Scene';
+import { start as start3 } from './fixtures/class-update/Scene';
+import { start as start4 } from './fixtures/matching-sibling-update/Scene';
+import { start as start5 } from './fixtures/text-update/Scene';
+import { start as start6 } from './fixtures/scroll-16/Scene';
+import { start as start7 } from './fixtures/scroll-96/Scene';
+import { start as start8 } from './fixtures/rounded-scroll/Scene';
+import { start as start9 } from './fixtures/nested-scroll/Scene';
+import { start as start10 } from './fixtures/horizontal-swipe/Scene';
+import { start as start11 } from './fixtures/vertical-drag/Scene';
+import { start as start12 } from './fixtures/momentum-flick/Scene';
+import { start as start13 } from './fixtures/minimal-box-1/Scene';
+import { start as start14 } from './fixtures/minimal-boxes-4/Scene';
+import { start as start15 } from './fixtures/minimal-text-12/Scene';
+import { start as start16 } from './fixtures/wrapped-layout-96/Scene';
+import { start as start17 } from './fixtures/selector-cascade-256/Scene';
+import { start as start18 } from './fixtures/dashboard-mixed-96/Scene';
+Display.setFrameRate(60);
+Display.setVSync(false);
+Display.setTextRasterCache(true);
+Display.setFlushConfig({ rows: 64, depth: 2 });
+let index = 0;
+function next(): void {
+  benchmark.clear();
+  if (index === 0) start0();
+  if (index === 1) start1();
+  if (index === 2) start2();
+  if (index === 3) start3();
+  if (index === 4) start4();
+  if (index === 5) start5();
+  if (index === 6) start6();
+  if (index === 7) start7();
+  if (index === 8) start8();
+  if (index === 9) start9();
+  if (index === 10) start10();
+  if (index === 11) start11();
+  if (index === 12) start12();
+  if (index === 13) start13();
+  if (index === 14) start14();
+  if (index === 15) start15();
+  if (index === 16) start16();
+  if (index === 17) start17();
+  if (index === 18) start18();
+  if (index === 19) benchmark.finish();
+  index++;
+}
+export function startSuite(): void {
+  index = 0;
+  benchmark.setCompletionCallback(next);
+  next();
+}

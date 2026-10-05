@@ -1,0 +1,40 @@
+{
+  "name": "@geastack/benchmark-amoled-206",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "gea": {
+    "id": "amoled-206-bench",
+    "name": "AMOLED 206 Bench",
+    "entry": "index.tsx",
+    "runtime": "gea",
+    "nativeSources": [
+      "suite.cpp"
+    ],
+    "defines": {
+      "GEA_EMBEDDED_FRAME_BENCHMARK": 1,
+      "GEA_EMBEDDED_FRAME_SCHEDULER_FPS_LOG": 0
+    },
+    "targets": {
+      "esp32": {
+        "build": {
+          "compiler": {
+            "generatedCodeOptimization": "O2"
+          },
+          "diagnostics": {
+            "performanceCounters": false,
+            "frameTiming": false
+          },
+          "services": {
+            "wifi": "disabled"
+          }
+        }
+      }
+    },
+    "cssDevicePixelRatio": 1,
+    "compilerPlugins": [
+      "benchmark-plugin.mjs"
+    ]
+  }
+}

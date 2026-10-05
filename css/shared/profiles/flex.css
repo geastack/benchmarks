@@ -1,0 +1,9 @@
+.flex-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.flex-profile .box {
+  width: 80px;
+  height: 24px;
+}

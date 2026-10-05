@@ -1,0 +1,55 @@
+// Benchmark entry point and timing functions for Gea-emitted C++.
+// Runs module initialization once, reads the iteration count from argv,
+// and prints the workload time and result for bench-npm.mjs to validate.
+#pragma once
+#include <chrono>
+#include <cstdio>
+#include <cstdlib>
+#include <string>
+#include "gea_runtime.h"
+
+namespace gea::bench {
+
+inline int argCount = 0;
+inline char **argValues = nullptr;
+
+/** `process.argv[2]`, the iteration count, as node's own runner reads it. */
+inline double argvNumber() {
+  return argCount > 1 ? std::strtod(argValues[1], nullptr) : 0.0;
+}
+
+/**
+ * `performance.now()`.
+ *
+ * `steady_clock` and not `system_clock`: this measures a duration, and a wall
+ * clock can step. The same choice the hand-written baseline's `bench_main.h`
+ * makes, so the two columns are timed by the same instrument.
+ */
+inline double now() {
+  return std::chrono::duration<double, std::milli>(
+             std::chrono::steady_clock::now().time_since_epoch())
+      .count();
+}
+
+/** The two lines the harness reads: the inner time, then the workload's result as JS would print
+ * it. */
+inline void report(double milliseconds, double result) {
+  std::printf("__bench_ms__ %.6f\n", milliseconds);
+  std::printf("%s\n", gea::host::detail::toString(result).c_str());
+}
+
+} // namespace gea::bench
+
+extern void __gea_top_level();
+
+// Weak, because this header is the bench target's whole host and every unit of
+// the program includes it through the compiler's own preamble. Under the
+// single-unit layout that is one definition of `main`; under `--units
+// per-file` it is one per unit, and a weak definition is what lets the linker
+// keep one of several identical copies instead of refusing the link.
+__attribute__((weak)) int main(int argc, char **argv) {
+  gea::bench::argCount = argc;
+  gea::bench::argValues = argv;
+  __gea_top_level();
+  return 0;
+}

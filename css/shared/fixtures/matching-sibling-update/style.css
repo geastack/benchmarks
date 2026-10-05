@@ -1,0 +1,3 @@
+.matching-sibling-update .selected + .row {
+  padding-left: 0px;
+}

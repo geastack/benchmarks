@@ -1,0 +1,74 @@
+{
+  "packages": {
+    "@geastack/compiler": "1.0.26",
+    "@geastack/node-compat": "1.0.17",
+    "scriptc": "0.2.3"
+  },
+  "artifacts": {
+    "apps/raw-http-hello/server.ts": {
+      "sha256": "9ac7f0a8e89c7105e5adb6d3b43a1b78b129367e0d90974a95ca73a25066f7cf",
+      "bytes": 589
+    },
+    "apps/raw-http-hello/server.reuseport.ts": {
+      "sha256": "34a9305a425d35ce2139f10c6509551a420cedb61ea39c3f142122f1adb0153b",
+      "bytes": 616
+    },
+    "apps/raw-http-hello/dist/server": {
+      "sha256": "307d30beea11ee441e9e6a736d8b13b645fa58c8b42eef05bc3d5f2bd967c189",
+      "bytes": 2330992
+    },
+    "apps/raw-http-hello/dist/server.cpp": {
+      "sha256": "5ec392c3834be7009fb56f07239dd8dcaf1f9ea7fbedc61b66751e05f6c74746",
+      "bytes": 1549863
+    },
+    "apps/raw-http-hello/dist/scriptc-static": {
+      "sha256": "f20bfaa79d4569ae692b0c7724aff23b2ab8beb7d21bc58b477ab5c48771a42f",
+      "bytes": 298600
+    },
+    "apps/raw-http-hello/dist/scriptc-rp": {
+      "sha256": "15a0197ae40b1cb94c81cc64b73bc867df8c1f11bd69b268b000f321e7df964e",
+      "bytes": 298632
+    },
+    "bench/http-matrix.py": {
+      "sha256": "8eed278f5dd40c28250b175b58ffd9071589aea0dfd2197405fc4a13f8add98e",
+      "bytes": 19089
+    },
+    "bench/scriptc-cluster.sh": {
+      "sha256": "f2c49b5eb05b408ae7d1e3b4afc894f77429a040b2cc23c441321b3344799ba4",
+      "bytes": 438
+    },
+    "node_modules/@geastack/compiler/dist/compiler.js": {
+      "sha256": "00d2684629b82041880168cc11b3d3e822f6ac3298f13342f9dc822a8b50efec",
+      "bytes": 72778
+    },
+    "node_modules/@geastack/node-compat/scripts/build.mjs": {
+      "sha256": "da2afcd48fccf6c8892c870794c6e4f112fa9783089c9dc0a2f8eb3bb6480879",
+      "bytes": 94057
+    },
+    "node_modules/@geastack/node-compat/runtime/node/http.ts": {
+      "sha256": "aac2c44d0b8ed1c935512def3ae0c6b5d86b2a5b44c62b9316eb843c3296a8de",
+      "bytes": 67144
+    }
+  },
+  "build_commands": [
+    "node node_modules/@geastack/node-compat/scripts/build.mjs apps/raw-http-hello/server.ts --out apps/raw-http-hello/dist",
+    "./node_modules/.bin/scriptc build apps/raw-http-hello/server.ts -o apps/raw-http-hello/dist/scriptc-static --strip --no-keep-llvm",
+    "./node_modules/.bin/scriptc build apps/raw-http-hello/server.reuseport.ts -o apps/raw-http-hello/dist/scriptc-rp --strip --no-keep-llvm"
+  ],
+  "scriptc_measured_binary": "apps/raw-http-hello/dist/scriptc-rp",
+  "compiler_comment": "\nString dump of section '.comment':\n  [     1]  GCC: (Ubuntu 14.2.0-4ubuntu2~24.04.1) 14.2.0\n  [    2e]  Ubuntu clang version 18.1.3 (1ubuntu1)\n\n",
+  "notes": [
+    "Registry packages, no local package symlinks.",
+    "GeaStack default release flags: clang 18 -Os -flto, stripped. scriptc default release backend: LLVM -O2, stripped.",
+    "reusePort variant used for both scriptc worker counts, matching the historical JSON run.",
+    "Only raw HTTP throughput, memory and startup rerun; Hono and 38-case HTTP parity suite not run."
+  ],
+  "public_export": {
+    "sanitized": true,
+    "path_placeholders": {
+      "${NODE_COMPAT_ROOT}": "Your node-compat checkout",
+      "${COMPARISON_ROOT}": "Your extracted compute comparison suite"
+    },
+    "notes": "Host identity and absolute checkout paths removed. Measurements, outputs and recorded artifact hashes retained."
+  }
+}

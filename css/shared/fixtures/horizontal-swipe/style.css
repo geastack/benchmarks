@@ -1,0 +1,9 @@
+.horizontal-swipe {
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.horizontal-swipe .row {
+  width: 362px;
+  height: 502px;
+}

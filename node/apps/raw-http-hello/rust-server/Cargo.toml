@@ -1,0 +1,16 @@
+[package]
+name = "rust-http-hello"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hyper = { version = "1", features = ["http1", "server"] }
+hyper-util = { version = "0.1", features = ["tokio"] }
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "net", "macros"] }
+http-body-util = "0.1"
+axum = "0.8"
+httpdate = "1"
+
+[profile.release]
+lto = true
+codegen-units = 1

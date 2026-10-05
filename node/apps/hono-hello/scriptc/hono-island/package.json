@@ -1,0 +1,11 @@
+{
+  "name": "hono-island",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.mjs",
+  "types": "index.d.ts",
+  "dependencies": {
+    "hono": "4.12.34"
+  }
+}

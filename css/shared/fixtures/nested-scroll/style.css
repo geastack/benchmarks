@@ -1,0 +1,15 @@
+.nested-scroll .title {
+  width: 410px;
+  height: 48px;
+  flex-shrink: 0;
+  color: #fff;
+}
+.nested-scroll .inner {
+  width: 410px;
+  height: 454px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

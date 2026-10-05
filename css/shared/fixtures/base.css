@@ -1,0 +1,36 @@
+.fixture {
+  width: 410px;
+  height: 502px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.fixture.narrow {
+  width: 402px;
+}
+.fixture .row {
+  width: 410px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #123444;
+}
+.fixture .selected {
+  background-color: #426622;
+}
+.fixture .label {
+  width: 340px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+.fixture .icon {
+  width: 16px;
+  height: 16px;
+  background-color: #f00;
+}

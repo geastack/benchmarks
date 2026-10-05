@@ -1,0 +1,13 @@
+.wrapped-layout-96 {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-content: flex-start;
+}
+.wrapped-layout-96 .row {
+  width: 96px;
+  height: 64px;
+}
+.wrapped-layout-96 .label {
+  width: 48px;
+}

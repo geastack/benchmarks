@@ -1,0 +1,14 @@
+.minimal-box-1 {
+  width: 410px;
+  height: 502px;
+  background-color: #000;
+}
+.minimal-box-1.narrow {
+  width: 402px;
+}
+.minimal-box-1 .box {
+  width: 80px;
+  height: 24px;
+  background-color: #1045a5;
+  color: #fff;
+}

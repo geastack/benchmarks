@@ -1,0 +1,7 @@
+node_modules/
+dist/
+node/apps/**/dist/
+__pycache__/
+.DS_Store
+node/apps/raw-http-hello/rust-server/target/
+css/esp32/s3/amoled-206/.gea/

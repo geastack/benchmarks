@@ -1,0 +1,124 @@
+{
+  "width": 410,
+  "height": 502,
+  "warmup": 60,
+  "samples": 240,
+  "cases": [
+    {
+      "name": "flex-layout-16",
+      "count": 16,
+      "component": "fixtures/flex-layout-16/Scene.tsx",
+      "checks": ["layout changed"]
+    },
+    {
+      "name": "flex-layout-96",
+      "count": 96,
+      "component": "fixtures/flex-layout-96/Scene.tsx",
+      "checks": ["layout changed"]
+    },
+    {
+      "name": "grid-layout-64",
+      "count": 64,
+      "component": "fixtures/grid-layout-64/Scene.tsx",
+      "checks": ["layout changed"]
+    },
+    {
+      "name": "class-update",
+      "count": 96,
+      "component": "fixtures/class-update/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "matching-sibling-update",
+      "count": 96,
+      "component": "fixtures/matching-sibling-update/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "text-update",
+      "count": 96,
+      "component": "fixtures/text-update/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "scroll-16",
+      "count": 16,
+      "component": "fixtures/scroll-16/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "scroll-96",
+      "count": 96,
+      "component": "fixtures/scroll-96/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "rounded-scroll",
+      "count": 96,
+      "component": "fixtures/rounded-scroll/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "nested-scroll",
+      "count": 96,
+      "component": "fixtures/nested-scroll/Scene.tsx",
+      "checks": ["scroll moved", "outer stayed stationary"]
+    },
+    {
+      "name": "horizontal-swipe",
+      "count": 32,
+      "component": "fixtures/horizontal-swipe/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "vertical-drag",
+      "count": 96,
+      "component": "fixtures/vertical-drag/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "momentum-flick",
+      "count": 96,
+      "component": "fixtures/momentum-flick/Scene.tsx",
+      "checks": ["scroll moved", "momentum continued after release"]
+    },
+    {
+      "name": "minimal-box-1",
+      "count": 1,
+      "component": "fixtures/minimal-box-1/Scene.tsx",
+      "checks": ["layout changed"],
+      "profiles": ["box"]
+    },
+    {
+      "name": "minimal-boxes-4",
+      "count": 4,
+      "component": "fixtures/minimal-boxes-4/Scene.tsx",
+      "checks": ["layout changed"],
+      "profiles": ["box"]
+    },
+    {
+      "name": "minimal-text-12",
+      "count": 12,
+      "component": "fixtures/minimal-text-12/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "wrapped-layout-96",
+      "count": 96,
+      "component": "fixtures/wrapped-layout-96/Scene.tsx",
+      "checks": ["layout changed"]
+    },
+    {
+      "name": "selector-cascade-256",
+      "count": 96,
+      "component": "fixtures/selector-cascade-256/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "dashboard-mixed-96",
+      "count": 96,
+      "component": "fixtures/dashboard-mixed-96/Scene.tsx",
+      "checks": ["layout changed", "selection updated", "text updated", "scroll moved"]
+    }
+  ]
+}
