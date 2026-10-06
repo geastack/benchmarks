@@ -1,8 +1,11 @@
-import { range } from '@geastack/parallel';
+import { range, type int } from '@geastack/parallel';
 
 // C = A x B for n x n matrices of small integers, so every sum is exact; the
 // answer is a weighted checksum of C. B is read transposed, a row per task.
-export function main(n: number): number {
+// The dimension is an `int` (a number under Node), as Rust's is a `usize`, so
+// every element index is computed in the integers.
+export function main(size: number): number {
+  const n: int = size;
   const a = new Float64Array(n * n);
   const bt = new Float64Array(n * n);
 

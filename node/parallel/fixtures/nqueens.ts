@@ -1,6 +1,11 @@
 import { range } from '@geastack/parallel';
 
-function solve(size: number, row: number, columns: number, left: number, right: number): number {
+// A 32-bit integer, as Rust's board masks are `u32`: a number under Node, an
+// `int32_t` compiled. `@geastack/core` declares it globally for apps.
+declare const i32Brand: unique symbol;
+type i32 = number & { readonly [i32Brand]?: never };
+
+function solve(size: i32, row: i32, columns: i32, left: i32, right: i32): number {
   if (row === size) return 1;
   const all = (1 << size) - 1;
   let free = all & ~(columns | left | right);
@@ -17,7 +22,8 @@ function solve(size: number, row: number, columns: number, left: number, right: 
 
 // Solutions to n-queens, one task per placement of the first two queens:
 // recursion with a very uneven tree under each task.
-export function main(n: number): number {
+export function main(size: number): number {
+  const n: i32 = size;
   const all = (1 << n) - 1;
 
   return range(0, n * n).mapReduce(

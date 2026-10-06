@@ -1,14 +1,14 @@
-import { range } from '@geastack/parallel';
+import { range, type int } from '@geastack/parallel';
 
-function steps(start: number): number {
+function steps(start: int): number {
+  // Trajectories from below 3,000,000 peak near 10^11: far past int32, well
+  // inside 2^53, so the integer and the Number agree on every value.
   let value = start;
   let count = 0;
-
   while (value !== 1) {
     value = value % 2 === 0 ? value / 2 : 3 * value + 1;
     count++;
   }
-
   return count;
 }
 

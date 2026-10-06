@@ -138,7 +138,9 @@ async function emit() {
     compiler: JSON.parse(fs.readFileSync(path.join(compilerRoot, 'package.json'), 'utf8')).version,
     compilerSha256: hash(path.join(compilerRoot, 'dist/compiler.js')),
     parallel: JSON.parse(fs.readFileSync(path.join(parallelRoot, 'package.json'), 'utf8')).version,
-    parallelSha256: hash(path.join(parallelRoot, 'dist/index.js')),
+    // The one library source all three runtimes run: Node transpiled, scriptc
+    // and geatsc compiled (geatsc maps the package's `dist/` back to it).
+    parallelSha256: hash(path.join(parallelRoot, 'src/index.ts')),
     fixtures: {},
   };
 
@@ -148,13 +150,22 @@ async function emit() {
     fs.mkdirSync(dir, { recursive: true });
     const source = fs.readFileSync(path.join(HERE, 'fixtures', fixture + '.ts'), 'utf8');
     fs.writeFileSync(path.join(dir, 'program.ts'), source);
-    // Node: the program as written, transpiled the way any TypeScript build would.
-    fs.writeFileSync(
-      path.join(dir, 'program.mjs'),
-      ts.transpileModule(source, {
+    // Node: the program as written, transpiled the way any TypeScript build
+    // would, against the library's src/index.ts transpiled the same way -- not
+    // its built dist/, which is whatever was last built and need not be the
+    // source scriptc and geatsc compile.
+    const transpiled = (text) =>
+      ts.transpileModule(text, {
         compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 },
-      }).outputText,
+      }).outputText;
+    fs.writeFileSync(
+      path.join(dir, 'parallel.mjs'),
+      transpiled(fs.readFileSync(path.join(parallelRoot, 'src/index.ts'), 'utf8')),
     );
+    const nodeProgram = transpiled(source).replace(/from '@geastack\/parallel';/, "from './parallel.mjs';");
+    if (!nodeProgram.includes("from './parallel.mjs';"))
+      throw new Error('could not point the Node program at the library source');
+    fs.writeFileSync(path.join(dir, 'program.mjs'), nodeProgram);
 
     const timed = (specifier) =>
       `import { main } from '${specifier}';\n` +
@@ -170,9 +181,10 @@ async function emit() {
     const library = fs
       .readFileSync(path.join(parallelRoot, 'src/index.ts'), 'utf8')
       .replace(
-        /import \{ tasks \} from '@geastack\/parallel\/native'\n/,
-        'function tasks(count: number, body: (index: number) => boolean): void {\n' +
-          '  for (let index = 0; index < count; index++) {\n    if (body(index)) return\n  }\n}\n',
+        /import \{ tasks, type int \} from '@geastack\/parallel\/native'\n/,
+        'function tasks(count: number, body: (index: int) => boolean): void {\n' +
+          '  for (let index = 0; index < count; index++) {\n    if (body(index)) return\n  }\n}\n' +
+          'declare const intBrand: unique symbol\ntype int = number & { readonly [intBrand]?: never }\n',
       );
 
     if (!library.startsWith('function tasks'))
@@ -300,6 +312,12 @@ const cxx = process.env.CXX ?? 'clang++';
 
 // -ffp-contract=off: JavaScript rounds after every operation, so a fused
 // multiply-add would change the answer. Every C++ column gets it.
+//
+// -force-ordered-reductions: lets LLVM vectorize a floating-point sum while
+// still adding the lanes one at a time, in source order, so the answer is bit
+// for bit the sequential one. rustc's LLVM 23 does this on x86 by default;
+// clang 18 and 22 only do it when asked, and without it spectral-norm's row
+// loop runs scalar in both C++ columns at twice Rayon's time.
 const cxxFlags = [
   '-std=gnu++20',
   '-O3',
@@ -307,6 +325,7 @@ const cxxFlags = [
   '-DNDEBUG',
   '-ffp-contract=off',
   '-pthread',
+  ...(/clang/.test(cxx) ? ['-mllvm', '-force-ordered-reductions=true'] : []),
 ];
 
 const cores = os.availableParallelism();
