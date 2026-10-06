@@ -2,6 +2,20 @@
 
 Sources, runners and raw results for our comparisons of GeaStack against scriptc, Node.js and hand-written C++.
 
+## October 6, 2026: `@geastack/parallel` against Rust + Rayon and C++
+
+[`@geastack/parallel`](https://github.com/geastack/parallel) is a Rayon-style data-parallel library for TypeScript. Under Node it runs sequentially, as plain JavaScript; compiled by GeaStack, the same program runs on every core and gives the same answer. Nine workloads, 20 threads, geometric means:
+
+- **Node.** GeaStack is 6.5× faster.
+- **scriptc.** GeaStack is 23× faster.
+- **Rayon.** GeaStack takes 2.9× as long.
+- **Scaling.** GeaStack scales 9.4× from 1 to 20 threads, matching Rayon (9.5×) and hand-written C++ threads (9.4×).
+
+On mandelbrot, GeaStack is level with Rayon and C++. The other workloads trail by GeaStack's single-thread gap, not by the parallel runtime; the suite README lists the causes.
+
+- [Suite, methodology and known gaps](parallel/)
+- [Report](parallel/results/parallel-2026-10-06.md) and [raw records](parallel/results/parallel-2026-10-06.json)
+
 ## October 5, 2026: scriptc 0.2.3
 
 **Compute.** 27 fixtures covering loops, arrays, objects, numbers, strings and JSON. 26 finished with matching output on all four runtimes. scriptc timed out on the prime sieve after 180 seconds, so the sieve is left out of the averages. Over the other 26, scriptc took 6.50× as long as GeaStack (geometric mean). Compiling scriptc's output at `-O3` brought that to 6.48×.
