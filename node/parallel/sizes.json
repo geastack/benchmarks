@@ -1,0 +1,11 @@
+{
+  "binary-trees": 400,
+  "collatz": 3000000,
+  "mandelbrot": 3000,
+  "matmul": 800,
+  "nqueens": 13,
+  "primes": 6000000,
+  "sort": 2000000,
+  "spectral-norm": 3000,
+  "strings": 2000000
+}

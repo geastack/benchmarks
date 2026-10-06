@@ -7,6 +7,8 @@
   "scripts": {
     "compute": "node node/compute/bench-npm.mjs",
     "compute:report": "node node/compute/render-npm.mjs",
+    "parallel": "node node/parallel/bench.mjs",
+    "parallel:report": "node node/parallel/report.mjs",
     "http:build": "bash node/bench/build-http.sh",
     "lint": "eslint .",
     "format": "prettier --write .",
