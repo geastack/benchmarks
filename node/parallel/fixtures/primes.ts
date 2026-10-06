@@ -1,10 +1,11 @@
-import { range } from '@geastack/parallel';
+import { range, type int } from '@geastack/parallel';
 
-function isPrime(value: number): boolean {
+// `int`, as Rust's are `u64`: the trial divisions are integer divisions.
+function isPrime(value: int): boolean {
   if (value < 2) return false;
   if (value % 2 === 0) return value === 2;
 
-  for (let divisor = 3; divisor * divisor <= value; divisor += 2) {
+  for (let divisor: int = 3; divisor * divisor <= value; divisor += 2) {
     if (value % divisor === 0) return false;
   }
 

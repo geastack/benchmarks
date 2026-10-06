@@ -50,6 +50,23 @@ extern void __gea_top_level();
 __attribute__((weak)) int main(int argc, char **argv) {
   gea::bench::argCount = argc;
   gea::bench::argValues = argv;
+#if GEA_RUNTIME_PARALLEL
+  // Start the region pool and give every thread its first allocation before
+  // the clock starts, as the Rust baseline's `rayon::broadcast` and the C++
+  // baseline's `pool()` do for theirs. Each task waits for all the others, so
+  // no thread can run two of them and every thread runs one.
+  {
+    const std::size_t threads = gea::detail::parallel::RegionPool::instance().threads();
+    std::atomic<std::size_t> arrived{0};
+    auto warm = [&](std::size_t) -> bool {
+      std::free(std::malloc(64));
+      arrived.fetch_add(1);
+      while (arrived.load() < threads) std::this_thread::yield();
+      return false;
+    };
+    gea::detail::parallel::runRegion(threads, warm);
+  }
+#endif
   __gea_top_level();
   return 0;
 }
