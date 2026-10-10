@@ -12,3 +12,15 @@ opt-level = 3
 codegen-units = 1
 lto = "fat"
 panic = "abort"
+
+# Idiomatic variants: each workload's src/bin/<name>.rs is its parity version
+# (the same algorithm and allocation pattern as the TypeScript); a workload whose
+# idiomatic Rust differs also has src/idiomatic/<name>.rs, built as
+# <name>-idiomatic.
+[[bin]]
+name = "sort-idiomatic"
+path = "src/idiomatic/sort.rs"
+
+[[bin]]
+name = "strings-idiomatic"
+path = "src/idiomatic/strings.rs"

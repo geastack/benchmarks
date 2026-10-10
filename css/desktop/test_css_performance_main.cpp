@@ -19,6 +19,7 @@ int main(int argc, char **argv) {
   using namespace gea::embedded::test;
   using Clock = std::chrono::steady_clock;
   css_bench::samples = argc > 1 ? std::atoi(argv[1]) : 240;
+  css_bench::verificationOnly = argc > 2 && std::string(argv[2]) == "--verify-only";
   if (css_bench::samples < 32)
     return 2;
   css_bench::touchInput = desktopTouch;
@@ -41,9 +42,14 @@ int main(int argc, char **argv) {
   gea::embedded::ui::setViewportMetrics(css_bench::W, css_bench::H, 1.0);
   gea::platform::display::Display::setAA(2);
   __gea_top_level();
-  const auto started = Clock::now();
+  const auto started = css_bench::verificationOnly ? Clock::time_point{} : Clock::now();
   for (int frame = 0; !css_bench::finished && frame < 100000; frame++) {
     gea::embedded::ui::refreshPerfStatsReset();
+    if (css_bench::verificationOnly) {
+      pumpFrame(frame * 16);
+      css_bench::advanceVerificationFrame();
+      continue;
+    }
     const auto start = Clock::now();
     pumpFrame(frame * 16);
     const auto done = Clock::now();

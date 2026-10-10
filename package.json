@@ -6,10 +6,14 @@
   "license": "Apache-2.0",
   "scripts": {
     "compute": "node node/compute/bench-npm.mjs",
+    "compute:verify": "node node/compute/bench-npm.mjs --verify-only",
     "compute:report": "node node/compute/render-npm.mjs",
     "parallel": "node node/parallel/bench.mjs",
+    "parallel:verify": "node node/parallel/bench.mjs --verify-only",
     "parallel:report": "node node/parallel/report.mjs",
     "http:build": "bash node/bench/build-http.sh",
+    "test:harness": "node --test node/bench/validate-results.test.mjs && node --test node/parallel/verification.test.mjs && node --test css/shared/results.test.mjs && node --test css/esp32/s3/amoled-206/run.test.mjs",
+    "css:verify": "node css/desktop/compare-css-performance.mjs --verify-only",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -18,8 +22,8 @@
     "css:typecheck": "tsc -p css/tsconfig.json"
   },
   "dependencies": {
-    "@geastack/compiler": "1.0.26",
-    "@geastack/node-compat": "1.0.17",
+    "@geastack/compiler": "1.0.29",
+    "@geastack/node-compat": "1.0.18",
     "@hono/node-server": "2.1.1",
     "hono": "4.12.34",
     "hono-island": "file:node/apps/hono-hello/scriptc/hono-island",

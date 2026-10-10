@@ -3,6 +3,7 @@ dist/
 node/apps/**/dist/
 node/results/
 node/compute/results/
+node/parallel/results/
 node/compute/native-cpp/simdjson/
 package-lock.json
 css/esp32/**/.gea/

@@ -15,6 +15,7 @@
   "prime_sieve": 1,
   "mandelbrot": 1,
   "matrix_multiply": 1,
+  "matrix_multiply_nested": 1,
   "json_roundtrip": 50,
   "json_parse_records": 100,
   "json_stringify_records": 100,

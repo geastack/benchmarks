@@ -34,8 +34,15 @@ inline double now() {
 /** The two lines the harness reads: the inner time, then the workload's result as JS would print
  * it. */
 inline void report(double milliseconds, double result) {
-  std::printf("__bench_ms__ %.6f\n", milliseconds);
+  const char *timing = std::getenv("GEATSC_BENCH_TIMING");
+  if (timing && timing[0] != '0' && timing[0] != '\0')
+    std::printf("__bench_ms__ %.6f\n", milliseconds);
   std::printf("%s\n", gea::host::detail::toString(result).c_str());
+}
+
+/** Untimed differential runs publish only the actual workload result. */
+inline void result(double value) {
+  std::printf("%s\n", gea::host::detail::toString(value).c_str());
 }
 
 } // namespace gea::bench

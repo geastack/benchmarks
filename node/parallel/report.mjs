@@ -64,6 +64,23 @@ const status = (row, name) => {
   return r.match ? 'ok' : 'MISMATCH';
 };
 
+const variantOf = (row) => row.variant ?? 'parity';
+const parityRows = result.rows.filter((row) => variantOf(row) === 'parity');
+const idiomaticRows = result.rows.filter((row) => variantOf(row) === 'idiomatic');
+const keyOf = (row) => (variantOf(row) === 'parity' ? row.fixture : `${variantOf(row)}/${row.fixture}`);
+
+// The languages that run their own idiomatic source in a row; the others run
+// their parity build, measured once in the parity row.
+const ownSources = (row) =>
+  [
+    ['TypeScript', 'node'],
+    ['C++', `cpp@${all}`],
+    ['Rust', `rust@${all}`],
+  ]
+    .filter(([, cell]) => row.runtimes[cell] && !row.runtimes[cell].sharedWith)
+    .map(([language]) => language)
+    .join(', ');
+
 const lines = [];
 const date = result.utc.slice(0, 10);
 lines.push(`# @geastack/parallel benchmarks, ${date}`);
@@ -73,60 +90,92 @@ lines.push(
     `Every cell's output was checked against Node's; a cell is left blank if it failed or disagreed.`,
 );
 lines.push('');
-lines.push('## Time (ms, lower is better)');
-lines.push('');
-lines.push(`| workload | n | ${columns.map((c) => label[c]).join(' | ')} |`);
-lines.push(`| --- | ---: | ${columns.map(() => '---:').join(' | ')} |`);
-
-for (const row of result.rows) {
-  lines.push(`| ${row.fixture} | ${row.n} | ${columns.map((c) => ms(best(row, c))).join(' | ')} |`);
-}
-
-lines.push('');
-
-lines.push(`## GeaStack speed at ${all} threads (higher is better)`);
-lines.push('');
 lines.push(
-  `| workload | GeaStack vs Node | GeaStack vs scriptc | GeaStack vs Rayon | GeaStack vs C++ | GeaStack scaling 1→${all} | Rayon scaling | C++ scaling |`,
+  'Two sections. **Complete implementation parity** is every workload, with TypeScript, Rust and C++ doing the same task the same way: the same algorithm, data layout, allocation pattern, work inside the timed region, and result (`fixtures/<name>.ts`, `native-rust/src/bin/<name>.rs`, `native-cpp/<name>.cpp`). **Idiomatic implementation** lists only the workloads whose languages each have their own way (`fixtures/idiomatic/`, `native-rust/src/idiomatic/`, `native-cpp/idiomatic/`); a language without its own idiomatic source runs its parity build, and that cell is the parity measurement.',
 );
-lines.push('| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |');
-const collected = { node: [], scriptc: [], rust: [], cpp: [], gea: [], rayon: [], cppScale: [] };
+lines.push('');
 
-for (const row of result.rows) {
-  const gea = best(row, `gea@${all}`);
-  const vs = (other) => (gea === null || other === null ? null : other / gea);
-
-  const scale = (name) => {
-    const one = best(row, `${name}@1`);
-    const many = best(row, `${name}@${all}`);
-
-    return one === null || many === null ? null : one / many;
-  };
-
-  const values = {
-    node: vs(best(row, 'node')),
-    scriptc: vs(best(row, 'scriptc')),
-    rust: vs(best(row, `rust@${all}`)),
-    cpp: vs(best(row, `cpp@${all}`)),
-    gea: scale('gea'),
-    rayon: scale('rust'),
-    cppScale: scale('cpp'),
-  };
-
-  for (const [key, value] of Object.entries(values)) collected[key].push(value);
+function section(rows, idiomatic) {
+  lines.push(`### Time (ms, lower is better)`);
+  lines.push('');
   lines.push(
-    `| ${row.fixture} | ${ratio(values.node)} | ${ratio(values.scriptc)} | ${ratio(values.rust)} | ${ratio(values.cpp)} | ${ratio(values.gea)} | ${ratio(values.rayon)} | ${ratio(values.cppScale)} |`,
+    `| workload |${idiomatic ? ' own idiomatic source |' : ''} n | ${columns.map((c) => label[c]).join(' | ')} |`,
   );
+  lines.push(`| --- |${idiomatic ? ' --- |' : ''} ---: | ${columns.map(() => '---:').join(' | ')} |`);
+
+  for (const row of rows) {
+    lines.push(
+      `| ${row.fixture} |${idiomatic ? ` ${ownSources(row)} |` : ''} ${row.n} | ${columns.map((c) => ms(best(row, c))).join(' | ')} |`,
+    );
+  }
+
+  lines.push('');
+
+  lines.push(`### GeaStack at ${all} threads`);
+  lines.push('');
+  lines.push(
+    `| workload | Gea / Rayon | Gea / C++ | Node / Gea | scriptc / Gea | GeaStack scaling 1→${all} | Rayon scaling | C++ scaling |`,
+  );
+  lines.push('| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |');
+  const collected = { rust: [], cpp: [], node: [], scriptc: [], gea: [], rayon: [], cppScale: [] };
+
+  for (const row of rows) {
+    const gea = best(row, `gea@${all}`);
+    const over = (other) => (gea === null || other === null ? null : gea / other);
+    const under = (other) => (gea === null || other === null ? null : other / gea);
+
+    const scale = (name) => {
+      const one = best(row, `${name}@1`);
+      const many = best(row, `${name}@${all}`);
+
+      return one === null || many === null ? null : one / many;
+    };
+
+    const values = {
+      rust: over(best(row, `rust@${all}`)),
+      cpp: over(best(row, `cpp@${all}`)),
+      node: under(best(row, 'node')),
+      scriptc: under(best(row, 'scriptc')),
+      gea: scale('gea'),
+      rayon: scale('rust'),
+      cppScale: scale('cpp'),
+    };
+
+    for (const [key, value] of Object.entries(values)) collected[key].push(value);
+    lines.push(
+      `| ${row.fixture} | ${Object.values(values).map(ratio).join(' | ')} |`,
+    );
+  }
+
+  lines.push(
+    `| **geometric mean** | ${Object.values(collected)
+      .map((values) => `**${ratio(geomean(values))}**`)
+      .join(' | ')} |`,
+  );
+  lines.push('');
+  lines.push(
+    'Gea / Rayon and Gea / C++ are GeaStack\'s time divided by the other\'s: below 1× GeaStack is faster, 1.5× means it takes half again as long. Node / Gea and scriptc / Gea are the other\'s time divided by GeaStack\'s (Node and scriptc run single-threaded): 4× means GeaStack finished in a quarter of the time. Scaling is single-thread time divided by all-thread time.',
+  );
+  lines.push('');
 }
 
-lines.push(
-  `| **geometric mean** | **${ratio(geomean(collected.node))}** | **${ratio(geomean(collected.scriptc))}** | **${ratio(geomean(collected.rust))}** | **${ratio(geomean(collected.cpp))}** | **${ratio(geomean(collected.gea))}** | **${ratio(geomean(collected.rayon))}** | **${ratio(geomean(collected.cppScale))}** |`,
-);
+lines.push('## Complete implementation parity');
 lines.push('');
-lines.push(
-  'Each "vs" column is the other runtime\'s time divided by GeaStack\'s: 4× means GeaStack finished in a quarter of the time, 0.5× means it took twice as long. Node and scriptc run single-threaded. Scaling is single-thread time divided by all-thread time.',
-);
+section(parityRows, false);
+
+lines.push('## Idiomatic implementation');
 lines.push('');
+
+if (idiomaticRows.length) {
+  lines.push(
+    'The Rust and C++ references as previously published where they differ from the TypeScript: for sort, Rayon\'s `par_sort_by` and a C++ stable-sort-then-pairwise-merge, where the TypeScript runs `@geastack/parallel`\'s fixed-shape sample sort; for strings, a presized Rust `write!` hashing a lazy `split`, and C++ `operator+` temporaries hashing one `substr` per part, where the TypeScript concatenates and materializes `split(\',\')`.',
+  );
+  lines.push('');
+  section(idiomaticRows, true);
+} else {
+  lines.push('No idiomatic rows were recorded.');
+  lines.push('');
+}
 
 lines.push('## Peak memory (MiB, max RSS)');
 lines.push('');
@@ -141,7 +190,7 @@ for (const row of result.rows) {
     return r?.state === 'ok' && r.rssBytes ? (r.rssBytes / 1048576).toFixed(1) : '—';
   });
 
-  lines.push(`| ${row.fixture} | ${cells.join(' | ')} |`);
+  lines.push(`| ${keyOf(row)} | ${cells.join(' | ')} |`);
 }
 
 lines.push('');
@@ -150,8 +199,9 @@ const problems = [];
 
 for (const row of result.rows) {
   for (const name of Object.keys(row.runtimes)) {
+    if (row.runtimes[name].sharedWith) continue;
     const s = status(row, name);
-    if (s !== 'ok') problems.push(`- ${row.fixture} / ${label[name] ?? name}: ${s}`);
+    if (s !== 'ok') problems.push(`- ${keyOf(row)} / ${label[name] ?? name}: ${s}`);
   }
 }
 

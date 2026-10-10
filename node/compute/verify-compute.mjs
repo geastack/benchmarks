@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { performance } from 'node:perf_hooks';
+import { rowKey } from '../bench/validate-results.mjs';
 
 const baselinePath = path.resolve(process.argv[2]);
 const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
@@ -16,14 +17,24 @@ const scalingFixtures = new Set([
   'closure',
   'json_parse_nested',
   'matrix_multiply',
+  'matrix_multiply_nested',
   'math_intensive',
   'string_concat',
 ]);
 
 const result = { baseline: path.basename(baselinePath), outputChecks: [], scaling: [] };
 
-function run(fixture, runtime, iterations) {
-  const stem = path.join(work, 'compute-' + fixture);
+// A runtime an idiomatic row shares with parity ran the parity build.
+const stemOf = (row, runtime) =>
+  path.join(
+    work,
+    !row.variant || row.variant === 'parity' || row.runtimes?.[runtime]?.sharedWith
+      ? 'compute-' + row.fx
+      : `compute-${row.variant}-${row.fx}`,
+  );
+
+function run(row, runtime, iterations) {
+  const stem = stemOf(row, runtime);
   const command = runtime === 'node' ? process.execPath : stem + '-' + runtime;
   const args = runtime === 'node' ? [stem + '-node.mjs', String(iterations)] : [String(iterations)];
   const start = performance.now();
@@ -66,7 +77,7 @@ for (const row of baseline.rows) {
 
   for (const iterations of counts) {
     const checks = Object.fromEntries(
-      runtimes.map((runtime) => [runtime, run(row.fx, runtime, iterations)]),
+      runtimes.map((runtime) => [runtime, run(row, runtime, iterations)]),
     );
 
     const oracle = checks.node;
@@ -80,11 +91,11 @@ for (const row of baseline.rows) {
         check.output === oracle.output,
     );
 
-    result.outputChecks.push({ fixture: row.fx, iterations, match, runtimes: checks });
+    result.outputChecks.push({ fixture: rowKey(row), iterations, match, runtimes: checks });
     save();
   }
 
-  console.log(row.fx + ': output checks complete');
+  console.log(rowKey(row) + ': output checks complete');
 
   if (!scalingFixtures.has(row.fx)) continue;
 
@@ -95,7 +106,7 @@ for (const row of baseline.rows) {
     const checks = Object.fromEntries(
       runtimes.map((runtime) => [
         runtime,
-        Array.from({ length: 3 }, () => run(row.fx, runtime, iterations)),
+        Array.from({ length: 3 }, () => run(row, runtime, iterations)),
       ]),
     );
 
@@ -105,7 +116,7 @@ for (const row of baseline.rows) {
       runs.every((check) => check.status === 0 && check.output === oracle),
     );
 
-    result.scaling.push({ fixture: row.fx, iterations, match, runtimes: checks });
+    result.scaling.push({ fixture: rowKey(row), iterations, match, runtimes: checks });
     save();
   }
 }
