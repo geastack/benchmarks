@@ -1,8 +1,9 @@
 #include <cmath>
 #include "bench_main.h"
 
-// Same as factorial.cpp but mirrors geatsc's int_mod_const: avoid the fmod
-// libcall whenever the (integer-valued) product is < 2^53.
+// acc*i is integer-valued but can exceed 2^53, so JS's `%` is double fmod.
+// For products < 2^53 reduce via integer modulo (constant -> multiply-shift),
+// only paying the fmod libcall above 2^53. Bit-identical to node/geatsc.
 long long bench_run(long long it) {
   const long long MOD = 1000000007LL;
   double acc = 1.0;

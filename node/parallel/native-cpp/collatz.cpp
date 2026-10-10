@@ -11,6 +11,7 @@ static long long steps(uint64_t value) {
 
 int main(int argc, char **argv) {
   return par::bench(argc, argv, [](double n) -> long long {
-    return par::sum<long long>(size_t(n) - 1, [](size_t i) { return steps(i + 1); });
+    const size_t length = n <= 1 ? 0 : size_t(n) - 1;
+    return par::sum<long long>(length, [](size_t i) { return steps(i + 1); });
   });
 }

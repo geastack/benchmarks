@@ -9,6 +9,21 @@ workspace compiler and matching installed Geastack frontend/native packages.
 node css/desktop/compare-css-performance.mjs BASE_REF CANDIDATE_REF
 ```
 
+For correctness without collecting durations or applying a speed gate:
+
+```sh
+node css/desktop/compare-css-performance.mjs BASE_REF CANDIDATE_REF --verify-only --jobs 2
+```
+
+This builds the same shared application and runs each revision once. All 19 scenes
+still execute their complete frame and gesture sequences and their behavioral checks;
+final pixel and geometry hashes must agree. The native loop advances the controlled
+simulation clock without reading the wall clock. Reports contain checks and hashes,
+with no synthetic timing values, percentiles or rankings. `--minimal` selects the same
+two box cases as timing mode. Instrumentation and speed thresholds are incompatible
+with verification. Reports use `css-verification.json` or
+`css-verification-minimal.json`, leaving timing reports unchanged.
+
 The runner measures committed native sources, with the same working-tree
 [shared fixtures](../README.md#shared-timing-fixtures) in both builds. It maps
 tracked package blobs through Clang's virtual filesystem rather than changing

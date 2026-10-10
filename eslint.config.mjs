@@ -7,6 +7,7 @@ export default [
     ignores: [
       'node_modules/**',
       'dist/**',
+      'node/dist/**',
       '**/.gea/**',
       'node/apps/**/dist/**',
       'node/compute/native-cpp/simdjson/**',

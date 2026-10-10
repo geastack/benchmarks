@@ -1,10 +1,15 @@
-// Minimal, fast JSON serialize/parse helpers for the hand-written native
-// fixtures. Serialization matches V8's JSON.stringify byte-for-byte for the
-// shapes used here (compact, no spaces, insertion key order, ASCII payloads with
-// no characters needing escaping) so that text.length / charCodeAt reads produce
-// identical results. The parser assumes that same clean compact form.
+// JSON serialize/parse helpers for the hand-written native fixtures.
+// Serialization matches V8's JSON.stringify byte-for-byte for the shapes used
+// here (compact, no spaces, insertion key order) so that text.length /
+// charCodeAt reads produce identical results.
+//
+// The parity fixtures use appendQuoted (escapes like JSON.stringify) and
+// appendInt (std::to_chars). The idiomatic fixtures use appendUInt (a
+// two-digit table) and copy strings unescaped, which is correct only for the
+// ASCII alphanumeric payloads these fixtures happen to carry.
 #pragma once
 #include <string>
+#include <string_view>
 #include <charconv>
 
 namespace ju {
@@ -42,6 +47,62 @@ inline void appendUInt(std::string &o, long long v) {
     *--p = '-';
   o.append(p, (size_t)(b + sizeof(b) - p));
 }
+
+// ---- Parity helpers: what JSON.stringify does for every string and integer.
+
+// JSON.stringify's string quoting: every character is scanned, `"` and `\`
+// are escaped, and so is every control character below 0x20 (\b \f \n \r \t,
+// the rest as \u00XX). Unescaped runs are copied as blocks.
+inline void appendQuoted(std::string &o, std::string_view s) {
+  static const char hex[] = "0123456789abcdef";
+  o += '"';
+  size_t run = 0;
+  for (size_t k = 0; k < s.size(); k++) {
+    unsigned char c = (unsigned char)s[k];
+    if (c != '"' && c != '\\' && c >= 0x20)
+      continue;
+    o.append(s.data() + run, k - run);
+    run = k + 1;
+    switch (c) {
+    case '"':
+      o += "\\\"";
+      break;
+    case '\\':
+      o += "\\\\";
+      break;
+    case '\b':
+      o += "\\b";
+      break;
+    case '\f':
+      o += "\\f";
+      break;
+    case '\n':
+      o += "\\n";
+      break;
+    case '\r':
+      o += "\\r";
+      break;
+    case '\t':
+      o += "\\t";
+      break;
+    default: {
+      char u[6] = {'\\', 'u', '0', '0', hex[c >> 4], hex[c & 15]};
+      o.append(u, 6);
+    }
+    }
+  }
+  o.append(s.data() + run, s.size() - run);
+  o += '"';
+}
+
+// An integer-valued number, formatted by the standard library.
+inline void appendInt(std::string &o, long long v) {
+  char b[24];
+  auto r = std::to_chars(b, b + sizeof(b), v);
+  o.append(b, (size_t)(r.ptr - b));
+}
+
+// ---- Idiomatic helpers.
 
 // Quoted string; no escaping (payloads are ASCII alnum/hyphen).
 inline void appendStr(std::string &o, const std::string &s) {

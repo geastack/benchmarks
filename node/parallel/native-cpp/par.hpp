@@ -39,9 +39,12 @@ public:
       worker.join();
   }
 
-  size_t size() const { return size_; }
+  size_t size() const {
+    return size_;
+  }
 
-  /** Calls `body(chunk)` for every chunk in [0, chunks) on every thread; returns when all are done. */
+  /** Calls `body(chunk)` for every chunk in [0, chunks) on every thread; returns when all are done.
+   */
   void run(size_t chunks, const std::function<void(size_t)> &body) {
     if (size_ == 1 || chunks <= 1) {
       for (size_t chunk = 0; chunk < chunks; chunk++)
@@ -104,7 +107,9 @@ inline Pool &pool() {
 }
 
 /** Chunks for `count` items: several per thread, so uneven items still balance. */
-inline size_t chunksFor(size_t count) { return std::min(count, pool().size() * 16); }
+inline size_t chunksFor(size_t count) {
+  return std::min(count, pool().size() * 16);
+}
 
 /** `out[i] = f(i)` for every i in [0, count). */
 template <class T, class F> std::vector<T> map(size_t count, F f) {
@@ -139,9 +144,14 @@ template <class T, class F> T sum(size_t count, F f) {
 template <class F> int bench(int argc, char **argv, F body) {
   double n = argc > 1 ? std::strtod(argv[1], nullptr) : 0;
   pool();
+  if (std::getenv("GEA_BENCH_VERIFY_ONLY")) {
+    std::printf("%lld\n", static_cast<long long>(body(n)));
+    return 0;
+  }
   auto start = std::chrono::steady_clock::now();
   long long result = body(n);
-  double ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count();
+  double ms =
+      std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count();
   std::printf("__bench_ms__ %.6f\n%lld\n", ms, result);
   return 0;
 }

@@ -19,6 +19,7 @@ namespace css_bench {
 using namespace gea::embedded::ui;
 constexpr int W = 410, H = 502, warmup = 60;
 inline int samples = 240;
+inline bool verificationOnly = false;
 
 inline void defaultTouch(int phase, int x, int y) {
   using namespace gea::platform::touch;
@@ -81,6 +82,14 @@ inline NodeHandle find(const std::string &selector) {
   return node;
 }
 
+inline void advanceVerificationFrame() {
+  if (!active || frames >= warmup + samples)
+    return;
+  if (frames >= warmup)
+    measured++;
+  frames++;
+}
+
 inline void sample(double start, double done, unsigned internal = 1, unsigned psram = 1) {
   if (!active || frames >= warmup + samples)
     return;
@@ -114,8 +123,10 @@ void __css_bench_begin(const std::string &name) {
   using namespace css_bench;
   layoutCalls = fullRecords = recordedCommands = scrollFast = flushPixels = 0;
   previousFlushed = flushedPixels ? flushedPixels() : 0;
-  workTimes.assign(samples, 0);
-  cadenceTimes.assign(samples, 0);
+  if (!verificationOnly) {
+    workTimes.assign(samples, 0);
+    cadenceTimes.assign(samples, 0);
+  }
   css_bench::name = name;
   active = true;
   frames = measured = overBudget = 0;
@@ -142,27 +153,38 @@ void __css_bench_end() {
   for (const auto &check : checks)
     ok &= check.second;
   failed |= !ok;
-  std::sort(workTimes.begin(), workTimes.begin() + measured);
-  std::sort(cadenceTimes.begin(), cadenceTimes.begin() + measured);
+  if (!verificationOnly) {
+    std::sort(workTimes.begin(), workTimes.begin() + measured);
+    std::sort(cadenceTimes.begin(), cadenceTimes.begin() + measured);
+  }
   if (measured != samples) {
     std::printf("CSS_BENCH ERROR incomplete samples=%d\n", measured);
     active = false;
     return;
   }
-  std::printf("CSS_BENCH RESULT "
-              "{\"name\":%s,\"ok\":%s,\"samples\":%d,\"warmup\":%d,\"work_p50_us\":%.3f,\"work_p95_"
-              "us\":%.3f,\"work_p99_us\":%.3f,\"work_max_us\":%.3f,\"mean_us\":%.3f,\"cadence_p50_"
-              "us\":%.3f,\"cadence_p95_us\":%.3f,\"fps\":%.3f,\"over_16ms\":%d,\"internal_min_"
-              "bytes\":%u,\"psram_min_bytes\":%u,\"node_bytes\":%zu,\"geometry_hash\":\"%llu\","
-              "\"pixel_hash\":\"%llu\",\"layout_calls\":%lld,\"full_records\":%lld,\"recorded_"
-              "commands\":%lld,\"scroll_fast\":%lld,\"flush_pixels\":%lld,\"checks\":{",
-              jsonString(name).c_str(), ok ? "true" : "false", samples, warmup,
-              workTimes[samples / 2], workTimes[samples * 95 / 100], workTimes[samples * 99 / 100],
-              workTimes[samples - 1], double(sumWork) / samples, cadenceTimes[samples / 2],
-              cadenceTimes[samples * 95 / 100], samples * 1000000.0 / sumCadence, overBudget,
-              minimumInternal, minimumPsram, sizeof(Node), (unsigned long long)geometryHash(),
-              (unsigned long long)(pixelHash ? pixelHash() : 0), layoutCalls, fullRecords,
-              recordedCommands, scrollFast, flushPixels);
+  if (verificationOnly) {
+    std::printf(
+        "CSS_BENCH RESULT "
+        "{\"mode\":\"verification\",\"name\":%s,\"ok\":%s,\"samples\":%d,\"warmup\":%d,"
+        "\"node_bytes\":%zu,\"geometry_hash\":\"%llu\",\"pixel_hash\":\"%llu\",\"checks\":{",
+        jsonString(name).c_str(), ok ? "true" : "false", samples, warmup, sizeof(Node),
+        (unsigned long long)geometryHash(), (unsigned long long)(pixelHash ? pixelHash() : 0));
+  } else {
+    std::printf(
+        "CSS_BENCH RESULT "
+        "{\"name\":%s,\"ok\":%s,\"samples\":%d,\"warmup\":%d,\"work_p50_us\":%.3f,\"work_p95_"
+        "us\":%.3f,\"work_p99_us\":%.3f,\"work_max_us\":%.3f,\"mean_us\":%.3f,\"cadence_p50_"
+        "us\":%.3f,\"cadence_p95_us\":%.3f,\"fps\":%.3f,\"over_16ms\":%d,\"internal_min_"
+        "bytes\":%u,\"psram_min_bytes\":%u,\"node_bytes\":%zu,\"geometry_hash\":\"%llu\","
+        "\"pixel_hash\":\"%llu\",\"layout_calls\":%lld,\"full_records\":%lld,\"recorded_"
+        "commands\":%lld,\"scroll_fast\":%lld,\"flush_pixels\":%lld,\"checks\":{",
+        jsonString(name).c_str(), ok ? "true" : "false", samples, warmup, workTimes[samples / 2],
+        workTimes[samples * 95 / 100], workTimes[samples * 99 / 100], workTimes[samples - 1],
+        double(sumWork) / samples, cadenceTimes[samples / 2], cadenceTimes[samples * 95 / 100],
+        samples * 1000000.0 / sumCadence, overBudget, minimumInternal, minimumPsram, sizeof(Node),
+        (unsigned long long)geometryHash(), (unsigned long long)(pixelHash ? pixelHash() : 0),
+        layoutCalls, fullRecords, recordedCommands, scrollFast, flushPixels);
+  }
   bool comma = false;
   for (const auto &[key, value] : checks) {
     std::printf("%s%s:%s", comma ? "," : "", jsonString(key).c_str(), value ? "true" : "false");

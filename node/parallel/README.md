@@ -7,8 +7,10 @@ Nine data-parallel workloads, each written once in TypeScript against [`@geastac
 | **Node 24**       | the TypeScript as written, against the library's `src/index.ts`, transpiled    | 1 (the library is sequential under Node) |
 | **scriptc 0.2.3** | the same program compiled by scriptc                                           | 1                                        |
 | **GeaStack**      | the same program compiled by geatsc to C++                                     | 1 and all (`GEA_PARALLEL_THREADS`)       |
-| **Rust + Rayon**  | the same algorithm written idiomatically for Rayon (`native-rust/`)            | 1 and all (`RAYON_NUM_THREADS`)          |
+| **Rust + Rayon**  | the same algorithm on Rayon (`native-rust/`)                                   | 1 and all (`RAYON_NUM_THREADS`)          |
 | **C++**           | the same algorithm on a hand-written `std::thread` pool (`native-cpp/par.hpp`) | 1 and all (`PAR_THREADS`)                |
+
+Every workload has a **parity** implementation in each language -- the same algorithm, data layout, allocation pattern and timed work as the TypeScript, so the TypeScript, Rust and C++ do the same task the same way (`fixtures/<name>.ts`, `native-rust/src/bin/<name>.rs`, `native-cpp/<name>.cpp`). An optimization that can be written in every language is written in every language. Where a language's own way differs, the workload also has an **idiomatic** implementation (`fixtures/idiomatic/`, `native-rust/src/idiomatic/` built as `<name>-idiomatic`, `native-cpp/idiomatic/`): today sort (Rayon's `par_sort_by` and a C++ stable-sort-and-merge, against the TypeScript library's fixed-shape sample sort, which the parity Rust and C++ port step for step) and strings (a presized Rust `write!` with a lazy `split`, C++ `operator+` and `substr`, against the TypeScript's concatenation and materialized `split`, which parity Rust and C++ follow). A language without its own idiomatic source runs its parity build, measured once. Reports have one section per variant; `--variant parity` or `--variant idiomatic` runs one.
 
 Every program prints its answer, and every answer must equal Node's. A floating-point workload (spectral-norm, mandelbrot) is compiled with `-ffp-contract=off` so C++ keeps JavaScript's rounding.
 
@@ -53,6 +55,21 @@ npm --prefix .. run parallel:report -- parallel/results/parallel-$(date +%F).jso
 
 `--only a,b` picks workloads and `--threads 1,all` the thread counts. `--remote <ssh-host>` emits the C++ locally, then builds and measures on the host's WSL.
 
-The harness resolves `@geastack/parallel` from `node_modules`, or from `PARALLEL_ROOT` for a local checkout. It uses the compiler that package resolves, or the one in `PARALLEL_COMPILER_ROOT`.
+For output correctness without timing or ranking, use:
+
+```sh
+npm --prefix .. run parallel -- --verify-only --threads 1,2
+```
+
+Verification builds the same five runtime implementations and compares every output with
+Node at small boundary sizes. Each selected thread configuration runs each size once.
+Queens includes nonzero solution counts, and spectral norm uses defined nonempty matrices.
+Build failures, omitted runtimes, abnormal exits and output mismatches fail the command.
+The default report is `node/dist/parallel/parallel-verification.json`; historical timing
+reports are unchanged. Compiler and runtime fingerprints remain mandatory.
+
+The harness resolves `@geastack/parallel` from `node_modules`, or from `PARALLEL_ROOT` for a local checkout. Emission uses the single sibling workspace compiler; `GEA_COMPILER_DIR` explicitly selects that root (`PARALLEL_COMPILER_ROOT` remains a compatible alias). Registry/private compiler copies are refused. Results retain complete compiler JavaScript and native runtime fingerprints. Runtime-only remote execution receives emitted C++ and authenticated headers, not another compiler build. A failed or mismatched cell saves its raw results and makes the command fail.
+
+The Rust reference builds with `cargo build --release --locked` against the tracked `native-rust/Cargo.lock`. Raw results record both its manifest and lockfile hashes, alongside `rustc --version`. Update the lockfile deliberately when changing the reference dependencies; a benchmark run must not resolve a newer Rayon release implicitly. The [Linux container instructions](../README.md#linux-container) provide the pinned toolchain environment.
 
 All three single-source runtimes run one library source, `src/index.ts`. Node runs it transpiled, as any TypeScript build would, rather than the package's built `dist/`, which is only as current as its last build. geatsc compiles it directly (it maps the package's `dist/` back to its source). scriptc can only compile npm packages through its embedded dynamic engine (`--dynamic`), which would measure an interpreter, so the harness vendors the same file next to the program with `tasks` inlined as the sequential loop it is under Node. The report records the source's SHA-256.

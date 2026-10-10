@@ -3,10 +3,10 @@
 #include "json_util.h"
 #include "bench_main.h"
 
-// SOUND/fair native: store and serialize the real `tags` field generically (the
-// data structure actually has it), instead of dropping the field and hardcoding
-// the constant literal. This is what a correct serializer of arbitrary records
-// must do — and what gea does.
+// Parity with fixtures/json_stringify_records.ts: a fresh, unsized string per
+// JSON.stringify call; every field written from the record, every string
+// value (name, each tag) scanned for characters JSON must escape. Key names
+// are part of the type and written as literals.
 struct Item {
   long long id;
   std::string name;
@@ -14,42 +14,39 @@ struct Item {
   std::vector<std::string> tags;
 };
 
+static std::string stringify(const std::vector<Item> &items) {
+  std::string text;
+  text += '[';
+  for (size_t k = 0; k < items.size(); k++) {
+    const Item &item = items[k];
+    if (k)
+      text += ',';
+    text += "{\"id\":";
+    ju::appendInt(text, item.id);
+    text += ",\"name\":";
+    ju::appendQuoted(text, item.name);
+    text += ",\"score\":";
+    ju::appendInt(text, item.score);
+    text += ",\"tags\":[";
+    for (size_t t = 0; t < item.tags.size(); t++) {
+      if (t)
+        text += ',';
+      ju::appendQuoted(text, item.tags[t]);
+    }
+    text += "]}";
+  }
+  text += ']';
+  return text;
+}
+
 long long bench_run(long long it) {
   std::vector<Item> items;
-  items.reserve(10000);
-  for (long long i = 0; i < 10000; i++) {
-    std::string n = "item-";
-    n += std::to_string(i);
-    items.push_back(Item{i, n, (i * 7919) % 1000, {"alpha", "beta", "gamma"}});
-  }
+  for (long long i = 0; i < 10000; i++)
+    items.push_back(Item{i, "item-" + std::to_string(i), (i * 7919) % 1000, {"alpha", "beta", "gamma"}});
   long long total = 0;
-  std::string text;
-  text.reserve(900000);
   for (long long i = 0; i < it; i++) {
-    items[(size_t)(i % 10000)].score = (i + total) % 1000;
-    text.clear();
-    text += '[';
-    for (size_t k = 0; k < items.size(); k++) {
-      if (k)
-        text += ',';
-      text += "{\"id\":";
-      ju::appendUInt(text, items[k].id);
-      text += ",\"name\":\"";
-      text += items[k].name;
-      text += '"';
-      text += ",\"score\":";
-      ju::appendUInt(text, items[k].score);
-      text += ",\"tags\":[";
-      for (size_t tg = 0; tg < items[k].tags.size(); tg++) {
-        if (tg)
-          text += ',';
-        text += '"';
-        text += items[k].tags[tg];
-        text += '"';
-      }
-      text += "]}";
-    }
-    text += ']';
+    items[(size_t)(i % (long long)items.size())].score = (i + total) % 1000;
+    std::string text = stringify(items);
     long long len = (long long)text.size();
     long long code = (unsigned char)text[(size_t)((i + total) % len)];
     total = (total + len + code) % 1000000000LL;

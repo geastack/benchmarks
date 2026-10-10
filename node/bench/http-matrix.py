@@ -25,6 +25,11 @@ parser.add_argument("--output", required=True)
 parser.add_argument("--rounds", type=int, default=2)
 parser.add_argument("--duration", default="8s")
 parser.add_argument(
+    "--verify-only",
+    action="store_true",
+    help="check every server's responses without measuring startup or throughput",
+)
+parser.add_argument(
     "--servers",
     nargs="+",
     default=[
@@ -66,6 +71,24 @@ parser.add_argument(
 parser.add_argument("--load-threads", type=int, default=4, help="wrk -t (default 4)")
 parser.add_argument("--connections", type=int, default=64, help="wrk -c (default 64)")
 args = parser.parse_args()
+if args.verify_only:
+    args.rounds = 1
+
+compiler_inputs = None
+if any(name in ("gea-raw", "hono-gea") for name in args.servers):
+    compiler_manifest = Path("apps/raw-http-hello/dist/compiler-inputs.json")
+    compiler_inputs = json.loads(compiler_manifest.read_text())
+    subprocess.run(
+        ["node", "bench/compiler-input.mjs", "--check", str(compiler_manifest)],
+        check=True,
+    )
+    for name in args.servers:
+        if name not in ("gea-raw", "hono-gea"):
+            continue
+        app = "raw-http-hello" if name == "gea-raw" else "hono-hello"
+        report = json.loads(Path(f"apps/{app}/{args.gea_dist}/build-report.json").read_text())
+        if report.get("linked") is not True or report.get("compilerInputs") != compiler_inputs:
+            sys.exit(f"http-matrix: {name} has no successful build from the saved canonical compiler inputs")
 
 
 def command(name, workers):
@@ -124,7 +147,7 @@ def command(name, workers):
         cmd = [f"apps/raw-http-hello/dist/{name}"]
         env["DROGON_THREADS" if name == "cpp-drogon" else "CPP_WORKERS"] = str(workers)
     cpus = "0" if workers == 1 else (args.server_cpus or "0-7")
-    return ["taskset", "-c", cpus, *cmd], env
+    return (cmd if args.verify_only else ["taskset", "-c", cpus, *cmd]), env
 
 
 def port_free(port):
@@ -351,6 +374,9 @@ artifacts = [
     "apps/raw-http-hello/rust-server/target/release/axum-http-hello",
     "bench/http-matrix.py",
     "bench/build-http.sh",
+    "apps/raw-http-hello/dist/compiler-inputs.json",
+    "apps/raw-http-hello/dist/build-report.json",
+    "apps/hono-hello/dist/build-report.json",
     "../node_modules/@geastack/compiler/package.json",
     "../node_modules/@geastack/node-compat/package.json",
     "../node_modules/scriptc/package.json",
@@ -361,7 +387,7 @@ artifacts = [
 # the ranking inverts and the gea rows read high (hono-gea 165k against 139k
 # pinned, measured 2026-09-22 by exactly this omission). Say so on stderr so a
 # result file from an unpinned run cannot pass for a comparison.
-if args.server_cpus is None and any(workers > 1 for workers in args.workers):
+if not args.verify_only and args.server_cpus is None and any(workers > 1 for workers in args.workers):
     print(
         "http-matrix: --server-cpus not given; multi-worker servers will share CPUs with wrk. "
         "Not comparable with pinned runs.",
@@ -387,8 +413,10 @@ if loopback_route and " dev lo " not in loopback_route:
     )
 
 result = {
+    "mode": "verification" if args.verify_only else "measurement",
     "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     "settings": vars(args),
+    "compiler_inputs": compiler_inputs,
     "server_cpus": {"1": "0", "multi": args.server_cpus or "0-7"},
     "load_cpus": args.load_cpus,
     "connections": args.connections,
@@ -403,6 +431,7 @@ result = {
         if Path(p).exists()
     },
     "wire_contract": [],
+    "verification": [],
     "startups": [],
     "samples": [],
 }
@@ -423,7 +452,7 @@ for round_no in range(1, args.rounds + 1):
         if not port_free(port):
             raise RuntimeError(f"Port {port} occupied before {name}")
         cmd, env = command(name, workers)
-        started = time.monotonic()
+        started = None if args.verify_only else time.monotonic()
         proc = subprocess.Popen(
             cmd,
             env=env,
@@ -449,20 +478,21 @@ for round_no in range(1, args.rounds + 1):
                         raise RuntimeError(
                             f"{name} wrong root: {status} {content_type} {body}"
                         )
-                    startup_ms = (time.monotonic() - started) * 1000
+                    startup_ms = None if args.verify_only else (time.monotonic() - started) * 1000
                     break
                 except (OSError, http.client.HTTPException):
                     time.sleep(0.005)
             else:
                 raise RuntimeError(f"{name} not ready")
-            result["startups"].append(
-                {
-                    "round": round_no,
-                    "server": name,
-                    "workers": workers,
-                    "milliseconds": startup_ms,
-                }
-            )
+            if not args.verify_only:
+                result["startups"].append(
+                    {
+                        "round": round_no,
+                        "server": name,
+                        "workers": workers,
+                        "milliseconds": startup_ms,
+                    }
+                )
             status, content_type, body = request(port, "/json")
             if (
                 status != 200
@@ -478,6 +508,11 @@ for round_no in range(1, args.rounds + 1):
                     contract.update({"server": name, "workers": workers})
                     result["wire_contract"].append(contract)
                 save()
+            if args.verify_only:
+                result["verification"].append({"server": name, "workers": workers})
+                save()
+                print(f"PASS {name} workers={workers}: HTTP responses verified", flush=True)
+                continue
             if args.startup_only:
                 save()
                 continue
@@ -527,4 +562,15 @@ for round_no in range(1, args.rounds + 1):
             proc.stdout.close()
         time.sleep(0.5)
 result["complete"] = True
+if compiler_inputs is not None:
+    try:
+        subprocess.run(
+            ["node", "bench/compiler-input.mjs", "--check", str(compiler_manifest)],
+            check=True,
+        )
+    except Exception as error:
+        result["complete"] = False
+        result["error"] = str(error)
+        save()
+        raise
 save()

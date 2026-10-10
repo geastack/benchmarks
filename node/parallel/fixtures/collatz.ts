@@ -5,10 +5,12 @@ function steps(start: int): number {
   // inside 2^53, so the integer and the Number agree on every value.
   let value = start;
   let count = 0;
+
   while (value !== 1) {
     value = value % 2 === 0 ? value / 2 : 3 * value + 1;
     count++;
   }
+
   return count;
 }
 

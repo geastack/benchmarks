@@ -17,6 +17,7 @@ import { parseArgs } from 'node:util';
 import { featureProfiles } from '../shared/feature-profiles.mjs';
 import { buildComponents } from '../shared/build-components.mjs';
 import { parseLog } from '../shared/results.mjs';
+import { benchmarkCompilerInputs, assertCompilerInputs } from '../../node/bench/compiler-input.mjs';
 
 const directory = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(directory, '../../..', 'core');
@@ -196,6 +197,12 @@ async function build(revision, jobs, instrumented, extraDefines = []) {
     buildDirectory,
     '-O2',
     '-DNDEBUG',
+    // Every function starts on a cache-line boundary in both builds. Without it,
+    // an edit that grows one file shifts every function linked after it, and
+    // that placement alone moved unrelated scenes by up to 4% -- a never-called
+    // function added to layout.cpp reproduced a "regression" whose instruction
+    // count was identical to its base.
+    '-falign-functions=64',
     '-ffunction-sections',
     '-fdata-sections',
     '-DGEA_EMBEDDED_HAS_GENERATED_FONTS=1',
@@ -289,16 +296,20 @@ async function build(revision, jobs, instrumented, extraDefines = []) {
   return { binary, version };
 }
 
-async function run(binary, samples, minimal = false) {
+async function run(binary, samples, minimal = false, verification = false) {
   const expectedNames = catalog.cases
     .filter((item) => !minimal || item.profiles?.includes('box'))
     .map((item) => item.name);
 
-  const output = await command(binary, [String(samples)]);
+  const output = await command(binary, [
+    String(samples),
+    ...(verification ? ['--verify-only'] : []),
+  ]);
 
   const raw = parseLog(output, {
     cases: catalog.cases.filter((item) => expectedNames.includes(item.name)),
     samples,
+    verification,
   });
 
   const rows = raw.map((row) => ({
@@ -308,8 +319,7 @@ async function run(binary, samples, minimal = false) {
     psram_min_bytes: null,
     scenario: row.name,
     rows: catalog.cases.find((item) => item.name === row.name).count,
-    median_us: row.work_p50_us,
-    p95_us: row.work_p95_us,
+    ...(!verification ? { median_us: row.work_p50_us, p95_us: row.work_p95_us } : {}),
   }));
 
   if (
@@ -344,19 +354,22 @@ async function main() {
       instrumented: { type: 'boolean', default: false },
       'max-regression': { type: 'string' },
       minimal: { type: 'boolean', default: false },
+      'verify-only': { type: 'boolean', default: false },
       help: { type: 'boolean' },
     },
   });
 
   if (values.help) {
     console.log(
-      'Usage: node compare-css-performance.mjs BASE_REF CANDIDATE_REF [--rounds 7] [--samples 240] [--jobs 2] [--instrumented] [--minimal] [--max-regression PERCENT]',
+      'Usage: node compare-css-performance.mjs BASE_REF CANDIDATE_REF [--verify-only] [--rounds 7] [--samples 240] [--jobs 2] [--instrumented] [--minimal] [--max-regression PERCENT]',
     );
 
     return;
   }
 
-  const rounds = Number(values.rounds),
+  const verification = values['verify-only'];
+
+  const rounds = verification ? 1 : Number(values.rounds),
     samples = Number(values.samples),
     jobs = Number(values.jobs);
 
@@ -366,17 +379,19 @@ async function main() {
   if (
     positionals.length !== 2 ||
     !Number.isInteger(rounds) ||
-    rounds < 3 ||
+    rounds < (verification ? 1 : 3) ||
     !Number.isInteger(samples) ||
     samples < 32 ||
     !Number.isInteger(jobs) ||
     jobs < 1 ||
-    (threshold !== undefined && (!Number.isFinite(threshold) || threshold < 0))
+    (threshold !== undefined && (!Number.isFinite(threshold) || threshold < 0)) ||
+    (verification && (values.instrumented || threshold !== undefined))
   )
     throw new Error(
-      'Provide two refs, at least 3 rounds, 32 samples and 1 compiler job; regression threshold must be nonnegative.',
+      'Provide two refs, 32 frames and at least 1 compiler job. Timing mode needs 3 rounds; --verify-only excludes instrumentation and timing thresholds.',
     );
   mkdirSync(buildDirectory, { recursive: true });
+  const compilerInputs = benchmarkCompilerInputs();
   const [base, candidate] = positionals.map(resolve);
   generatedSources = buildComponents(buildDirectory, values.minimal);
 
@@ -396,15 +411,22 @@ async function main() {
     for (const label of round % 2 ? ['candidate', 'base'] : ['base', 'candidate']) {
       console.log(`Round ${round + 1}/${rounds}: ${label}`);
       results[label].push(
-        await run(label === 'base' ? baseline.binary : alternative.binary, samples, values.minimal),
+        await run(
+          label === 'base' ? baseline.binary : alternative.binary,
+          samples,
+          values.minimal,
+          verification,
+        ),
       );
     }
   }
 
   const report = {
+    mode: verification ? 'verification' : 'benchmark',
     base,
     candidate,
     compiler: baseline.version,
+    compiler_inputs: compilerInputs,
     feature_profile: profile || null,
     fixture_hashes: fixtureHashes(),
     width: 410,
@@ -412,13 +434,47 @@ async function main() {
     warmup: 60,
     clock_step_ms: 16,
     machine: `${os.platform()} ${os.release()} ${os.arch()}`,
-    flags: '-O2 -DNDEBUG',
+    flags: '-O2 -DNDEBUG -falign-functions=64',
     instrumented: values.instrumented,
     rounds,
     samples,
     cases: [],
     raw_runs: results,
   };
+
+  if (verification) {
+    for (let i = 0; i < activeNames.length; i++) {
+      const a = results.base[0][i],
+        b = results.candidate[0][i];
+
+      const equal = a.pixel_hash === b.pixel_hash && a.geometry_hash === b.geometry_hash;
+      report.cases.push({
+        scenario: activeNames[i],
+        rows: a.rows,
+        output_equal: equal,
+        base_checks: a.checks,
+        candidate_checks: b.checks,
+        base_hashes: { pixels: a.pixel_hash, geometry: a.geometry_hash },
+        candidate_hashes: { pixels: b.pixel_hash, geometry: b.geometry_hash },
+      });
+      console.log(`${activeNames[i]}: ${equal ? 'same' : 'DIFF'}`);
+    }
+
+    report.complete = true;
+    report.ok = report.cases.every((row) => row.output_equal);
+
+    const destination = path.join(
+      buildDirectory,
+      values.minimal ? 'css-verification-minimal.json' : 'css-verification.json',
+    );
+
+    writeFileSync(destination, JSON.stringify(report, null, 2) + '\n');
+    assertCompilerInputs(compilerInputs);
+    console.log(`\nVerification report: ${destination}`);
+    if (!report.ok) process.exitCode = 1;
+
+    return;
+  }
 
   const counters = [
     'layout_calls',
@@ -494,7 +550,7 @@ async function main() {
         );
     }
 
-    if (threshold !== undefined && (!equal || delta > threshold)) failed = true;
+    if (!equal || (threshold !== undefined && delta > threshold)) failed = true;
   }
 
   const destination = path.join(
@@ -507,6 +563,7 @@ async function main() {
   );
 
   writeFileSync(destination, JSON.stringify(report, null, 2) + '\n');
+  assertCompilerInputs(compilerInputs);
   console.log(
     `\nReport: ${destination}\nDesktop native CPU/raster timings, not device FPS; DIFF cases require correctness review and are not like-for-like comparisons.`,
   );

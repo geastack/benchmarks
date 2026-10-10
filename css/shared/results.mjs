@@ -4,7 +4,10 @@ export const catalog = JSON.parse(readFileSync(new URL('./catalog.json', import.
 
 export const names = catalog.cases.map((item) => item.name);
 
-export function validateResults(rows, { cases = catalog.cases, samples = catalog.samples } = {}) {
+export function validateResults(
+  rows,
+  { cases = catalog.cases, samples = catalog.samples, verification = false } = {},
+) {
   if (rows.length !== cases.length || new Set(rows.map((row) => row.name)).size !== cases.length)
     throw new Error('Missing or duplicate benchmark results');
 
@@ -15,7 +18,8 @@ export function validateResults(rows, { cases = catalog.cases, samples = catalog
     if (row.name !== fixture.name) throw new Error('Unexpected benchmark case order');
     if (row.ok !== true || row.samples !== samples || row.warmup !== catalog.warmup)
       throw new Error('Failed or unexpected case: ' + row.name);
-    for (const key of [
+
+    const timingKeys = [
       'work_p50_us',
       'work_p95_us',
       'work_p99_us',
@@ -23,26 +27,40 @@ export function validateResults(rows, { cases = catalog.cases, samples = catalog
       'cadence_p50_us',
       'cadence_p95_us',
       'fps',
-      'internal_min_bytes',
-      'psram_min_bytes',
-    ])
-      if (!Number.isFinite(row[key]) || row[key] <= 0)
-        throw new Error('Invalid metric ' + row.name + '.' + key);
-    if (!(
-      row.work_p50_us <= row.work_p95_us &&
-      row.work_p95_us <= row.work_p99_us &&
-      row.work_p99_us <= row.work_max_us
-    ))
-      throw new Error('Invalid percentiles: ' + row.name);
-    if (row.cadence_p50_us > row.cadence_p95_us)
-      throw new Error('Invalid cadence percentiles: ' + row.name);
-    if (!Number.isInteger(row.over_16ms) || row.over_16ms < 0 || row.over_16ms > samples)
-      throw new Error('Invalid frame budget count: ' + row.name);
+      'mean_us',
+      'over_16ms',
+    ];
+
+    if (verification) {
+      if (row.mode !== 'verification' || timingKeys.some((key) => key in row))
+        throw new Error('Timed output in verification mode: ' + row.name);
+    } else {
+      for (const key of [
+        ...timingKeys.filter((key) => !['mean_us', 'over_16ms'].includes(key)),
+        'internal_min_bytes',
+        'psram_min_bytes',
+      ])
+        if (!Number.isFinite(row[key]) || row[key] <= 0)
+          throw new Error('Invalid metric ' + row.name + '.' + key);
+      if (!(
+        row.work_p50_us <= row.work_p95_us &&
+        row.work_p95_us <= row.work_p99_us &&
+        row.work_p99_us <= row.work_max_us
+      ))
+        throw new Error('Invalid percentiles: ' + row.name);
+      if (row.cadence_p50_us > row.cadence_p95_us)
+        throw new Error('Invalid cadence percentiles: ' + row.name);
+      if (!Number.isInteger(row.over_16ms) || row.over_16ms < 0 || row.over_16ms > samples)
+        throw new Error('Invalid frame budget count: ' + row.name);
+    }
+
     if (
       !Number.isInteger(row.node_bytes) ||
       row.node_bytes <= 0 ||
       !/^\d+$/.test(row.geometry_hash) ||
-      BigInt(row.geometry_hash) > 18446744073709551615n
+      BigInt(row.geometry_hash) > 18446744073709551615n ||
+      (verification &&
+        (!/^\d+$/.test(row.pixel_hash) || BigInt(row.pixel_hash) > 18446744073709551615n))
     )
       throw new Error('Invalid node/geometry metadata: ' + row.name);
     if (

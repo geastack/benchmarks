@@ -1,37 +1,54 @@
 #include <vector>
 #include <string>
-#include "json_util.h"
-#include "../simdjson/simdjson.h"
+#include "simdjson/simdjson.h"
 #include "bench_main.h"
 
-static std::string serBool(long long seed) {
-  std::string o = "[";
-  for (long long i = 0; i < 10000; i++) {
-    if (i)
-      o += ',';
-    o += ((i + seed) % 2 == 0) ? "true" : "false";
+// Parity with fixtures/json_parse_bool_array.ts: every JSON.parse builds the
+// whole `boolean[]` (one byte per element, the TypeScript runtime's layout)
+// before one element is read. simdjson parses; the walk over its DOM
+// materializes. Built with -fno-exceptions, so simdjson's error-code API.
+static std::string stringify(const std::vector<char> &items) {
+  std::string text;
+  text += '[';
+  for (size_t k = 0; k < items.size(); k++) {
+    if (k)
+      text += ',';
+    text += items[k] ? "true" : "false";
   }
-  o += ']';
-  return o;
+  text += ']';
+  return text;
+}
+
+static bool parse(simdjson::dom::parser &parser, const simdjson::padded_string &text,
+                  std::vector<char> &out) {
+  simdjson::dom::array array;
+  if (parser.parse(text).get_array().get(array))
+    return false;
+  for (simdjson::dom::element element : array) {
+    bool value;
+    if (element.get_bool().get(value))
+      return false;
+    out.push_back(value);
+  }
+  return true;
 }
 
 long long bench_run(long long it) {
+  std::vector<simdjson::padded_string> texts;
+  for (long long seed = 0; seed < 4; seed++) {
+    std::vector<char> items;
+    for (long long i = 0; i < 10000; i++)
+      items.push_back((i + seed) % 2 == 0);
+    texts.push_back(simdjson::padded_string(stringify(items)));
+  }
   simdjson::dom::parser parser;
-  simdjson::padded_string texts[4];
-  for (long long s = 0; s < 4; s++)
-    texts[(size_t)s] = simdjson::padded_string(serBool(s));
   long long total = 0;
   for (long long i = 0; i < it; i++) {
-    simdjson::dom::element doc;
-    if (parser.parse(texts[(size_t)((i + total) % 4)]).get(doc))
+    std::vector<char> parsed;
+    if (!parse(parser, texts[(size_t)((i + total) % 4)], parsed))
       return -1;
-    simdjson::dom::array arr;
-    if (doc.get_array().get(arr))
-      return -1;
-    long long len = (long long)arr.size();
-    bool b = false;
-    arr.at((size_t)(i % len)).get(b);
-    total = (total + len + (b ? 1 : 0)) % 1000000000LL;
+    long long len = (long long)parsed.size();
+    total = (total + len + (parsed[(size_t)(i % len)] ? 1 : 0)) % 1000000000LL;
   }
   return total;
 }

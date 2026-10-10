@@ -3,7 +3,12 @@
 #include <cstdint>
 #include "bench_main.h"
 
-// JS '&' coerces via ToInt32, so the mask runs on the low 32 bits.
+// Parity with fixtures/matrix_multiply.ts (Float64Array): flat row-major
+// matrices, zero-initialized, indexed i * N + j; a fresh product per iteration.
+// The idiomatic TypeScript (idiomatic/matrix_multiply.ts) nests number[][]
+// and runs against this same C++.
+//
+// JS `&` coerces via ToInt32, so the mask runs on the low 32 bits.
 static inline double mk(long long v) {
   return (double)((uint32_t)(uint64_t)v & 0x7fffffffu);
 }

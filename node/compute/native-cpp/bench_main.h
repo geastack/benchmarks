@@ -39,12 +39,16 @@ static double __bench_startup_ms() {
 long long bench_run(long long iterations);
 
 int main(int argc, char **argv) {
-  double startup_ms = __bench_startup_ms();
+  const char *timing = std::getenv("GEATSC_BENCH_TIMING");
   long long iterations = argc > 1 ? atoll(argv[1]) : 0;
+  if (!timing || timing[0] == '0' || timing[0] == '\0') {
+    std::printf("%lld\n", bench_run(iterations));
+    return 0;
+  }
+  double startup_ms = __bench_startup_ms();
   auto t0 = std::chrono::steady_clock::now();
   long long result = bench_run(iterations);
   auto t1 = std::chrono::steady_clock::now();
-  const char *timing = std::getenv("GEATSC_BENCH_TIMING");
   if (timing && timing[0] != '0' && timing[0] != '\0') {
     double ms = std::chrono::duration<double, std::milli>(t1 - t0).count();
     if (startup_ms >= 0.0)
