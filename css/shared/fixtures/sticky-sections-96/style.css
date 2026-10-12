@@ -1,0 +1,17 @@
+.sticky-sections-96 .section {
+  width: 410px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sticky-sections-96 .header {
+  position: sticky;
+  top: 0;
+  width: 410px;
+  height: 32px;
+  flex-shrink: 0;
+  background-color: #884422;
+  color: #fff;
+  font-size: 16px;
+  line-height: 32px;
+}

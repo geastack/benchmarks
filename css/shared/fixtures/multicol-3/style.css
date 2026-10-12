@@ -1,0 +1,16 @@
+.multicol-3 .columns {
+  width: 394px;
+  margin: 8px;
+  columns: 3;
+  column-gap: 8px;
+  background-color: #123444;
+}
+.multicol-3 .columns.selected {
+  background-color: #426622;
+}
+.multicol-3 .para {
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  margin-bottom: 6px;
+}

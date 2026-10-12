@@ -19,6 +19,17 @@ import { start as start15 } from './fixtures/minimal-text-12/Scene';
 import { start as start16 } from './fixtures/wrapped-layout-96/Scene';
 import { start as start17 } from './fixtures/selector-cascade-256/Scene';
 import { start as start18 } from './fixtures/dashboard-mixed-96/Scene';
+import { start as start19 } from './fixtures/border-image-24/Scene';
+import { start as start20 } from './fixtures/blend-mode-24/Scene';
+import { start as start21 } from './fixtures/multicol-3/Scene';
+import { start as start22 } from './fixtures/line-clamp-24/Scene';
+import { start as start23 } from './fixtures/box-shadow-24/Scene';
+import { start as start24 } from './fixtures/text-emphasis-24/Scene';
+import { start as start25 } from './fixtures/sticky-scroll-96/Scene';
+import { start as start26 } from './fixtures/blend-modes-15/Scene';
+import { start as start27 } from './fixtures/rounded-update-96/Scene';
+import { start as start28 } from './fixtures/sticky-sections-96/Scene';
+import { start as start29 } from './fixtures/wrapped-text-update-24/Scene';
 Display.setFrameRate(60);
 Display.setVSync(false);
 Display.setTextRasterCache(true);
@@ -45,7 +56,18 @@ function next(): void {
   if (index === 16) start16();
   if (index === 17) start17();
   if (index === 18) start18();
-  if (index === 19) benchmark.finish();
+  if (index === 19) start19();
+  if (index === 20) start20();
+  if (index === 21) start21();
+  if (index === 22) start22();
+  if (index === 23) start23();
+  if (index === 24) start24();
+  if (index === 25) start25();
+  if (index === 26) start26();
+  if (index === 27) start27();
+  if (index === 28) start28();
+  if (index === 29) start29();
+  if (index === 30) benchmark.finish();
   index++;
 }
 export function startSuite(): void {
