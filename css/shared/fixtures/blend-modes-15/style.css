@@ -1,0 +1,49 @@
+.blend-modes-15 .card {
+  height: 32px;
+  background-image: linear-gradient(90deg, #ff8800, rgba(0, 136, 255, 0.6)), linear-gradient(0deg, #f0f0f0, #203040);
+}
+.blend-modes-15 .card.multiply {
+  background-blend-mode: multiply;
+}
+.blend-modes-15 .card.screen {
+  background-blend-mode: screen;
+}
+.blend-modes-15 .card.overlay {
+  background-blend-mode: overlay;
+}
+.blend-modes-15 .card.darken {
+  background-blend-mode: darken;
+}
+.blend-modes-15 .card.lighten {
+  background-blend-mode: lighten;
+}
+.blend-modes-15 .card.color-dodge {
+  background-blend-mode: color-dodge;
+}
+.blend-modes-15 .card.color-burn {
+  background-blend-mode: color-burn;
+}
+.blend-modes-15 .card.hard-light {
+  background-blend-mode: hard-light;
+}
+.blend-modes-15 .card.soft-light {
+  background-blend-mode: soft-light;
+}
+.blend-modes-15 .card.difference {
+  background-blend-mode: difference;
+}
+.blend-modes-15 .card.exclusion {
+  background-blend-mode: exclusion;
+}
+.blend-modes-15 .card.hue {
+  background-blend-mode: hue;
+}
+.blend-modes-15 .card.saturation {
+  background-blend-mode: saturation;
+}
+.blend-modes-15 .card.color {
+  background-blend-mode: color;
+}
+.blend-modes-15 .card.luminosity {
+  background-blend-mode: luminosity;
+}
