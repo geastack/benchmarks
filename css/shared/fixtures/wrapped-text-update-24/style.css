@@ -1,0 +1,13 @@
+.wrapped-text-update-24 .para {
+  height: auto;
+  display: block;
+  padding: 2px 8px;
+}
+.wrapped-text-update-24 .para .label {
+  display: block;
+  width: 380px;
+  height: auto;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+}
