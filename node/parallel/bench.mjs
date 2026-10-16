@@ -65,6 +65,9 @@ const only = arg('--only', '').split(',').filter(Boolean);
 const remote = arg('--remote', '');
 const runOnly = flag('--run-only');
 const verifyOnly = flag('--verify-only');
+// The release performance gate measures GeaStack against Rust and C++ only;
+// scriptc's single-thread runs are the slowest part of a full run.
+const withScriptc = !flag('--no-scriptc');
 
 const output = path.resolve(
   arg('--output', path.join(work, verifyOnly ? 'parallel-verification.json' : 'parallel.json')),
@@ -621,7 +624,7 @@ function runAll() {
     } else {
       row.runtimes.node = execute(process.execPath, [path.join(dir, 'node-entry.mjs'), n]);
 
-      if (fs.existsSync(scriptc)) {
+      if (withScriptc && fs.existsSync(scriptc)) {
         const exe = path.join(dir, 'scriptc');
 
         const b = build(scriptc, [
@@ -635,7 +638,7 @@ function runAll() {
 
         row.runtimes.scriptc =
           b.status === 0 ? { build: b, ...execute(exe, [n]) } : { state: 'build-failed', build: b };
-      } else {
+      } else if (withScriptc) {
         row.runtimes.scriptc = { state: 'not-installed' };
       }
 
@@ -711,7 +714,7 @@ function runAll() {
     plan.map((entry) => entry.key),
     [
       'node',
-      'scriptc',
+      ...(withScriptc ? ['scriptc'] : []),
       ...[...new Set(threadCounts)].flatMap((threads) =>
         ['gea', 'rust', 'cpp'].map((runtime) => `${runtime}@${threads}`),
       ),

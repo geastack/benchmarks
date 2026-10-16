@@ -5,9 +5,18 @@
 # (Ubuntu: libdrogon-dev libjsoncpp-dev uuid-dev zlib1g-dev libssl-dev).
 set -euo pipefail
 
+# --no-scriptc leaves out the two scriptc servers; the release performance gate
+# measures GeaStack against the Rust, C++ and Node servers only.
 keep_going=0
-if [[ "${1:-}" == --keep-going ]]; then keep_going=1; shift; fi
-if [[ $# != 0 ]]; then echo 'Usage: build-http.sh [--keep-going]' >&2; exit 2; fi
+scriptc=1
+while [[ $# != 0 ]]; do
+  case "$1" in
+    --keep-going) keep_going=1 ;;
+    --no-scriptc) scriptc=0 ;;
+    *) echo 'Usage: build-http.sh [--keep-going] [--no-scriptc]' >&2; exit 2 ;;
+  esac
+  shift
+done
 failed_builds=()
 build_step() {
   local label="$1"
@@ -34,9 +43,10 @@ build_step 'GeaStack: raw node:http' env CXX="$CXX_BIN" node "$BUILD" "$RAW/serv
 
 build_step 'GeaStack: Hono' env CXX="$CXX_BIN" node "$BUILD" apps/hono-hello/server.ts --out apps/hono-hello/dist --report apps/hono-hello/dist/build-report.json
 
-build_step 'scriptc: raw node:http with reusePort' "$SCRIPTC" build "$RAW/server.reuseport.ts" -o "$RAW/dist/scriptc-rp" --strip --no-keep-llvm
-
-build_step 'scriptc: Hono in the embedded QuickJS engine' "$SCRIPTC" build apps/hono-hello/scriptc/server.ts -o apps/hono-hello/dist/scriptc --dynamic --strip --no-keep-llvm
+if [[ "$scriptc" == 1 ]]; then
+  build_step 'scriptc: raw node:http with reusePort' "$SCRIPTC" build "$RAW/server.reuseport.ts" -o "$RAW/dist/scriptc-rp" --strip --no-keep-llvm
+  build_step 'scriptc: Hono in the embedded QuickJS engine' "$SCRIPTC" build apps/hono-hello/scriptc/server.ts -o apps/hono-hello/dist/scriptc --dynamic --strip --no-keep-llvm
+fi
 
 build_step 'C++: epoll' "$CXX_BIN" -O2 -std=c++20 "$RAW/cpp-epoll/server.cpp" -o "$RAW/dist/cpp-epoll"
 
@@ -52,7 +62,9 @@ if [[ ${#failed_builds[@]} != 0 ]]; then
   exit 1
 fi
 
-ls -lh apps/hono-hello/dist/server apps/hono-hello/dist/scriptc "$RAW/dist/server" "$RAW/dist/scriptc-rp" \
+scriptc_outputs=()
+[[ "$scriptc" == 1 ]] && scriptc_outputs=(apps/hono-hello/dist/scriptc "$RAW/dist/scriptc-rp")
+ls -lh apps/hono-hello/dist/server "$RAW/dist/server" "${scriptc_outputs[@]}" \
   "$RAW/dist/cpp-epoll" "$RAW/dist/cpp-drogon" \
   "$RAW/rust-server/target/release/rust-http-hello" \
   "$RAW/rust-server/target/release/axum-http-hello"
