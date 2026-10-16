@@ -117,6 +117,28 @@ node compute/verify-compute.mjs dist/compute.json dist/compute-checks.json
 
 Run this after the compute benchmark. It checks outputs at several iteration counts, records internal and wall-clock timings, and runs seven fixtures at several workload sizes. It reuses the existing binaries; the compute runner builds GeaStack and C++ at `-O3` and does not implement an `--opt-level` option. The sieve is checked only at zero iterations, since scriptc can't finish it at full size.
 
+### Release performance gate
+
+`release-gate/perf-gate.mjs` is the `perf` lane of the compiler's `npm run release:check`. It runs after every other lane has finished, so nothing else is using the machine. It builds the HTTP servers (`bench/build-http.sh --no-scriptc`) and measures them with `bench/http-matrix.py`: GeaStack's raw `node:http` server and Hono app, Node, hyper, axum, the C++ epoll server and Drogon, at 1 and 4 workers, on `/` and `/json`. It then runs the nine parallel workloads (`parallel/bench.mjs --no-scriptc`) on GeaStack, Rayon and the C++ pool, at 1 thread and at every thread. The results are compared with this machine's baseline, `release-gate/baselines/<cpu>-<threads>t.json`.
+
+```sh
+node node/release-gate/perf-gate.mjs --fix-loopback           # measure and compare
+node node/release-gate/perf-gate.mjs --fix-loopback --write   # take this machine's baseline (3 runs)
+```
+
+A baseline is three complete runs. Each metric records the median of those runs and how far apart they were. Its noise margin is 4%, or 1.5 times that spread when the spread is wider. A check fails in any of these cases:
+
+- **GeaStack regressed.** A GeaStack metric is worse than its baseline by more than its margin. A run that crosses the line is measured again, and the metric fails only if the second run crosses it too.
+- **A control moved.** A Node, Rust or C++ metric is outside its margin, which means the machine is no longer in the state the baseline was taken in.
+- **A published claim no longer holds** within noise. The claims are:
+  - GeaStack's raw server is faster than hyper, axum and Drogon.
+  - Hono runs faster on GeaStack than on Node.
+  - No parallel workload is slower than Rayon at full thread count, except spectral-norm, which the published report shows behind it.
+  - At full thread count, GeaStack's geometric mean is faster than Rayon's and the C++ pool's.
+- **The setup changed.** The CPU, kernel command line, toolchains, `hono` versions, CPU pinning or gate settings differ from the baseline's. Re-take the baseline with `--write` once the change is intended.
+
+A metric that improves by more than its margin passes. The gate reports it so the baseline can be re-taken. The HTTP suite needs `idle=poll` on the kernel command line (under WSL2, `kernelCommandLine=idle=poll` in the `[wsl2]` section of `.wslconfig`, then `wsl --shutdown`): without it every vCPU halts between requests, and the hypervisor's wakeup latency caps one worker at about the same rate for every fast server. The gate builds with the compilers the published numbers used: `clang++-18` for the HTTP servers and `clang++-22` for the parallel workloads. Server and `wrk` CPUs are derived from the topology: the first four physical cores serve and the next four load. `--fix-loopback` deletes WSL2's mirrored-networking rules for tables 127 and 128, which needs passwordless `sudo`. Without it, `127.0.0.1` is routed through Windows and every server hits the same ceiling.
+
 ### HTTP
 
 ```sh
