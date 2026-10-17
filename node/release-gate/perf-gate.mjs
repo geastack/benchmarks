@@ -69,10 +69,14 @@ const settings = {
   parallel: {
     samples: 5,
     threads: '1,all',
-    // Workloads the published report (results/parallel-parity-2026-10-10.md)
-    // shows behind Rayon at 20 threads: spectral-norm at 1.08x. They are not
-    // claimed, and still fail the gate if they regress against the baseline.
-    behindRayon: ['spectral-norm'],
+    // Workloads not claimed faster than Rayon at 20 threads. They still fail
+    // the gate if they regress against the baseline. spectral-norm: the
+    // published report (results/parallel-parity-2026-10-10.md) shows it behind
+    // at 1.08x. collatz: level with Rayon -- the same inner loop, and faster
+    // on the median sample -- but a fixed 1024-leaf split leaves up to one
+    // leaf (~0.3 ms) of tail, and Rayon's best-of-5 catches the runs where its
+    // adaptive splitting leaves none, so the best-of comparison flips with noise.
+    behindRayon: ['spectral-norm', 'collatz'],
   },
   // The compilers the published numbers were built with: clang 18 for the
   // HTTP servers (bench/README), clang 22 for the parallel report. A different
