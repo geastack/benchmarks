@@ -1,15 +1,16 @@
-import { range } from '@geastack/parallel';
+import { range, type int } from '@geastack/parallel';
 
 // A 32-bit integer, as Rust's board masks are `u32`: a number under Node, an
-// `int32_t` compiled. `@geastack/core` declares it globally for apps.
+// `int32_t` compiled. `@geastack/core` declares it globally for apps. The
+// solution counts are `int`s, as Rust's are `i64`.
 declare const i32Brand: unique symbol;
 type i32 = number & { readonly [i32Brand]?: never };
 
-function solve(size: i32, row: i32, columns: i32, left: i32, right: i32): number {
+function solve(size: i32, row: i32, columns: i32, left: i32, right: i32): int {
   if (row === size) return 1;
   const all = (1 << size) - 1;
   let free = all & ~(columns | left | right);
-  let count = 0;
+  let count: int = 0;
 
   while (free !== 0) {
     const bit = free & -free;

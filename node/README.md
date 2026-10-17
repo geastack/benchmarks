@@ -133,7 +133,7 @@ A baseline is three complete runs. Each metric records the median of those runs 
 - **A published claim no longer holds** within noise. The claims are:
   - GeaStack's raw server is faster than hyper, axum and Drogon.
   - Hono runs faster on GeaStack than on Node.
-  - No parallel workload is slower than Rayon at full thread count, except spectral-norm, which the published report shows behind it.
+  - No parallel workload is slower than Rayon at full thread count, except spectral-norm, which the published report shows behind it, and collatz, which is level with it (faster on the median sample, within noise on the best one).
   - At full thread count, GeaStack's geometric mean is faster than Rayon's and the C++ pool's.
 - **The setup changed.** The CPU, kernel command line, toolchains, `hono` versions, CPU pinning or gate settings differ from the baseline's. Re-take the baseline with `--write` once the change is intended.
 
