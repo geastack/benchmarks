@@ -1,0 +1,1474 @@
+{
+  "mode": "benchmark",
+  "utc": "2026-10-18T08:18:54.695Z",
+  "emitted": {
+    "mode": "benchmark",
+    "compiler": "1.0.36",
+    "compilerSha256": "efab5a9222e0926ad1a7f11370f5d00decd6d9c2f3d60426f8703df388669a54",
+    "compilerInputs": {
+      "compilerRoot": "compiler",
+      "compilerVersion": "1.0.36",
+      "compilerDistHash": "d486fb52a2dd8d2279faeea81cb3e62e09dea03b1765f2a6fb91d83d5ebebba6",
+      "runtimeFiles": [
+        "gea_dictionary_view.h",
+        "gea_document_view.h",
+        "gea_dynamic_proxy.h",
+        "gea_eval.h",
+        "gea_native_class_prototype.h",
+        "gea_pcm.h",
+        "gea_runtime.h",
+        "gea_runtime_builtins.cpp",
+        "gea_runtime_rtc.h"
+      ],
+      "runtimeHash": "e9399e700fc3f3927ac51bdb7944887fcfec27d38478b8365f702c0ef25f60ac"
+    },
+    "parallel": "1.0.2",
+    "parallelSha256": "f2f6e3b45229d949abb24d6c73e16b62e87a314d2b6b6568bf274b093f7ccea4"
+  },
+  "node": "v24.21.0",
+  "scriptc": "0.3.6",
+  "cxx": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+  "rustInputs": {
+    "manifestSha256": "f402f5b7e7378c0059d93f3acbdeff91d51f574f621a011280265a9eb0154a29",
+    "lockSha256": "78d93374b7d6f2b872686810352b5583d88e095a2e5d0d02dff1ebc67839e246"
+  },
+  "cxxFlags": [
+    "-std=gnu++20",
+    "-O3",
+    "-march=native",
+    "-DNDEBUG",
+    "-ffp-contract=off",
+    "-pthread",
+    "-mllvm",
+    "-force-ordered-reductions=true"
+  ],
+  "cores": 20,
+  "threadCounts": [
+    1,
+    20
+  ],
+  "samples": 7,
+  "sizes": {
+    "binary-trees": 400,
+    "collatz": 3000000,
+    "mandelbrot": 3000,
+    "matmul": 800,
+    "nqueens": 13,
+    "primes": 6000000,
+    "sort": 2000000,
+    "spectral-norm": 3000,
+    "strings": 2000000
+  },
+  "machine": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  20\nOn-line CPU(s) list:                     0-19\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 9 9900X3D 12-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      2\nCore(s) per socket:                      10\nSocket(s):                               1\nStepping:                                0\nBogoMIPS:                                8783.62\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero xsaveerptr arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               480 KiB (10 instances)\nL1i cache:                               320 KiB (10 instances)\nL2 cache:                                10 MiB (10 instances)\nL3 cache:                                96 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-19\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+  "startLoad": "0.48 0.13 0.04 1/329 862",
+  "rows": [
+    {
+      "fixture": "binary-trees",
+      "variant": "parity",
+      "n": 400,
+      "sources": {
+        "typescript": "fixtures/binary-trees.ts",
+        "cpp": "native-cpp/binary-trees.cpp",
+        "rust": "native-rust/src/bin/binary-trees.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "binary_trees.cpp"
+        ],
+        "emitMs": 1256.626557
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 668.211082,
+              "rssBytes": 196808704,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 667.2638290000001,
+              "rssBytes": 196644864,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 671.238356,
+              "rssBytes": 197021696,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 651.712554,
+              "rssBytes": 196874240,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 641.8740919999999,
+              "rssBytes": 197033984,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 676.353696,
+              "rssBytes": 196915200,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 617.642054,
+              "rssBytes": 197005312,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 617.642054,
+          "medianMs": 667.2638290000001,
+          "rssBytes": 196644864,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 479.90633999999955
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 338.66953300000023,
+              "rssBytes": 5550080,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 343.83572500000446,
+              "rssBytes": 5533696,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 345.6976780000041,
+              "rssBytes": 5529600,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 338.20412699999724,
+              "rssBytes": 5533696,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 339.94705899999826,
+              "rssBytes": 5533696,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 336.334096999999,
+              "rssBytes": 5529600,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 350.88539299999684,
+              "rssBytes": 5496832,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 336.334096999999,
+          "medianMs": 339.94705899999826,
+          "rssBytes": 5496832,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "collatz",
+      "variant": "parity",
+      "n": 3000000,
+      "sources": {
+        "typescript": "fixtures/collatz.ts",
+        "cpp": "native-cpp/collatz.cpp",
+        "rust": "native-rust/src/bin/collatz.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "collatz.cpp"
+        ],
+        "emitMs": 588.7980579999999
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 3147.7763489999998,
+              "rssBytes": 56758272,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3148.7194640000002,
+              "rssBytes": 57180160,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3147.994126,
+              "rssBytes": 56758272,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3142.8788640000002,
+              "rssBytes": 56922112,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3160.004743,
+              "rssBytes": 56614912,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3174.21064,
+              "rssBytes": 56496128,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3182.972674,
+              "rssBytes": 57118720,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 3142.8788640000002,
+          "medianMs": 3148.7194640000002,
+          "rssBytes": 56496128,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 454.29365400000097
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 3187.6473260000057,
+              "rssBytes": 2228224,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3176.188135000004,
+              "rssBytes": 2052096,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3218.624760999999,
+              "rssBytes": 2101248,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3185.0526660000032,
+              "rssBytes": 2228224,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3176.852470999991,
+              "rssBytes": 2252800,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3163.4982290000044,
+              "rssBytes": 2060288,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3169.761487999989,
+              "rssBytes": 2076672,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 3163.4982290000044,
+          "medianMs": 3176.852470999991,
+          "rssBytes": 2052096,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "mandelbrot",
+      "variant": "parity",
+      "n": 3000,
+      "sources": {
+        "typescript": "fixtures/mandelbrot.ts",
+        "cpp": "native-cpp/mandelbrot.cpp",
+        "rust": "native-rust/src/bin/mandelbrot.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "mandelbrot.cpp"
+        ],
+        "emitMs": 566.8434750000001
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 624.1038769999999,
+              "rssBytes": 57806848,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 618.295865,
+              "rssBytes": 58429440,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 635.029693,
+              "rssBytes": 57704448,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 636.960367,
+              "rssBytes": 58589184,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 624.6094380000001,
+              "rssBytes": 58490880,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 621.3044560000001,
+              "rssBytes": 57937920,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 624.233541,
+              "rssBytes": 57769984,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 618.295865,
+          "medianMs": 624.233541,
+          "rssBytes": 57704448,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 465.0791989999998
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 587.8926769999962,
+              "rssBytes": 2228224,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 589.2655300000042,
+              "rssBytes": 2113536,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 593.2855439999985,
+              "rssBytes": 2228224,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 592.6327969999984,
+              "rssBytes": 2125824,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 594.4311069999967,
+              "rssBytes": 2125824,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 593.1275629999873,
+              "rssBytes": 2252800,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 587.3705999999947,
+              "rssBytes": 2064384,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 587.3705999999947,
+          "medianMs": 592.6327969999984,
+          "rssBytes": 2064384,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "matmul",
+      "variant": "parity",
+      "n": 800,
+      "sources": {
+        "typescript": "fixtures/matmul.ts",
+        "cpp": "native-cpp/matmul.cpp",
+        "rust": "native-rust/src/bin/matmul.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "matmul.cpp"
+        ],
+        "emitMs": 561.1462820000002
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 313.757512,
+              "rssBytes": 68255744,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 327.85672900000003,
+              "rssBytes": 67932160,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 314.110834,
+              "rssBytes": 68087808,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 310.132372,
+              "rssBytes": 67764224,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 318.669931,
+              "rssBytes": 66981888,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 319.101465,
+              "rssBytes": 67862528,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 327.312271,
+              "rssBytes": 67932160,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 310.132372,
+          "medianMs": 318.669931,
+          "rssBytes": 66981888,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 499.27409700000135
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 911.7524430000049,
+              "rssBytes": 12226560,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 904.4859600000054,
+              "rssBytes": 12197888,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 907.8259610000096,
+              "rssBytes": 12226560,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 919.9398359999905,
+              "rssBytes": 12222464,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 916.2235139999975,
+              "rssBytes": 12226560,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 919.5020339999901,
+              "rssBytes": 12197888,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 926.0752729999949,
+              "rssBytes": 12226560,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 904.4859600000054,
+          "medianMs": 916.2235139999975,
+          "rssBytes": 12197888,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "nqueens",
+      "variant": "parity",
+      "n": 13,
+      "sources": {
+        "typescript": "fixtures/nqueens.ts",
+        "cpp": "native-cpp/nqueens.cpp",
+        "rust": "native-rust/src/bin/nqueens.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "nqueens.cpp"
+        ],
+        "emitMs": 553.8164480000005
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 45.121331,
+              "rssBytes": 55406592,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.673899,
+              "rssBytes": 55365632,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.427189999999996,
+              "rssBytes": 55377920,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 47.42995500000001,
+              "rssBytes": 55218176,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 47.03195000000001,
+              "rssBytes": 55312384,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.774985,
+              "rssBytes": 55349248,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.999497000000005,
+              "rssBytes": 55377920,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 44.999497000000005,
+          "medianMs": 45.673899,
+          "rssBytes": 55218176,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 482.29895500000566
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 33.15625500000897,
+              "rssBytes": 2228224,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 32.228300999995554,
+              "rssBytes": 2158592,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 33.454039999996894,
+              "rssBytes": 2248704,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 33.18856899999082,
+              "rssBytes": 2228224,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 32.57506200000353,
+              "rssBytes": 2125824,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 32.93411499999638,
+              "rssBytes": 2220032,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 32.96369399999094,
+              "rssBytes": 2113536,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 32.228300999995554,
+          "medianMs": 32.96369399999094,
+          "rssBytes": 2113536,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "primes",
+      "variant": "parity",
+      "n": 6000000,
+      "sources": {
+        "typescript": "fixtures/primes.ts",
+        "cpp": "native-cpp/primes.cpp",
+        "rust": "native-rust/src/bin/primes.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "primes.cpp"
+        ],
+        "emitMs": 486.53951099999995
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 668.613748,
+              "rssBytes": 56659968,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 696.207194,
+              "rssBytes": 56397824,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 680.2326429999999,
+              "rssBytes": 56332288,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 716.596284,
+              "rssBytes": 56397824,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 677.846621,
+              "rssBytes": 56725504,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 682.176926,
+              "rssBytes": 56238080,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 680.282514,
+              "rssBytes": 56459264,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 668.613748,
+          "medianMs": 680.282514,
+          "rssBytes": 56238080,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 463.31199699999706
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 697.4124829999928,
+              "rssBytes": 2109440,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 696.0282750000042,
+              "rssBytes": 2248704,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 699.2199850000034,
+              "rssBytes": 2228224,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 692.9991940000036,
+              "rssBytes": 2125824,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 689.8438789999927,
+              "rssBytes": 2158592,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 690.066329000023,
+              "rssBytes": 2088960,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 700.2234590000007,
+              "rssBytes": 2109440,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 689.8438789999927,
+          "medianMs": 696.0282750000042,
+          "rssBytes": 2088960,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "sort",
+      "variant": "parity",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/sort.ts",
+        "cpp": "native-cpp/sort.cpp",
+        "rust": "native-rust/src/bin/sort.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "sort.cpp"
+        ],
+        "emitMs": 563.574893
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 925.22555,
+              "rssBytes": 292450304,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 943.339774,
+              "rssBytes": 292601856,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 916.517661,
+              "rssBytes": 292823040,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 936.643474,
+              "rssBytes": 292622336,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 872.452333,
+              "rssBytes": 292478976,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 887.26378,
+              "rssBytes": 292528128,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 919.9167209999999,
+              "rssBytes": 292286464,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 872.452333,
+          "medianMs": 919.9167209999999,
+          "rssBytes": 292286464,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 540.0317520000099
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 404.70679099997506,
+              "rssBytes": 85417984,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 400.7355169999937,
+              "rssBytes": 86716416,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 388.643819000019,
+              "rssBytes": 85114880,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 387.289403999981,
+              "rssBytes": 85987328,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 388.7588960000139,
+              "rssBytes": 86544384,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 396.0227789999917,
+              "rssBytes": 85471232,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 395.6336569999985,
+              "rssBytes": 87789568,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 387.289403999981,
+          "medianMs": 395.6336569999985,
+          "rssBytes": 85114880,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "sort",
+      "variant": "idiomatic",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/sort.ts",
+        "cpp": "native-cpp/idiomatic/sort.cpp",
+        "rust": "native-rust/src/idiomatic/sort.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "sort.cpp"
+        ],
+        "emitMs": 563.574893
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 925.22555,
+              "rssBytes": 292450304,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 943.339774,
+              "rssBytes": 292601856,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 916.517661,
+              "rssBytes": 292823040,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 936.643474,
+              "rssBytes": 292622336,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 872.452333,
+              "rssBytes": 292478976,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 887.26378,
+              "rssBytes": 292528128,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 919.9167209999999,
+              "rssBytes": 292286464,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 872.452333,
+          "medianMs": 919.9167209999999,
+          "rssBytes": 292286464,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 540.0317520000099
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 404.70679099997506,
+              "rssBytes": 85417984,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 400.7355169999937,
+              "rssBytes": 86716416,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 388.643819000019,
+              "rssBytes": 85114880,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 387.289403999981,
+              "rssBytes": 85987328,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 388.7588960000139,
+              "rssBytes": 86544384,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 396.0227789999917,
+              "rssBytes": 85471232,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 395.6336569999985,
+              "rssBytes": 87789568,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 387.289403999981,
+          "medianMs": 395.6336569999985,
+          "rssBytes": 85114880,
+          "match": true,
+          "sharedWith": "parity"
+        }
+      }
+    },
+    {
+      "fixture": "spectral-norm",
+      "variant": "parity",
+      "n": 3000,
+      "sources": {
+        "typescript": "fixtures/spectral-norm.ts",
+        "cpp": "native-cpp/spectral-norm.cpp",
+        "rust": "native-rust/src/bin/spectral-norm.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "spectral_norm.cpp"
+        ],
+        "emitMs": 565.7283710000002
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 460.948676,
+              "rssBytes": 58937344,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 465.16576799999996,
+              "rssBytes": 59506688,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 461.366985,
+              "rssBytes": 59281408,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 479.625612,
+              "rssBytes": 59486208,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 462.7216,
+              "rssBytes": 59244544,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 464.819553,
+              "rssBytes": 58658816,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 468.06620100000004,
+              "rssBytes": 59609088,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 460.948676,
+          "medianMs": 464.819553,
+          "rssBytes": 58658816,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 460.8892409999971
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 461.57103500000085,
+              "rssBytes": 2289664,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 456.57348900000216,
+              "rssBytes": 2322432,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 451.44570100001874,
+              "rssBytes": 2392064,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 453.5235720000055,
+              "rssBytes": 2125824,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 453.6823910000094,
+              "rssBytes": 2408448,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 453.15996000001905,
+              "rssBytes": 2195456,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 454.81724099998246,
+              "rssBytes": 2265088,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 451.44570100001874,
+          "medianMs": 453.6823910000094,
+          "rssBytes": 2125824,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "strings",
+      "variant": "parity",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/strings.ts",
+        "cpp": "native-cpp/strings.cpp",
+        "rust": "native-rust/src/bin/strings.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "strings.cpp"
+        ],
+        "emitMs": 509.4563760000001
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 586.925589,
+              "rssBytes": 93757440,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 591.923374,
+              "rssBytes": 94162944,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 603.40035,
+              "rssBytes": 93204480,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 595.915029,
+              "rssBytes": 94375936,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 584.052938,
+              "rssBytes": 94298112,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 604.742042,
+              "rssBytes": 93794304,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 585.6537000000001,
+              "rssBytes": 93626368,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 584.052938,
+          "medianMs": 591.923374,
+          "rssBytes": 93204480,
+          "match": true
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 465.34293199999956
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 646.2297169999802,
+              "rssBytes": 2134016,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 671.6323489999922,
+              "rssBytes": 2269184,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 650.8643680000096,
+              "rssBytes": 2125824,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 662.8389800000004,
+              "rssBytes": 2125824,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 641.3424829999858,
+              "rssBytes": 2072576,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 648.1216809999896,
+              "rssBytes": 2240512,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 643.1457419999933,
+              "rssBytes": 2265088,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 641.3424829999858,
+          "medianMs": 648.1216809999896,
+          "rssBytes": 2072576,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "strings",
+      "variant": "idiomatic",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/strings.ts",
+        "cpp": "native-cpp/idiomatic/strings.cpp",
+        "rust": "native-rust/src/idiomatic/strings.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "strings.cpp"
+        ],
+        "emitMs": 509.4563760000001
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 586.925589,
+              "rssBytes": 93757440,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 591.923374,
+              "rssBytes": 94162944,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 603.40035,
+              "rssBytes": 93204480,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 595.915029,
+              "rssBytes": 94375936,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 584.052938,
+              "rssBytes": 94298112,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 604.742042,
+              "rssBytes": 93794304,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 585.6537000000001,
+              "rssBytes": 93626368,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 584.052938,
+          "medianMs": 591.923374,
+          "rssBytes": 93204480,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "scriptc": {
+          "build": {
+            "status": 0,
+            "ms": 465.34293199999956
+          },
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 646.2297169999802,
+              "rssBytes": 2134016,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 671.6323489999922,
+              "rssBytes": 2269184,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 650.8643680000096,
+              "rssBytes": 2125824,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 662.8389800000004,
+              "rssBytes": 2125824,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 641.3424829999858,
+              "rssBytes": 2072576,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 648.1216809999896,
+              "rssBytes": 2240512,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 643.1457419999933,
+              "rssBytes": 2265088,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 641.3424829999858,
+          "medianMs": 648.1216809999896,
+          "rssBytes": 2072576,
+          "match": true,
+          "sharedWith": "parity"
+        }
+      }
+    }
+  ],
+  "rustBuild": {
+    "status": null,
+    "skipped": "--scriptc-only"
+  },
+  "complete": true,
+  "endLoad": "0.93 0.41 0.16 1/325 1908",
+  "failures": []
+}
