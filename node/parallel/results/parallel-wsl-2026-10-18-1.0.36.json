@@ -1,0 +1,4461 @@
+{
+  "mode": "benchmark",
+  "utc": "2026-10-18T08:05:06.753Z",
+  "emitted": {
+    "mode": "benchmark",
+    "compiler": "1.0.36",
+    "compilerSha256": "efab5a9222e0926ad1a7f11370f5d00decd6d9c2f3d60426f8703df388669a54",
+    "compilerInputs": {
+      "compilerRoot": "compiler",
+      "compilerVersion": "1.0.36",
+      "compilerDistHash": "d486fb52a2dd8d2279faeea81cb3e62e09dea03b1765f2a6fb91d83d5ebebba6",
+      "runtimeFiles": [
+        "gea_dictionary_view.h",
+        "gea_document_view.h",
+        "gea_dynamic_proxy.h",
+        "gea_eval.h",
+        "gea_native_class_prototype.h",
+        "gea_pcm.h",
+        "gea_runtime.h",
+        "gea_runtime_builtins.cpp",
+        "gea_runtime_rtc.h"
+      ],
+      "runtimeHash": "e9399e700fc3f3927ac51bdb7944887fcfec27d38478b8365f702c0ef25f60ac"
+    },
+    "parallel": "1.0.2",
+    "parallelSha256": "f2f6e3b45229d949abb24d6c73e16b62e87a314d2b6b6568bf274b093f7ccea4"
+  },
+  "node": "v24.21.0",
+  "scriptc": "0.2.3",
+  "cxx": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+  "rustInputs": {
+    "manifestSha256": "f402f5b7e7378c0059d93f3acbdeff91d51f574f621a011280265a9eb0154a29",
+    "lockSha256": "78d93374b7d6f2b872686810352b5583d88e095a2e5d0d02dff1ebc67839e246"
+  },
+  "cxxFlags": [
+    "-std=gnu++20",
+    "-O3",
+    "-march=native",
+    "-DNDEBUG",
+    "-ffp-contract=off",
+    "-pthread",
+    "-mllvm",
+    "-force-ordered-reductions=true"
+  ],
+  "cores": 20,
+  "threadCounts": [
+    1,
+    20
+  ],
+  "samples": 7,
+  "sizes": {
+    "binary-trees": 400,
+    "collatz": 3000000,
+    "mandelbrot": 3000,
+    "matmul": 800,
+    "nqueens": 13,
+    "primes": 6000000,
+    "sort": 2000000,
+    "spectral-norm": 3000,
+    "strings": 2000000
+  },
+  "machine": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  20\nOn-line CPU(s) list:                     0-19\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 9 9900X3D 12-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      2\nCore(s) per socket:                      10\nSocket(s):                               1\nStepping:                                0\nBogoMIPS:                                8783.62\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 clzero xsaveerptr arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               480 KiB (10 instances)\nL1i cache:                               320 KiB (10 instances)\nL2 cache:                                10 MiB (10 instances)\nL3 cache:                                96 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-19\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+  "startLoad": "0.86 0.22 0.07 1/327 843",
+  "rows": [
+    {
+      "fixture": "binary-trees",
+      "variant": "parity",
+      "n": 400,
+      "sources": {
+        "typescript": "fixtures/binary-trees.ts",
+        "cpp": "native-cpp/binary-trees.cpp",
+        "rust": "native-rust/src/bin/binary-trees.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "binary_trees.cpp"
+        ],
+        "emitMs": 1297.824787
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 747.074496,
+              "rssBytes": 197185536,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 710.969692,
+              "rssBytes": 197197824,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 721.8326480000001,
+              "rssBytes": 196874240,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 704.324211,
+              "rssBytes": 197033984,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 704.633844,
+              "rssBytes": 197398528,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 707.0060599999999,
+              "rssBytes": 196968448,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 653.981033,
+              "rssBytes": 196444160,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 653.981033,
+          "medianMs": 707.0060599999999,
+          "rssBytes": 196444160,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 927.533067,
+              "rssBytes": 10903552,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 916.126243,
+              "rssBytes": 10866688,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1045.608148,
+              "rssBytes": 10985472,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1022.198721,
+              "rssBytes": 10866688,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1018.995332,
+              "rssBytes": 10862592,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 980.385974,
+              "rssBytes": 10907648,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 969.531603,
+              "rssBytes": 10891264,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 916.126243,
+          "medianMs": 980.385974,
+          "rssBytes": 10862592,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 92.412102,
+              "rssBytes": 90066944,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 94.233515,
+              "rssBytes": 90075136,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 96.891548,
+              "rssBytes": 89866240,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 92.490829,
+              "rssBytes": 90062848,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 95.530288,
+              "rssBytes": 90226688,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 93.600098,
+              "rssBytes": 90091520,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 93.421861,
+              "rssBytes": 90566656,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 92.412102,
+          "medianMs": 93.600098,
+          "rssBytes": 89866240,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 1273.593194,
+              "rssBytes": 6242304,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1279.505404,
+              "rssBytes": 6090752,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1235.813238,
+              "rssBytes": 6209536,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1248.371139,
+              "rssBytes": 6270976,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1283.806153,
+              "rssBytes": 6230016,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1327.329602,
+              "rssBytes": 6242304,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 1257.951872,
+              "rssBytes": 6230016,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 1235.813238,
+          "medianMs": 1273.593194,
+          "rssBytes": 6090752,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 128.53032,
+              "rssBytes": 84201472,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 130.944127,
+              "rssBytes": 84180992,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 133.177499,
+              "rssBytes": 84504576,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 129.103696,
+              "rssBytes": 84209664,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 141.125425,
+              "rssBytes": 84361216,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 129.100408,
+              "rssBytes": 84512768,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 134.826452,
+              "rssBytes": 84361216,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 128.53032,
+          "medianMs": 130.944127,
+          "rssBytes": 84180992,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 922.937235,
+              "rssBytes": 7913472,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 933.209719,
+              "rssBytes": 8253440,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 935.100093,
+              "rssBytes": 8089600,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 919.414692,
+              "rssBytes": 8155136,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 925.976134,
+              "rssBytes": 8114176,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 963.830565,
+              "rssBytes": 8118272,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 939.268918,
+              "rssBytes": 8081408,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 919.414692,
+          "medianMs": 933.209719,
+          "rssBytes": 7913472,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 118.950407,
+              "rssBytes": 85893120,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 120.113184,
+              "rssBytes": 86110208,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 122.727115,
+              "rssBytes": 86392832,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 120.127281,
+              "rssBytes": 86089728,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 120.94663,
+              "rssBytes": 86106112,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 123.300705,
+              "rssBytes": 86073344,
+              "output": "52508200"
+            },
+            {
+              "status": 0,
+              "innerMs": 119.875413,
+              "rssBytes": 86110208,
+              "output": "52508200"
+            }
+          ],
+          "bestMs": 118.950407,
+          "medianMs": 120.127281,
+          "rssBytes": 85893120,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17845.390096000003
+      }
+    },
+    {
+      "fixture": "collatz",
+      "variant": "parity",
+      "n": 3000000,
+      "sources": {
+        "typescript": "fixtures/collatz.ts",
+        "cpp": "native-cpp/collatz.cpp",
+        "rust": "native-rust/src/bin/collatz.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "collatz.cpp"
+        ],
+        "emitMs": 696.1332479999996
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 3172.9028139999996,
+              "rssBytes": 56655872,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3178.448293,
+              "rssBytes": 56922112,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3203.472996,
+              "rssBytes": 56561664,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3184.539385,
+              "rssBytes": 56922112,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3166.881404,
+              "rssBytes": 57085952,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3173.090909,
+              "rssBytes": 57085952,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 3208.515414,
+              "rssBytes": 57118720,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 3166.881404,
+          "medianMs": 3178.448293,
+          "rssBytes": 56561664,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 291.566081,
+              "rssBytes": 4517888,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 291.583823,
+              "rssBytes": 4546560,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 293.968037,
+              "rssBytes": 4382720,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 294.848875,
+              "rssBytes": 4542464,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 293.512915,
+              "rssBytes": 4554752,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 298.506863,
+              "rssBytes": 4399104,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 294.347185,
+              "rssBytes": 4554752,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 291.566081,
+          "medianMs": 293.968037,
+          "rssBytes": 4382720,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 15.666244,
+              "rssBytes": 11075584,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.596544,
+              "rssBytes": 10096640,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.860541,
+              "rssBytes": 8294400,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.647792,
+              "rssBytes": 9633792,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.706469,
+              "rssBytes": 9261056,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.948654,
+              "rssBytes": 8982528,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.8575,
+              "rssBytes": 8744960,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 15.596544,
+          "medianMs": 15.706469,
+          "rssBytes": 8294400,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 289.15632,
+              "rssBytes": 2007040,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 290.82996,
+              "rssBytes": 2146304,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 288.662529,
+              "rssBytes": 2142208,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 285.370014,
+              "rssBytes": 1990656,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 288.198184,
+              "rssBytes": 2134016,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 288.117147,
+              "rssBytes": 1966080,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 288.457015,
+              "rssBytes": 2146304,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 285.370014,
+          "medianMs": 288.457015,
+          "rssBytes": 1966080,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 16.474294,
+              "rssBytes": 2179072,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.96085,
+              "rssBytes": 2084864,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.077699,
+              "rssBytes": 2297856,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.334678,
+              "rssBytes": 2113536,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.875199,
+              "rssBytes": 2310144,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.800675,
+              "rssBytes": 2113536,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.992849,
+              "rssBytes": 2113536,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 15.334678,
+          "medianMs": 15.96085,
+          "rssBytes": 2084864,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 290.080855,
+              "rssBytes": 4018176,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 288.453343,
+              "rssBytes": 4018176,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 290.354056,
+              "rssBytes": 4059136,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 290.738808,
+              "rssBytes": 4022272,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 293.354233,
+              "rssBytes": 4055040,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 291.69576,
+              "rssBytes": 4059136,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 292.190197,
+              "rssBytes": 4059136,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 288.453343,
+          "medianMs": 290.738808,
+          "rssBytes": 4018176,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 16.645117,
+              "rssBytes": 3989504,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.81804,
+              "rssBytes": 3796992,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.510168,
+              "rssBytes": 4009984,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.900357,
+              "rssBytes": 3969024,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.521115,
+              "rssBytes": 3973120,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.957976,
+              "rssBytes": 4018176,
+              "output": "428343355"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.872368,
+              "rssBytes": 3973120,
+              "output": "428343355"
+            }
+          ],
+          "bestMs": 15.510168,
+          "medianMs": 15.900357,
+          "rssBytes": 3796992,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17501.840717
+      }
+    },
+    {
+      "fixture": "mandelbrot",
+      "variant": "parity",
+      "n": 3000,
+      "sources": {
+        "typescript": "fixtures/mandelbrot.ts",
+        "cpp": "native-cpp/mandelbrot.cpp",
+        "rust": "native-rust/src/bin/mandelbrot.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "mandelbrot.cpp"
+        ],
+        "emitMs": 592.515699
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 619.449206,
+              "rssBytes": 58195968,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 618.382354,
+              "rssBytes": 57774080,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 622.030505,
+              "rssBytes": 57757696,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 617.241859,
+              "rssBytes": 57602048,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 637.420793,
+              "rssBytes": 58593280,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 626.600418,
+              "rssBytes": 58331136,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 626.3714319999999,
+              "rssBytes": 58228736,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 617.241859,
+          "medianMs": 622.030505,
+          "rssBytes": 57602048,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 622.239631,
+              "rssBytes": 4546560,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 621.764888,
+              "rssBytes": 4726784,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 621.048036,
+              "rssBytes": 4599808,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 623.119666,
+              "rssBytes": 4550656,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 624.220195,
+              "rssBytes": 4562944,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 621.627015,
+              "rssBytes": 4730880,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 618.745465,
+              "rssBytes": 4554752,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 618.745465,
+          "medianMs": 621.764888,
+          "rssBytes": 4546560,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 34.716868,
+              "rssBytes": 9625600,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.050875,
+              "rssBytes": 12816384,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.65756,
+              "rssBytes": 11538432,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 34.978055,
+              "rssBytes": 8355840,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 34.962967,
+              "rssBytes": 10657792,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.158139,
+              "rssBytes": 12070912,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.341114,
+              "rssBytes": 8978432,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 34.716868,
+          "medianMs": 35.050875,
+          "rssBytes": 8355840,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 621.854383,
+              "rssBytes": 1966080,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 623.166965,
+              "rssBytes": 2146304,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 618.185319,
+              "rssBytes": 2125824,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 622.631814,
+              "rssBytes": 2146304,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 625.606209,
+              "rssBytes": 2134016,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 624.097054,
+              "rssBytes": 2015232,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 613.757588,
+              "rssBytes": 2134016,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 613.757588,
+          "medianMs": 622.631814,
+          "rssBytes": 1966080,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 35.340019,
+              "rssBytes": 2170880,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 38.747022,
+              "rssBytes": 2113536,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 39.622108,
+              "rssBytes": 2285568,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 37.040515,
+              "rssBytes": 2109440,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.246693,
+              "rssBytes": 2109440,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 37.04914,
+              "rssBytes": 2113536,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.384155,
+              "rssBytes": 2113536,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 35.246693,
+          "medianMs": 37.040515,
+          "rssBytes": 2109440,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 623.964437,
+              "rssBytes": 3809280,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 627.889026,
+              "rssBytes": 3993600,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 629.205738,
+              "rssBytes": 4157440,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 629.553026,
+              "rssBytes": 4022272,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 624.285253,
+              "rssBytes": 3821568,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 632.833413,
+              "rssBytes": 4022272,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 631.282034,
+              "rssBytes": 4022272,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 623.964437,
+          "medianMs": 629.205738,
+          "rssBytes": 3809280,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 35.735524,
+              "rssBytes": 3973120,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.91536,
+              "rssBytes": 3973120,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.87545,
+              "rssBytes": 3796992,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.888811,
+              "rssBytes": 3973120,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.735585,
+              "rssBytes": 3788800,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 36.274752,
+              "rssBytes": 3796992,
+              "output": "1526675"
+            },
+            {
+              "status": 0,
+              "innerMs": 35.817283,
+              "rssBytes": 4005888,
+              "output": "1526675"
+            }
+          ],
+          "bestMs": 35.735524,
+          "medianMs": 35.87545,
+          "rssBytes": 3788800,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17734.982963999995
+      }
+    },
+    {
+      "fixture": "matmul",
+      "variant": "parity",
+      "n": 800,
+      "sources": {
+        "typescript": "fixtures/matmul.ts",
+        "cpp": "native-cpp/matmul.cpp",
+        "rust": "native-rust/src/bin/matmul.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "matmul.cpp"
+        ],
+        "emitMs": 580.5740499999997
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 313.737203,
+              "rssBytes": 67514368,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 308.892347,
+              "rssBytes": 67895296,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 308.179633,
+              "rssBytes": 68333568,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 316.55405,
+              "rssBytes": 68096000,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 320.136595,
+              "rssBytes": 67604480,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 311.16461300000003,
+              "rssBytes": 67768320,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 315.648684,
+              "rssBytes": 68026368,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 308.179633,
+          "medianMs": 313.737203,
+          "rssBytes": 67514368,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 205.045162,
+              "rssBytes": 14839808,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 206.278682,
+              "rssBytes": 14839808,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 204.719769,
+              "rssBytes": 14753792,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 206.120637,
+              "rssBytes": 14729216,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 201.895832,
+              "rssBytes": 14757888,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 207.055247,
+              "rssBytes": 14725120,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 208.869304,
+              "rssBytes": 14729216,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 201.895832,
+          "medianMs": 206.120637,
+          "rssBytes": 14725120,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 16.818938,
+              "rssBytes": 18300928,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.542229,
+              "rssBytes": 19415040,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.491478,
+              "rssBytes": 21716992,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.801619,
+              "rssBytes": 19677184,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 17.15711,
+              "rssBytes": 18923520,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.452154,
+              "rssBytes": 19234816,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.836331,
+              "rssBytes": 20590592,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 16.491478,
+          "medianMs": 16.818938,
+          "rssBytes": 18300928,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 224.990855,
+              "rssBytes": 12468224,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 217.44975,
+              "rssBytes": 12271616,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 216.188946,
+              "rssBytes": 12468224,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 214.109471,
+              "rssBytes": 12271616,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 221.634651,
+              "rssBytes": 12271616,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 222.970941,
+              "rssBytes": 12468224,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 238.842162,
+              "rssBytes": 12263424,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 214.109471,
+          "medianMs": 221.634651,
+          "rssBytes": 12263424,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 17.359172,
+              "rssBytes": 12632064,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 17.707589,
+              "rssBytes": 12308480,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 17.484087,
+              "rssBytes": 12484608,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.458502,
+              "rssBytes": 12255232,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.244929,
+              "rssBytes": 12431360,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.282293,
+              "rssBytes": 12312576,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.564289,
+              "rssBytes": 12632064,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 17.359172,
+          "medianMs": 18.244929,
+          "rssBytes": 12255232,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 201.883772,
+              "rssBytes": 13623296,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 200.298049,
+              "rssBytes": 13565952,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 204.094234,
+              "rssBytes": 13561856,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 198.833358,
+              "rssBytes": 13758464,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 202.080237,
+              "rssBytes": 13586432,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 204.185943,
+              "rssBytes": 13586432,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 200.35039,
+              "rssBytes": 13758464,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 198.833358,
+          "medianMs": 201.883772,
+          "rssBytes": 13561856,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 16.670237,
+              "rssBytes": 13946880,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.162597,
+              "rssBytes": 13950976,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 17.137859,
+              "rssBytes": 13922304,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.578814,
+              "rssBytes": 13922304,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.871882,
+              "rssBytes": 13922304,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.781065,
+              "rssBytes": 13950976,
+              "output": "-314"
+            },
+            {
+              "status": 0,
+              "innerMs": 16.903144,
+              "rssBytes": 13922304,
+              "output": "-314"
+            }
+          ],
+          "bestMs": 16.162597,
+          "medianMs": 16.781065,
+          "rssBytes": 13922304,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 18122.087526999996
+      }
+    },
+    {
+      "fixture": "nqueens",
+      "variant": "parity",
+      "n": 13,
+      "sources": {
+        "typescript": "fixtures/nqueens.ts",
+        "cpp": "native-cpp/nqueens.cpp",
+        "rust": "native-rust/src/bin/nqueens.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "nqueens.cpp"
+        ],
+        "emitMs": 561.1668049999998
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 46.048083,
+              "rssBytes": 55414784,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.247866,
+              "rssBytes": 55218176,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 46.000332,
+              "rssBytes": 55349248,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.783013,
+              "rssBytes": 55377920,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.13469,
+              "rssBytes": 55377920,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.860984,
+              "rssBytes": 55283712,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.205360999999996,
+              "rssBytes": 55312384,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 44.205360999999996,
+          "medianMs": 45.783013,
+          "rssBytes": 55218176,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 29.333206,
+              "rssBytes": 4608000,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.07775,
+              "rssBytes": 4571136,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.751838,
+              "rssBytes": 4571136,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.776765,
+              "rssBytes": 4571136,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 28.84843,
+              "rssBytes": 4571136,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 28.771837,
+              "rssBytes": 4599808,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.915956,
+              "rssBytes": 4567040,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 28.771837,
+          "medianMs": 29.333206,
+          "rssBytes": 4567040,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 1.868127,
+              "rssBytes": 9523200,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.882691,
+              "rssBytes": 8646656,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.820285,
+              "rssBytes": 10272768,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.662971,
+              "rssBytes": 9629696,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.650787,
+              "rssBytes": 8646656,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.676457,
+              "rssBytes": 8646656,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.702597,
+              "rssBytes": 8654848,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 1.650787,
+          "medianMs": 1.702597,
+          "rssBytes": 8646656,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 30.050385,
+              "rssBytes": 2129920,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.438549,
+              "rssBytes": 2138112,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 30.014452,
+              "rssBytes": 2142208,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.421119,
+              "rssBytes": 2109440,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 28.789569,
+              "rssBytes": 1994752,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.281684,
+              "rssBytes": 2129920,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 28.867114,
+              "rssBytes": 1966080,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 28.789569,
+          "medianMs": 29.421119,
+          "rssBytes": 1966080,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 1.702946,
+              "rssBytes": 2174976,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.621919,
+              "rssBytes": 2281472,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.618679,
+              "rssBytes": 2109440,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.639498,
+              "rssBytes": 2109440,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.678349,
+              "rssBytes": 2174976,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.715315,
+              "rssBytes": 2101248,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.714721,
+              "rssBytes": 2174976,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 1.618679,
+          "medianMs": 1.678349,
+          "rssBytes": 2101248,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 29.132458,
+              "rssBytes": 4022272,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 28.942676,
+              "rssBytes": 4022272,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 30.399838,
+              "rssBytes": 4001792,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.264888,
+              "rssBytes": 3993600,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 28.553608,
+              "rssBytes": 4059136,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 29.236682,
+              "rssBytes": 3993600,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 30.150327,
+              "rssBytes": 4001792,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 28.553608,
+          "medianMs": 29.236682,
+          "rssBytes": 3993600,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 1.558453,
+              "rssBytes": 3973120,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.629685,
+              "rssBytes": 3813376,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.599722,
+              "rssBytes": 3989504,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.64502,
+              "rssBytes": 3960832,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.590114,
+              "rssBytes": 4018176,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.627757,
+              "rssBytes": 4018176,
+              "output": "73712"
+            },
+            {
+              "status": 0,
+              "innerMs": 1.661202,
+              "rssBytes": 3796992,
+              "output": "73712"
+            }
+          ],
+          "bestMs": 1.558453,
+          "medianMs": 1.627757,
+          "rssBytes": 3796992,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17730.602775000007
+      }
+    },
+    {
+      "fixture": "primes",
+      "variant": "parity",
+      "n": 6000000,
+      "sources": {
+        "typescript": "fixtures/primes.ts",
+        "cpp": "native-cpp/primes.cpp",
+        "rust": "native-rust/src/bin/primes.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "primes.cpp"
+        ],
+        "emitMs": 507.38631799999985
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 680.016147,
+              "rssBytes": 56098816,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 678.8153510000001,
+              "rssBytes": 56524800,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 678.390968,
+              "rssBytes": 56397824,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 681.866973,
+              "rssBytes": 56627200,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 688.852215,
+              "rssBytes": 56340480,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 678.351555,
+              "rssBytes": 56561664,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 678.957032,
+              "rssBytes": 55934976,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 678.351555,
+          "medianMs": 678.957032,
+          "rssBytes": 55934976,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 539.782995,
+              "rssBytes": 4358144,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 543.410801,
+              "rssBytes": 4382720,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 543.655254,
+              "rssBytes": 4415488,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 540.818688,
+              "rssBytes": 4554752,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 540.812648,
+              "rssBytes": 4513792,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 543.548318,
+              "rssBytes": 4354048,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 541.663388,
+              "rssBytes": 4567040,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 539.782995,
+          "medianMs": 541.663388,
+          "rssBytes": 4354048,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 45.235129,
+              "rssBytes": 9285632,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 43.973337,
+              "rssBytes": 12365824,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.916929,
+              "rssBytes": 8929280,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.772721,
+              "rssBytes": 8998912,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.505283,
+              "rssBytes": 8957952,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.602409,
+              "rssBytes": 8794112,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.885619,
+              "rssBytes": 8617984,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 43.973337,
+          "medianMs": 44.885619,
+          "rssBytes": 8617984,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 529.322934,
+              "rssBytes": 2002944,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 529.160926,
+              "rssBytes": 2142208,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 537.511957,
+              "rssBytes": 2011136,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 534.846319,
+              "rssBytes": 1966080,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 527.788509,
+              "rssBytes": 2129920,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 527.045284,
+              "rssBytes": 1966080,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 534.838981,
+              "rssBytes": 2011136,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 527.045284,
+          "medianMs": 529.322934,
+          "rssBytes": 1966080,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 44.046757,
+              "rssBytes": 2293760,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.386071,
+              "rssBytes": 2289664,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 46.519591,
+              "rssBytes": 2179072,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.794843,
+              "rssBytes": 2097152,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.223182,
+              "rssBytes": 2293760,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.730209,
+              "rssBytes": 2162688,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.460871,
+              "rssBytes": 2158592,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 44.046757,
+          "medianMs": 45.386071,
+          "rssBytes": 2097152,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 535.017171,
+              "rssBytes": 3993600,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 535.361123,
+              "rssBytes": 4059136,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 534.911089,
+              "rssBytes": 3997696,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 538.135545,
+              "rssBytes": 3993600,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 540.450179,
+              "rssBytes": 4022272,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 542.93539,
+              "rssBytes": 3821568,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 543.823422,
+              "rssBytes": 4022272,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 534.911089,
+          "medianMs": 538.135545,
+          "rssBytes": 3821568,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 45.383033,
+              "rssBytes": 3997696,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.046602,
+              "rssBytes": 3862528,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 46.139116,
+              "rssBytes": 3973120,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.93203,
+              "rssBytes": 3973120,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 46.324108,
+              "rssBytes": 3862528,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 46.295978,
+              "rssBytes": 3973120,
+              "output": "412849"
+            },
+            {
+              "status": 0,
+              "innerMs": 46.506696,
+              "rssBytes": 4018176,
+              "output": "412849"
+            }
+          ],
+          "bestMs": 45.046602,
+          "medianMs": 46.139116,
+          "rssBytes": 3862528,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17314.948600000003
+      }
+    },
+    {
+      "fixture": "sort",
+      "variant": "parity",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/sort.ts",
+        "cpp": "native-cpp/sort.cpp",
+        "rust": "native-rust/src/bin/sort.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "sort.cpp"
+        ],
+        "emitMs": 556.937433
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 887.915885,
+              "rssBytes": 292564992,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 923.4200930000001,
+              "rssBytes": 292691968,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 903.923007,
+              "rssBytes": 292655104,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 899.7431819999999,
+              "rssBytes": 293347328,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 922.552006,
+              "rssBytes": 292839424,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 899.04079,
+              "rssBytes": 292626432,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 934.664242,
+              "rssBytes": 292757504,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 887.915885,
+          "medianMs": 903.923007,
+          "rssBytes": 292564992,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 112.790736,
+              "rssBytes": 82538496,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 96.126472,
+              "rssBytes": 82546688,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 93.425252,
+              "rssBytes": 82518016,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 91.19903,
+              "rssBytes": 82509824,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 94.145049,
+              "rssBytes": 82518016,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 92.893318,
+              "rssBytes": 82579456,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 103.671968,
+              "rssBytes": 80224256,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 91.19903,
+          "medianMs": 94.145049,
+          "rssBytes": 80224256,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 30.954612,
+              "rssBytes": 98238464,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 24.553073,
+              "rssBytes": 98439168,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 23.626789,
+              "rssBytes": 98029568,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 41.23259,
+              "rssBytes": 98390016,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 25.187168,
+              "rssBytes": 99000320,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 22.923534,
+              "rssBytes": 98410496,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 22.917134,
+              "rssBytes": 98607104,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 22.917134,
+          "medianMs": 24.553073,
+          "rssBytes": 98029568,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 100.869637,
+              "rssBytes": 69955584,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 99.535713,
+              "rssBytes": 69959680,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 100.495931,
+              "rssBytes": 69951488,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 98.861716,
+              "rssBytes": 70156288,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 99.766179,
+              "rssBytes": 69959680,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 97.993216,
+              "rssBytes": 69955584,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 98.126832,
+              "rssBytes": 70025216,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 97.993216,
+          "medianMs": 99.535713,
+          "rssBytes": 69951488,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 38.301486,
+              "rssBytes": 69988352,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 49.779414,
+              "rssBytes": 72114176,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.932171,
+              "rssBytes": 69894144,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 38.843878,
+              "rssBytes": 69967872,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 41.561896,
+              "rssBytes": 71229440,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 42.832745,
+              "rssBytes": 71225344,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 47.954611,
+              "rssBytes": 70246400,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 38.301486,
+          "medianMs": 42.832745,
+          "rssBytes": 69894144,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 153.895983,
+              "rssBytes": 73293824,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 136.844076,
+              "rssBytes": 73117696,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 149.295608,
+              "rssBytes": 73293824,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 166.263507,
+              "rssBytes": 73093120,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 149.627799,
+              "rssBytes": 73109504,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 137.797854,
+              "rssBytes": 73105408,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 155.408568,
+              "rssBytes": 73293824,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 136.844076,
+          "medianMs": 149.627799,
+          "rssBytes": 73093120,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 42.573703,
+              "rssBytes": 87330816,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 41.983659,
+              "rssBytes": 87687168,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 42.880332,
+              "rssBytes": 87474176,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 42.814036,
+              "rssBytes": 87461888,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 42.004443,
+              "rssBytes": 87654400,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 42.942244,
+              "rssBytes": 87461888,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 41.169938,
+              "rssBytes": 87793664,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 41.169938,
+          "medianMs": 42.573703,
+          "rssBytes": 87330816,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 19159.13588399999
+      }
+    },
+    {
+      "fixture": "sort",
+      "variant": "idiomatic",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/sort.ts",
+        "cpp": "native-cpp/idiomatic/sort.cpp",
+        "rust": "native-rust/src/idiomatic/sort.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "sort.cpp"
+        ],
+        "emitMs": 556.937433
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 887.915885,
+              "rssBytes": 292564992,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 923.4200930000001,
+              "rssBytes": 292691968,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 903.923007,
+              "rssBytes": 292655104,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 899.7431819999999,
+              "rssBytes": 293347328,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 922.552006,
+              "rssBytes": 292839424,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 899.04079,
+              "rssBytes": 292626432,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 934.664242,
+              "rssBytes": 292757504,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 887.915885,
+          "medianMs": 903.923007,
+          "rssBytes": 292564992,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 112.790736,
+              "rssBytes": 82538496,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 96.126472,
+              "rssBytes": 82546688,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 93.425252,
+              "rssBytes": 82518016,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 91.19903,
+              "rssBytes": 82509824,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 94.145049,
+              "rssBytes": 82518016,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 92.893318,
+              "rssBytes": 82579456,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 103.671968,
+              "rssBytes": 80224256,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 91.19903,
+          "medianMs": 94.145049,
+          "rssBytes": 80224256,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 30.954612,
+              "rssBytes": 98238464,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 24.553073,
+              "rssBytes": 98439168,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 23.626789,
+              "rssBytes": 98029568,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 41.23259,
+              "rssBytes": 98390016,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 25.187168,
+              "rssBytes": 99000320,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 22.923534,
+              "rssBytes": 98410496,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 22.917134,
+              "rssBytes": 98607104,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 22.917134,
+          "medianMs": 24.553073,
+          "rssBytes": 98029568,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 103.767106,
+              "rssBytes": 33943552,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 102.485319,
+              "rssBytes": 34107392,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 103.140594,
+              "rssBytes": 33939456,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 102.567626,
+              "rssBytes": 33968128,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 101.89824,
+              "rssBytes": 33902592,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 104.139948,
+              "rssBytes": 34070528,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 104.219201,
+              "rssBytes": 34107392,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 101.89824,
+          "medianMs": 103.140594,
+          "rssBytes": 33902592,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 25.765649,
+              "rssBytes": 33058816,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 24.85796,
+              "rssBytes": 33026048,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 24.933816,
+              "rssBytes": 32907264,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 24.487714,
+              "rssBytes": 33550336,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 25.136997,
+              "rssBytes": 33255424,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 25.634449,
+              "rssBytes": 33251328,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 25.983237,
+              "rssBytes": 33783808,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 24.487714,
+          "medianMs": 25.136997,
+          "rssBytes": 32907264,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 102.441086,
+              "rssBytes": 53628928,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 103.784209,
+              "rssBytes": 53624832,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 102.294117,
+              "rssBytes": 53452800,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 102.186849,
+              "rssBytes": 53620736,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 102.662756,
+              "rssBytes": 53489664,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 101.789682,
+              "rssBytes": 53452800,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 102.882724,
+              "rssBytes": 53456896,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 101.789682,
+          "medianMs": 102.441086,
+          "rssBytes": 53452800,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 43.480741,
+              "rssBytes": 51773440,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 43.041916,
+              "rssBytes": 51843072,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 43.020064,
+              "rssBytes": 51843072,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 44.59925,
+              "rssBytes": 51843072,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 45.765561,
+              "rssBytes": 51785728,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 43.959661,
+              "rssBytes": 51777536,
+              "output": "948640972"
+            },
+            {
+              "status": 0,
+              "innerMs": 43.820333,
+              "rssBytes": 51769344,
+              "output": "948640972"
+            }
+          ],
+          "bestMs": 43.020064,
+          "medianMs": 43.820333,
+          "rssBytes": 51769344,
+          "match": true
+        }
+      }
+    },
+    {
+      "fixture": "spectral-norm",
+      "variant": "parity",
+      "n": 3000,
+      "sources": {
+        "typescript": "fixtures/spectral-norm.ts",
+        "cpp": "native-cpp/spectral-norm.cpp",
+        "rust": "native-rust/src/bin/spectral-norm.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "spectral_norm.cpp"
+        ],
+        "emitMs": 533.7634500000004
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 464.829068,
+              "rssBytes": 59580416,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 464.03718200000003,
+              "rssBytes": 58507264,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 465.272433,
+              "rssBytes": 59375616,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 464.003085,
+              "rssBytes": 58601472,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 472.451032,
+              "rssBytes": 58621952,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 462.438513,
+              "rssBytes": 58359808,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 465.652404,
+              "rssBytes": 59047936,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 462.438513,
+          "medianMs": 464.829068,
+          "rssBytes": 58359808,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 155.327903,
+              "rssBytes": 4902912,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 157.319006,
+              "rssBytes": 4792320,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 155.120616,
+              "rssBytes": 4935680,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 152.247379,
+              "rssBytes": 4792320,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 155.816063,
+              "rssBytes": 4755456,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 156.006767,
+              "rssBytes": 4743168,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 152.022072,
+              "rssBytes": 4894720,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 152.022072,
+          "medianMs": 155.327903,
+          "rssBytes": 4743168,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 9.557582,
+              "rssBytes": 12255232,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 9.696591,
+              "rssBytes": 9310208,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 9.644921,
+              "rssBytes": 9150464,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 10.666424,
+              "rssBytes": 9797632,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 9.574722,
+              "rssBytes": 12734464,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 9.829752,
+              "rssBytes": 11575296,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 9.854083,
+              "rssBytes": 9707520,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 9.557582,
+          "medianMs": 9.696591,
+          "rssBytes": 9150464,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 160.418327,
+              "rssBytes": 2162688,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 162.995211,
+              "rssBytes": 2174976,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 162.645696,
+              "rssBytes": 2183168,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 160.438812,
+              "rssBytes": 2334720,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 160.89685,
+              "rssBytes": 2289664,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 162.659022,
+              "rssBytes": 2285568,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 160.889471,
+              "rssBytes": 2121728,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 160.418327,
+          "medianMs": 160.89685,
+          "rssBytes": 2121728,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 13.360673,
+              "rssBytes": 2285568,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.124558,
+              "rssBytes": 2482176,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.770774,
+              "rssBytes": 2097152,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.45684,
+              "rssBytes": 2449408,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 21.460605,
+              "rssBytes": 2285568,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.442704,
+              "rssBytes": 2322432,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 15.174529,
+              "rssBytes": 2347008,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 13.124558,
+          "medianMs": 13.770774,
+          "rssBytes": 2097152,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 152.876675,
+              "rssBytes": 4063232,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.861993,
+              "rssBytes": 3997696,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.258993,
+              "rssBytes": 4063232,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 151.972074,
+              "rssBytes": 4026368,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 151.383038,
+              "rssBytes": 4009984,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 151.210051,
+              "rssBytes": 4063232,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 151.725441,
+              "rssBytes": 4005888,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 151.210051,
+          "medianMs": 151.972074,
+          "rssBytes": 3997696,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 9.936989,
+              "rssBytes": 4136960,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 9.940065,
+              "rssBytes": 4026368,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 10.211116,
+              "rssBytes": 3964928,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 11.128632,
+              "rssBytes": 4030464,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 10.936892,
+              "rssBytes": 3956736,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 10.050618,
+              "rssBytes": 4186112,
+              "output": "1274224153"
+            },
+            {
+              "status": 0,
+              "innerMs": 10.386055,
+              "rssBytes": 4141056,
+              "output": "1274224153"
+            }
+          ],
+          "bestMs": 9.936989,
+          "medianMs": 10.211116,
+          "rssBytes": 3956736,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17619.02797699999
+      }
+    },
+    {
+      "fixture": "strings",
+      "variant": "parity",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/strings.ts",
+        "cpp": "native-cpp/strings.cpp",
+        "rust": "native-rust/src/bin/strings.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "strings.cpp"
+        ],
+        "emitMs": 520.613378
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 609.976564,
+              "rssBytes": 94023680,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 606.759435,
+              "rssBytes": 93937664,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 600.265689,
+              "rssBytes": 93917184,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 604.92164,
+              "rssBytes": 93855744,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 606.504251,
+              "rssBytes": 93069312,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 583.223559,
+              "rssBytes": 93577216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 614.066396,
+              "rssBytes": 94666752,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 583.223559,
+          "medianMs": 606.504251,
+          "rssBytes": 93069312,
+          "match": true
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 152.412563,
+              "rssBytes": 4583424,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 150.002319,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.892574,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 148.802165,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 154.06832,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.939722,
+              "rssBytes": 4620288,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 149.387317,
+              "rssBytes": 4579328,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 148.802165,
+          "medianMs": 152.412563,
+          "rssBytes": 4554752,
+          "match": true
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 8.703909,
+              "rssBytes": 9609216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.881002,
+              "rssBytes": 8294400,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.946697,
+              "rssBytes": 8466432,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.799831,
+              "rssBytes": 8757248,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.59815,
+              "rssBytes": 9097216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.928085,
+              "rssBytes": 8654848,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.787021,
+              "rssBytes": 9453568,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 8.59815,
+          "medianMs": 8.799831,
+          "rssBytes": 8294400,
+          "match": true
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 299.093363,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 298.046479,
+              "rssBytes": 2015232,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 302.36577,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 297.31951,
+              "rssBytes": 2134016,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 294.251613,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 302.693249,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 294.453973,
+              "rssBytes": 1961984,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 294.251613,
+          "medianMs": 298.046479,
+          "rssBytes": 1961984,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 18.750258,
+              "rssBytes": 3436544,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 19.112938,
+              "rssBytes": 3584000,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.602081,
+              "rssBytes": 3489792,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 18.932562,
+              "rssBytes": 3629056,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 19.253481,
+              "rssBytes": 3489792,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 19.216255,
+              "rssBytes": 3608576,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 21.217099,
+              "rssBytes": 3588096,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 18.602081,
+          "medianMs": 19.112938,
+          "rssBytes": 3436544,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 226.455031,
+              "rssBytes": 3997696,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 237.969073,
+              "rssBytes": 4169728,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 247.818925,
+              "rssBytes": 3997696,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 241.369115,
+              "rssBytes": 3989504,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 226.313325,
+              "rssBytes": 4022272,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 232.077496,
+              "rssBytes": 4063232,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 230.738974,
+              "rssBytes": 4018176,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 226.313325,
+          "medianMs": 232.077496,
+          "rssBytes": 3989504,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 12.822625,
+              "rssBytes": 3813376,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.09583,
+              "rssBytes": 3993600,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.309822,
+              "rssBytes": 4009984,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.223782,
+              "rssBytes": 4005888,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.060674,
+              "rssBytes": 3813376,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 12.90776,
+              "rssBytes": 3977216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 13.094401,
+              "rssBytes": 3805184,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 12.822625,
+          "medianMs": 13.094401,
+          "rssBytes": 3805184,
+          "match": true
+        }
+      },
+      "geaBuild": {
+        "status": 0,
+        "ms": 17699.589748000028
+      }
+    },
+    {
+      "fixture": "strings",
+      "variant": "idiomatic",
+      "n": 2000000,
+      "sources": {
+        "typescript": "fixtures/strings.ts",
+        "cpp": "native-cpp/idiomatic/strings.cpp",
+        "rust": "native-rust/src/idiomatic/strings.rs"
+      },
+      "emit": {
+        "state": "ok",
+        "units": [
+          "strings.cpp"
+        ],
+        "emitMs": 520.613378
+      },
+      "runtimes": {
+        "node": {
+          "state": "ok",
+          "env": {},
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 609.976564,
+              "rssBytes": 94023680,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 606.759435,
+              "rssBytes": 93937664,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 600.265689,
+              "rssBytes": 93917184,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 604.92164,
+              "rssBytes": 93855744,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 606.504251,
+              "rssBytes": 93069312,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 583.223559,
+              "rssBytes": 93577216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 614.066396,
+              "rssBytes": 94666752,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 583.223559,
+          "medianMs": 606.504251,
+          "rssBytes": 93069312,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "gea@1": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 152.412563,
+              "rssBytes": 4583424,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 150.002319,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.892574,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 148.802165,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 154.06832,
+              "rssBytes": 4554752,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.939722,
+              "rssBytes": 4620288,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 149.387317,
+              "rssBytes": 4579328,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 148.802165,
+          "medianMs": 152.412563,
+          "rssBytes": 4554752,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "gea@20": {
+          "state": "ok",
+          "env": {
+            "GEA_PARALLEL_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 8.703909,
+              "rssBytes": 9609216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.881002,
+              "rssBytes": 8294400,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.946697,
+              "rssBytes": 8466432,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.799831,
+              "rssBytes": 8757248,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.59815,
+              "rssBytes": 9097216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.928085,
+              "rssBytes": 8654848,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.787021,
+              "rssBytes": 9453568,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 8.59815,
+          "medianMs": 8.799831,
+          "rssBytes": 8294400,
+          "match": true,
+          "sharedWith": "parity"
+        },
+        "rust@1": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 148.725536,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 152.669004,
+              "rssBytes": 2146304,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 149.32683,
+              "rssBytes": 2121728,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 151.890867,
+              "rssBytes": 2183168,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 142.480901,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.814248,
+              "rssBytes": 1966080,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 153.932786,
+              "rssBytes": 2134016,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 142.480901,
+          "medianMs": 151.890867,
+          "rssBytes": 1966080,
+          "match": true
+        },
+        "rust@20": {
+          "state": "ok",
+          "env": {
+            "RAYON_NUM_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 8.781997,
+              "rssBytes": 2179072,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.501062,
+              "rssBytes": 2285568,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.149561,
+              "rssBytes": 2101248,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.791017,
+              "rssBytes": 2113536,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.449338,
+              "rssBytes": 2310144,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.644981,
+              "rssBytes": 2293760,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.528216,
+              "rssBytes": 2310144,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 8.149561,
+          "medianMs": 8.528216,
+          "rssBytes": 2101248,
+          "match": true
+        },
+        "cpp@1": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "1"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 146.271815,
+              "rssBytes": 4059136,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 141.170871,
+              "rssBytes": 3997696,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 148.934734,
+              "rssBytes": 4063232,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 142.809052,
+              "rssBytes": 3997696,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 147.257228,
+              "rssBytes": 4018176,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 147.60551,
+              "rssBytes": 4059136,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 145.810537,
+              "rssBytes": 4026368,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 141.170871,
+          "medianMs": 146.271815,
+          "rssBytes": 3997696,
+          "match": true
+        },
+        "cpp@20": {
+          "state": "ok",
+          "env": {
+            "PAR_THREADS": "20"
+          },
+          "runs": [
+            {
+              "status": 0,
+              "innerMs": 8.230837,
+              "rssBytes": 3866624,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.510857,
+              "rssBytes": 3952640,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.408049,
+              "rssBytes": 3973120,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.291411,
+              "rssBytes": 3960832,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.573053,
+              "rssBytes": 3973120,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.309326,
+              "rssBytes": 3977216,
+              "output": "3131419599"
+            },
+            {
+              "status": 0,
+              "innerMs": 8.540495,
+              "rssBytes": 3977216,
+              "output": "3131419599"
+            }
+          ],
+          "bestMs": 8.230837,
+          "medianMs": 8.408049,
+          "rssBytes": 3866624,
+          "match": true
+        }
+      }
+    }
+  ],
+  "rustBuild": {
+    "status": 0,
+    "ms": 103.67783600000075
+  },
+  "complete": true,
+  "endLoad": "1.57 0.88 0.41 2/296 7080",
+  "failures": []
+}
