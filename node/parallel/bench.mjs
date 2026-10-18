@@ -273,19 +273,22 @@ async function emit() {
 
     // scriptc compiles npm package code only through its embedded dynamic
     // engine, which would measure that engine rather than scriptc. So it gets
-    // the library as source: src/index.ts with `tasks` as the sequential loop
-    // that defines it (native/index.js), the program importing that file.
+    // the library as source: src/index.ts with its native primitives as the
+    // sequential loops that define them (native/index.js), the program
+    // importing that file.
     const library = fs
       .readFileSync(path.join(parallelRoot, 'src/index.ts'), 'utf8')
       .replace(
-        /import \{ tasks, type int \} from '@geastack\/parallel\/native'\n/,
+        /import \{[^}]*\} from '@geastack\/parallel\/native'\n/,
         'function tasks(count: number, body: (index: int) => boolean): void {\n' +
           '  for (let index = 0; index < count; index++) {\n    if (body(index)) return\n  }\n}\n' +
+          'function tabulate<U>(length: number, body: (index: int) => U): U[] {\n' +
+          '  const out: U[] = []\n  for (let index = 0; index < length; index++) out.push(body(index))\n  return out\n}\n' +
           'declare const intBrand: unique symbol\ntype int = number & { readonly [intBrand]?: never }\n',
       );
 
     if (!library.startsWith('function tasks'))
-      throw new Error('could not inline tasks into the library source');
+      throw new Error('could not inline the native primitives into the library source');
     fs.writeFileSync(path.join(dir, 'scriptc-parallel.ts'), library);
     fs.writeFileSync(
       path.join(dir, 'scriptc-program.ts'),
