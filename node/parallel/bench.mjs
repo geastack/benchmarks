@@ -68,6 +68,11 @@ const verifyOnly = flag('--verify-only');
 // The release performance gate measures GeaStack against Rust and C++ only;
 // scriptc's single-thread runs are the slowest part of a full run.
 const withScriptc = !flag('--no-scriptc');
+// scriptc's single-thread runs dominate a full run, so they can be taken on
+// their own: Node (the output oracle) and scriptc only.
+const scriptcOnly = flag('--scriptc-only');
+
+if (scriptcOnly && !withScriptc) throw new Error('--scriptc-only and --no-scriptc exclude each other');
 
 const output = path.resolve(
   arg('--output', path.join(work, verifyOnly ? 'parallel-verification.json' : 'parallel.json')),
@@ -515,7 +520,16 @@ function runAll() {
   const result = {
     mode: verifyOnly ? 'verification' : 'benchmark',
     utc: new Date().toISOString(),
-    emitted: { ...emitted, fixtures: undefined },
+    // Published results name the compiler by its place in the workspace, not
+    // by this machine's absolute path; the hashes identify the build.
+    emitted: {
+      ...emitted,
+      fixtures: undefined,
+      compilerInputs: {
+        ...emitted.compilerInputs,
+        compilerRoot: path.relative(path.join(HERE, '../../..'), emitted.compilerInputs.compilerRoot),
+      },
+    },
     node: process.version,
     scriptc: fs.existsSync(scriptc)
       ? JSON.parse(
@@ -545,18 +559,20 @@ function runAll() {
 
   const rustTarget = path.join(work, 'rust-target');
 
-  const rustBuild = build('cargo', ['build', '--release', '--locked', '--quiet'], {
-    cwd: path.join(HERE, 'native-rust'),
-    env: {
-      ...process.env,
-      CARGO_TARGET_DIR: rustTarget,
-      CARGO_BUILD_JOBS: String(nativeBuildJobs()),
-      RUSTFLAGS: nativeRustFlags(),
-    },
-  });
+  const rustBuild = scriptcOnly
+    ? { status: null, skipped: '--scriptc-only' }
+    : build('cargo', ['build', '--release', '--locked', '--quiet'], {
+        cwd: path.join(HERE, 'native-rust'),
+        env: {
+          ...process.env,
+          CARGO_TARGET_DIR: rustTarget,
+          CARGO_BUILD_JOBS: String(nativeBuildJobs()),
+          RUSTFLAGS: nativeRustFlags(),
+        },
+      });
 
   result.rustBuild = rustBuild;
-  if (rustBuild.status !== 0) console.log('rust build failed\n' + rustBuild.log);
+  if (!scriptcOnly && rustBuild.status !== 0) console.log('rust build failed\n' + rustBuild.log);
 
   // A runtime whose source this variant shares with parity keeps parity's
   // measurement: the same binary, measured once.
@@ -642,7 +658,9 @@ function runAll() {
         row.runtimes.scriptc = { state: 'not-installed' };
       }
 
-      if (row.emit?.state === 'ok') {
+      if (scriptcOnly) {
+        // Measured in the main run.
+      } else if (row.emit?.state === 'ok') {
         const exe = path.join(dir, 'gea');
 
         const b = build(cxx, [
@@ -663,11 +681,15 @@ function runAll() {
       }
     }
 
-    if (shareRust) share('rust');
+    if (scriptcOnly) {
+      // Rust and C++ are measured in the main run.
+    } else if (shareRust) share('rust');
     else if (rustBuild.status === 0)
       threaded('rust', path.join(rustTarget, 'release', rustBinary), 'RAYON_NUM_THREADS');
 
-    if (shareCpp) {
+    if (scriptcOnly) {
+      // See above.
+    } else if (shareCpp) {
       share('cpp');
     } else {
       const cppExe = path.join(dir, 'cpp');
@@ -715,7 +737,7 @@ function runAll() {
     [
       'node',
       ...(withScriptc ? ['scriptc'] : []),
-      ...[...new Set(threadCounts)].flatMap((threads) =>
+      ...(scriptcOnly ? [] : [...new Set(threadCounts)]).flatMap((threads) =>
         ['gea', 'rust', 'cpp'].map((runtime) => `${runtime}@${threads}`),
       ),
     ],
