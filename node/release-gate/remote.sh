@@ -17,9 +17,11 @@ root=${GEASTACK_ROOT:?set GEASTACK_ROOT to the geastack checkout root}
 remote=${GEA_PERF_ROOT:-Projects/Code/github/geastack}
 
 # No --delete: the machine keeps its own build outputs (Rust targets, emitted
-# fixtures) between runs, and other work lives beside these trees.
+# fixtures) between runs, and other work lives beside these trees. macOS rsync
+# writes extended attributes as AppleDouble `._*` files, which would land in
+# the runtime directory the gate fingerprints.
 sync() {
-  rsync -az --exclude node_modules --exclude .git --exclude measurements "$@"
+  rsync -az --exclude node_modules --exclude .git --exclude measurements --exclude '._*' "$@"
 }
 ssh "$host" "mkdir -p $remote"
 sync "$root/compiler/" "$host:$remote/compiler/"
