@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-17T00:31:40.883Z",
+  "utc": "2026-10-20T02:11:47.340Z",
   "fingerprint": {
     "cpu": "AMD Ryzen 9 9900X3D 12-Core Processor",
     "logicalCpus": 20,
@@ -60,1343 +60,1343 @@
   "runs": 3,
   "metrics": {
     "http/gea-raw/w1/": {
-      "value": 109303.64,
+      "value": 105882.96,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        109303.64,
-        108846.95,
-        110246.93
+        105907.79,
+        103149.48,
+        105882.96
       ],
-      "spread": 0.012808173634473619,
+      "spread": 0.026050556199033324,
       "margin": 0.04
     },
     "http/gea-raw/w1/json": {
-      "value": 109785.73,
+      "value": 105893.55,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        109921.14,
-        109530.34,
-        109785.73
+        105893.55,
+        105335.4,
+        106826.8
       ],
-      "spread": 0.0035596611690791044,
+      "spread": 0.014083955066196276,
       "margin": 0.04
     },
     "http/gea-raw/w4/": {
-      "value": 412984.19,
+      "value": 408823.5,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        412308.83,
-        412984.19,
-        415129.85
+        403913.86,
+        408823.5,
+        411014.75
       ],
-      "spread": 0.006830818390408506,
+      "spread": 0.017369084702811885,
       "margin": 0.04
     },
     "http/gea-raw/w4/json": {
-      "value": 414359.29,
+      "value": 412495.06,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        413128.13,
-        414359.29,
-        415995.38
+        409679.21,
+        413196.87,
+        412495.06
       ],
-      "spread": 0.006919719357565267,
+      "spread": 0.008527762732479691,
       "margin": 0.04
     },
     "http/hono-gea/w1/": {
-      "value": 80940.23,
+      "value": 77824.72,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        80940.23,
-        79504.96,
-        81219.53
+        77824.72,
+        77855.75,
+        76412.36
       ],
-      "spread": 0.02118316194554911,
+      "spread": 0.01854667771371358,
       "margin": 0.04
     },
     "http/hono-gea/w1/json": {
-      "value": 70174.75,
+      "value": 67888.21,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        70174.75,
-        68455.29,
-        70229.63
+        67888.21,
+        67990.93,
+        67719.92
       ],
-      "spread": 0.025284593105070002,
+      "spread": 0.003992003913492413,
       "margin": 0.04
     },
     "http/hono-gea/w4/": {
-      "value": 343207.08,
+      "value": 338428.36,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        343650.14,
-        341171.85,
-        343207.08
+        336251.9,
+        338428.36,
+        339542.63
       ],
-      "spread": 0.007220975744439879,
+      "spread": 0.009723564538149172,
       "margin": 0.04
     },
     "http/hono-gea/w4/json": {
-      "value": 301313.84,
+      "value": 299469.35,
       "better": "higher",
       "unit": "rps",
       "role": "gated",
       "runs": [
-        301313.84,
-        299748.46,
-        303104.6
+        294086.28,
+        299469.35,
+        300003.61
       ],
-      "spread": 0.011138353286393865,
+      "spread": 0.0197593843910903,
       "margin": 0.04
     },
     "http/node-raw/w1/": {
-      "value": 49018.38,
+      "value": 46504.5,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        47716.01,
-        49098.21,
-        49018.38
+        46504.5,
+        46806.33,
+        46344.04
       ],
-      "spread": 0.028197586293141414,
-      "margin": 0.04229637943971212
-    },
-    "http/node-raw/w1/json": {
-      "value": 48378.34,
-      "better": "higher",
-      "unit": "rps",
-      "role": "control",
-      "runs": [
-        48173.61,
-        48378.34,
-        48920.65
-      ],
-      "spread": 0.015441621188325207,
+      "spread": 0.009940758421228072,
       "margin": 0.04
     },
-    "http/node-raw/w4/": {
-      "value": 216914.65,
+    "http/node-raw/w1/json": {
+      "value": 46289.33,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        217108.12,
-        215880.76,
-        216914.65
+        47441.06,
+        46070,
+        46289.33
       ],
-      "spread": 0.0056582623626388814,
+      "spread": 0.029619352883267,
+      "margin": 0.0444290293249005
+    },
+    "http/node-raw/w4/": {
+      "value": 211205.11,
+      "better": "higher",
+      "unit": "rps",
+      "role": "control",
+      "runs": [
+        211424.06,
+        208547.52,
+        211205.11
+      ],
+      "spread": 0.01361965153210549,
       "margin": 0.04
     },
     "http/node-raw/w4/json": {
-      "value": 216600.45,
+      "value": 210972.99,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        217048.84,
-        216277,
-        216600.45
+        208103.98,
+        210972.99,
+        211162.81
       ],
-      "spread": 0.003563427499804347,
+      "spread": 0.014498680613096431,
       "margin": 0.04
     },
     "http/hono-node/w1/": {
-      "value": 49762.4,
+      "value": 46850.93,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        49687.69,
-        50076.35,
-        49762.4
+        46850.93,
+        47175.63,
+        46232.59
       ],
-      "spread": 0.007810314615050645,
+      "spread": 0.02012852252879507,
       "margin": 0.04
     },
     "http/hono-node/w1/json": {
-      "value": 42181.69,
+      "value": 39527.51,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        41993.49,
-        42829.34,
-        42181.69
+        39527.51,
+        39952.47,
+        39487.29
       ],
-      "spread": 0.019815469697871246,
+      "spread": 0.011768512613114266,
       "margin": 0.04
     },
     "http/hono-node/w4/": {
-      "value": 221530.89,
+      "value": 218705.19,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        219780.6,
-        221530.89,
-        222059.69
+        217970.58,
+        218705.19,
+        219439.5
       ],
-      "spread": 0.01028791063855698,
+      "spread": 0.006716438690823993,
       "margin": 0.04
     },
     "http/hono-node/w4/json": {
-      "value": 194310.86,
+      "value": 190927.63,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        193948.86,
-        195225.87,
-        194310.86
+        191088.12,
+        190927.63,
+        189223.91
       ],
-      "spread": 0.006571994998118013,
+      "spread": 0.009763961350172271,
       "margin": 0.04
     },
     "http/rust-hyper/w1/": {
-      "value": 102375.07,
+      "value": 100262.04,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        102842.47,
-        102375.07,
-        102034.22
+        100262.04,
+        99996.76,
+        100687.96
       ],
-      "spread": 0.007894988496711162,
+      "spread": 0.00689393513237923,
       "margin": 0.04
     },
     "http/rust-hyper/w1/json": {
-      "value": 103419.01,
+      "value": 100889.64,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        103278.16,
-        103534.72,
-        103419.01
+        101172.28,
+        100889.64,
+        100643.19
       ],
-      "spread": 0.0024807818214465376,
+      "spread": 0.00524424509791091,
       "margin": 0.04
     },
     "http/rust-hyper/w4/": {
-      "value": 356409.32,
+      "value": 352127.38,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        353062.04,
-        357034,
-        356409.32
+        349163.54,
+        352127.38,
+        355040.84
       ],
-      "spread": 0.011144377481486794,
+      "spread": 0.01669083500408303,
       "margin": 0.04
     },
     "http/rust-hyper/w4/json": {
-      "value": 359525.8,
+      "value": 356536.42,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        360642.97,
-        358428.95,
-        359525.8
+        356758.62,
+        356536.42,
+        354006.91
       ],
-      "spread": 0.00615816723027933,
+      "spread": 0.007717893167828468,
       "margin": 0.04
     },
     "http/rust-axum/w1/": {
-      "value": 95501.36,
+      "value": 93289.03,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        95501.36,
-        94921.26,
-        95984.58
+        93286.81,
+        93404.12,
+        93289.03
       ],
-      "spread": 0.011134082279037776,
+      "spread": 0.0012574897605859732,
       "margin": 0.04
     },
     "http/rust-axum/w1/json": {
-      "value": 97029.31,
+      "value": 94533.11,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        97227.84,
-        96301.11,
-        97029.31
+        94699.02,
+        94533.11,
+        94291.56
       ],
-      "spread": 0.009551031538820547,
+      "spread": 0.004310235852813965,
       "margin": 0.04
     },
     "http/rust-axum/w4/": {
-      "value": 328504.03,
+      "value": 326464.59,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        332538.09,
-        328504.03,
-        327553.86
+        327480.1,
+        325236.51,
+        326464.59
       ],
-      "spread": 0.015172507929354897,
+      "spread": 0.0068723839237816485,
       "margin": 0.04
     },
     "http/rust-axum/w4/json": {
-      "value": 331582.35,
+      "value": 328868.34,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        329584.3,
-        331582.35,
-        334759.7
+        323206.43,
+        328868.34,
+        330488.46
       ],
-      "spread": 0.015608189036599879,
+      "spread": 0.022142690901775546,
       "margin": 0.04
     },
     "http/cpp-epoll/w1/": {
-      "value": 116244.38,
+      "value": 112746.04,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        115895.49,
-        116606.85,
-        116244.38
+        113447.87,
+        112380.18,
+        112746.04
       ],
-      "spread": 0.006119521649132634,
+      "spread": 0.00946986696827669,
       "margin": 0.04
     },
     "http/cpp-epoll/w1/json": {
-      "value": 115137.32,
+      "value": 113800.35,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        114554.98,
-        116303.28,
-        115137.32
+        112076.44,
+        113800.35,
+        114614.15
       ],
-      "spread": 0.015184477109594028,
+      "spread": 0.022299667795397743,
       "margin": 0.04
     },
     "http/cpp-epoll/w4/": {
-      "value": 414088.79,
+      "value": 410151.33,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        413227.89,
-        418058.25,
-        414088.79
+        409650.33,
+        410983.83,
+        410151.33
       ],
-      "spread": 0.011665034448288219,
+      "spread": 0.0032512390000051933,
       "margin": 0.04
     },
     "http/cpp-epoll/w4/json": {
-      "value": 415825.13,
+      "value": 409506.1,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        415825.13,
-        414780.83,
-        417950.62
+        412904.36,
+        409506.1,
+        406352.35
       ],
-      "spread": 0.007622891863221395,
+      "spread": 0.015999786083772647,
       "margin": 0.04
     },
     "http/cpp-drogon/w1/": {
-      "value": 91567.11,
+      "value": 89163.92,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        91075.9,
-        91567.11,
-        92091.54
+        87735.18,
+        89163.92,
+        90216.65
       ],
-      "spread": 0.011091755544103112,
-      "margin": 0.04
+      "spread": 0.02783042737466008,
+      "margin": 0.04174564106199012
     },
     "http/cpp-drogon/w1/json": {
-      "value": 91674.16,
+      "value": 88865.48,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        91906.39,
-        91674.16,
-        91599.36
+        88275.96,
+        89721.82,
+        88865.48
       ],
-      "spread": 0.003349144404486486,
+      "spread": 0.016270209759740233,
       "margin": 0.04
     },
     "http/cpp-drogon/w4/": {
-      "value": 379026.54,
+      "value": 374581.98,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        378928.26,
-        379026.54,
-        380382.66
+        368724.5,
+        374637.26,
+        374581.98
       ],
-      "spread": 0.003837198313342293,
+      "spread": 0.01578495580593602,
       "margin": 0.04
     },
     "http/cpp-drogon/w4/json": {
-      "value": 379437.29,
+      "value": 370763.2,
       "better": "higher",
       "unit": "rps",
       "role": "control",
       "runs": [
-        379082.08,
-        379814.61,
-        379437.29
+        372146.8,
+        370763.2,
+        369930.17
       ],
-      "spread": 0.0019305693438828055,
+      "spread": 0.005978559900227435,
       "margin": 0.04
     },
     "parallel/binary-trees:parity/node": {
-      "value": 646.339571,
+      "value": 672.418233,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        660.895564,
-        646.339571,
-        644.519441
+        676.775097,
+        653.716193,
+        672.418233
       ],
-      "spread": 0.025336717315115474,
-      "margin": 0.04
+      "spread": 0.034292502594884255,
+      "margin": 0.05143875389232638
     },
     "parallel/binary-trees:parity/gea@1": {
-      "value": 967.053649,
+      "value": 825.202339,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        967.053649,
-        1091.933625,
-        916.495714
+        825.202339,
+        802.964505,
+        830.528608
       ],
-      "spread": 0.18141486894901307,
-      "margin": 0.2721223034235196
+      "spread": 0.03340284157871241,
+      "margin": 0.050104262368068614
     },
     "parallel/binary-trees:parity/gea@20": {
-      "value": 88.579403,
+      "value": 72.799302,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        89.752947,
-        87.905353,
-        88.579403
+        72.799302,
+        73.005493,
+        72.730302
       ],
-      "spread": 0.02085805432669264,
+      "spread": 0.0037801323974233523,
       "margin": 0.04
     },
     "parallel/binary-trees:parity/rust@1": {
-      "value": 1209.481889,
+      "value": 1210.023257,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        1209.481889,
-        1197.229314,
-        1218.827028
+        1210.023257,
+        1225.964043,
+        1203.701659
       ],
-      "spread": 0.017856996616838136,
+      "spread": 0.018398310835111398,
       "margin": 0.04
     },
     "parallel/binary-trees:parity/rust@20": {
-      "value": 127.228899,
+      "value": 127.100704,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        129.36183,
-        127.228899,
-        125.084905
+        127.571923,
+        124.790466,
+        127.100704
       ],
-      "spread": 0.03361598688360882,
-      "margin": 0.05042398032541323
+      "spread": 0.02188388350704968,
+      "margin": 0.04
     },
     "parallel/binary-trees:parity/cpp@1": {
-      "value": 930.349745,
+      "value": 934.92473,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        945.136075,
-        926.686298,
-        930.349745
+        910.574624,
+        934.92473,
+        939.700515
       ],
-      "spread": 0.019831012045905424,
-      "margin": 0.04
+      "spread": 0.03115319347686955,
+      "margin": 0.04672979021530432
     },
     "parallel/binary-trees:parity/cpp@20": {
-      "value": 115.532366,
+      "value": 116.909037,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        115.532366,
-        113.259083,
-        116.279448
+        125.256021,
+        116.909037,
+        116.604634
       ],
-      "spread": 0.02614302038962829,
-      "margin": 0.04
+      "spread": 0.07400101157278371,
+      "margin": 0.11100151735917557
     },
     "parallel/collatz:parity/node": {
-      "value": 3156.281357,
+      "value": 3123.979229,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        3159.3146060000004,
-        3156.281357,
-        3152.330598
+        3173.538631,
+        3117.09739,
+        3123.979229
       ],
-      "spread": 0.0022127330266394746,
+      "spread": 0.01806709867852325,
       "margin": 0.04
     },
     "parallel/collatz:parity/gea@1": {
-      "value": 285.300412,
+      "value": 287.772358,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        284.586517,
-        286.278375,
-        285.300412
+        288.469353,
+        286.238968,
+        287.772358
       ],
-      "spread": 0.005930093083777138,
+      "spread": 0.007750518553974571,
       "margin": 0.04
     },
     "parallel/collatz:parity/gea@20": {
-      "value": 15.730785,
+      "value": 15.405334,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        15.730785,
-        15.313134,
-        15.81336
+        15.405334,
+        15.288303,
+        16.032829
       ],
-      "spread": 0.031799175947036316,
-      "margin": 0.04769876392055447
+      "spread": 0.04832910471139403,
+      "margin": 0.07249365706709104
     },
     "parallel/collatz:parity/rust@1": {
-      "value": 282.979683,
+      "value": 285.349032,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        283.70256,
-        282.429409,
-        282.979683
+        285.349032,
+        285.295201,
+        285.507669
       ],
-      "spread": 0.004499089780943688,
+      "spread": 0.0007445898747608199,
       "margin": 0.04
     },
     "parallel/collatz:parity/rust@20": {
-      "value": 15.00458,
+      "value": 15.20795,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        15.538575,
-        14.867039,
-        15.00458
+        16.904922,
+        15.203472,
+        15.20795
       ],
-      "spread": 0.04475540135078754,
-      "margin": 0.06713310202618131
+      "spread": 0.11187898434700268,
+      "margin": 0.16781847652050402
     },
     "parallel/collatz:parity/cpp@1": {
-      "value": 282.499564,
+      "value": 284.442342,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        283.485751,
-        282.421086,
-        282.499564
+        283.588831,
+        284.442342,
+        285.07134
       ],
-      "spread": 0.0037687314802368715,
+      "spread": 0.005211984227017767,
       "margin": 0.04
     },
     "parallel/collatz:parity/cpp@20": {
-      "value": 15.430595,
+      "value": 15.528061,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        15.56071,
-        15.357482,
-        15.430595
+        15.45167,
+        15.805409,
+        15.528061
       ],
-      "spread": 0.013170457782088188,
+      "spread": 0.022780629210562682,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/node": {
-      "value": 612.693474,
+      "value": 617.8462450000001,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        614.123544,
-        612.693474,
-        610.941839
+        618.7117860000001,
+        615.013543,
+        617.8462450000001
       ],
-      "spread": 0.005192980070814463,
+      "spread": 0.005985701183633555,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/gea@1": {
-      "value": 613.925312,
+      "value": 614.743465,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        615.115931,
-        611.99953,
-        613.925312
+        614.743465,
+        614.396735,
+        616.267336
       ],
-      "spread": 0.005076189137482568,
+      "spread": 0.003042896926118548,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/gea@20": {
-      "value": 35.316282,
+      "value": 35.382392,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        35.359323,
-        35.159926,
-        35.316282
+        35.278204,
+        35.382392,
+        35.600007
       ],
-      "spread": 0.005646036012511303,
+      "spread": 0.00909500409130043,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/rust@1": {
-      "value": 613.254205,
+      "value": 616.014995,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        613.254205,
-        613.480301,
-        612.905027
+        615.961017,
+        616.014995,
+        616.287337
       ],
-      "spread": 0.0009380677626173567,
+      "spread": 0.0005297273648346981,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/rust@20": {
-      "value": 35.953451,
+      "value": 35.837093,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        35.953451,
-        35.781218,
-        36.302429
+        35.668969,
+        35.837093,
+        35.874758
       ],
-      "spread": 0.01449682813480113,
+      "spread": 0.0057423463448891595,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/cpp@1": {
-      "value": 614.975225,
+      "value": 619.243166,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        616.688991,
-        614.975225,
-        613.692716
+        615.788679,
+        620.274785,
+        619.243166
       ],
-      "spread": 0.004872188143839402,
+      "spread": 0.007244498197659479,
       "margin": 0.04
     },
     "parallel/mandelbrot:parity/cpp@20": {
-      "value": 35.024952,
+      "value": 35.112288,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        35.024952,
-        35.054585,
-        34.882194
+        35.10271,
+        35.112288,
+        35.257598
       ],
-      "spread": 0.004921948215660785,
+      "spread": 0.004411219229006088,
       "margin": 0.04
     },
     "parallel/matmul:parity/node": {
-      "value": 303.785617,
+      "value": 302.643543,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        302.451586,
-        303.785617,
-        304.608907
+        302.643543,
+        301.835647,
+        305.44115400000004
       ],
-      "spread": 0.007101458657932339,
+      "spread": 0.011913378241147689,
       "margin": 0.04
     },
     "parallel/matmul:parity/gea@1": {
-      "value": 200.138368,
+      "value": 200.405871,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        200.138368,
-        198.619596,
-        200.205524
+        199.896323,
+        200.405871,
+        200.413626
       ],
-      "spread": 0.007924157750701731,
+      "spread": 0.0025812766732766943,
       "margin": 0.04
     },
     "parallel/matmul:parity/gea@20": {
-      "value": 16.364079,
+      "value": 15.926686,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        16.433224,
-        15.448339,
-        16.364079
+        15.667963,
+        16.471301,
+        15.926686
       ],
-      "spread": 0.06018578864108383,
-      "margin": 0.09027868296162575
+      "spread": 0.050439746222158216,
+      "margin": 0.07565961933323732
     },
     "parallel/matmul:parity/rust@1": {
-      "value": 214.740108,
+      "value": 213.762831,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        215.30454,
-        213.549611,
-        214.740108
+        214.767376,
+        213.222789,
+        213.762831
       ],
-      "spread": 0.008172339188727633,
+      "spread": 0.007225704266613156,
       "margin": 0.04
     },
     "parallel/matmul:parity/rust@20": {
-      "value": 16.866029,
+      "value": 16.608352,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        17.144112,
-        16.743031,
-        16.866029
+        16.608352,
+        17.023421,
+        16.280244
       ],
-      "spread": 0.023780404978551935,
-      "margin": 0.04
+      "spread": 0.04474718503076038,
+      "margin": 0.06712077754614057
     },
     "parallel/matmul:parity/cpp@1": {
-      "value": 198.926664,
+      "value": 199.077417,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        198.926664,
-        199.911054,
-        197.52215
+        199.077417,
+        198.431877,
+        200.484851
       ],
-      "spread": 0.01200896828994225,
+      "spread": 0.01031244041105881,
       "margin": 0.04
     },
     "parallel/matmul:parity/cpp@20": {
-      "value": 16.126427,
+      "value": 15.90376,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        15.963523,
-        16.170065,
-        16.126427
+        15.90376,
+        15.818882,
+        16.436509
       ],
-      "spread": 0.012807672772152237,
-      "margin": 0.04
+      "spread": 0.03883528171954309,
+      "margin": 0.05825292257931464
     },
     "parallel/nqueens:parity/node": {
-      "value": 44.06917,
+      "value": 44.537118,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        44.042792,
-        44.06917,
-        44.717378
+        45.736076,
+        44.408978,
+        44.537118
       ],
-      "spread": 0.015307436014792153,
-      "margin": 0.04
+      "spread": 0.029797572442832952,
+      "margin": 0.044696358664249425
     },
     "parallel/nqueens:parity/gea@1": {
-      "value": 27.003278,
+      "value": 26.787209,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        27.003278,
-        26.597467,
-        27.096279
+        27.058431,
+        26.787209,
+        26.226826
       ],
-      "spread": 0.018472275847398873,
-      "margin": 0.04
+      "spread": 0.031044854281011496,
+      "margin": 0.04656728142151724
     },
     "parallel/nqueens:parity/gea@20": {
-      "value": 1.612144,
+      "value": 1.565027,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        1.616399,
-        1.584948,
-        1.612144
+        1.537237,
+        1.568383,
+        1.565027
       ],
-      "spread": 0.01950880318383463,
+      "spread": 0.019901254099769602,
       "margin": 0.04
     },
     "parallel/nqueens:parity/rust@1": {
-      "value": 28.084495,
+      "value": 27.33279,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        28.084495,
-        27.334146,
-        28.106502
+        27.382457,
+        27.33279,
+        27.136614
       ],
-      "spread": 0.027501153216392123,
-      "margin": 0.04125172982458818
+      "spread": 0.008994434889376355,
+      "margin": 0.04
     },
     "parallel/nqueens:parity/rust@20": {
-      "value": 1.646954,
+      "value": 1.58612,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        1.57078,
-        1.649849,
-        1.646954
+        1.562949,
+        1.58612,
+        1.607768
       ],
-      "spread": 0.048009234016250506,
-      "margin": 0.07201385102437576
+      "spread": 0.028257004514160446,
+      "margin": 0.04238550677124067
     },
     "parallel/nqueens:parity/cpp@1": {
-      "value": 27.236711,
+      "value": 27.428217,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        26.951629,
-        27.236711,
-        27.975403
+        26.134204,
+        27.428217,
+        27.728824
       ],
-      "spread": 0.03758801861208571,
-      "margin": 0.05638202791812856
+      "spread": 0.058137938751177266,
+      "margin": 0.0872069081267659
     },
     "parallel/nqueens:parity/cpp@20": {
-      "value": 1.547728,
+      "value": 1.555324,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        1.55272,
-        1.547728,
-        1.542019
+        1.549577,
+        1.588438,
+        1.555324
       ],
-      "spread": 0.00691400556170081,
+      "spread": 0.024985790741993332,
       "margin": 0.04
     },
     "parallel/primes:parity/node": {
-      "value": 655.6108389999999,
+      "value": 642.6887,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        659.605724,
-        655.6108389999999,
-        643.627245
+        642.6887,
+        630.243822,
+        651.1619569999999
       ],
-      "spread": 0.024371895718459886,
-      "margin": 0.04
+      "spread": 0.03254784937093167,
+      "margin": 0.04882177405639751
     },
     "parallel/primes:parity/gea@1": {
-      "value": 535.280437,
+      "value": 531.061266,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        536.364678,
-        534.500568,
-        535.280437
+        528.705744,
+        531.297241,
+        531.061266
       ],
-      "spread": 0.003482492299639156,
+      "spread": 0.00487984563347914,
       "margin": 0.04
     },
     "parallel/primes:parity/gea@20": {
-      "value": 43.727614,
+      "value": 43.682052,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        43.727614,
-        43.549957,
-        43.817424
+        43.682052,
+        43.502442,
+        43.788703
       ],
-      "spread": 0.006116661201775232,
+      "spread": 0.006553286461908798,
       "margin": 0.04
     },
     "parallel/primes:parity/rust@1": {
-      "value": 524.270776,
+      "value": 525.218375,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        524.270776,
-        522.321891,
-        525.741167
+        528.239112,
+        525.218375,
+        525.052646
       ],
-      "spread": 0.006521965664551877,
+      "spread": 0.006066935491356325,
       "margin": 0.04
     },
     "parallel/primes:parity/rust@20": {
-      "value": 43.433566,
+      "value": 43.38507,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        44.390229,
-        43.433566,
-        43.411984
+        43.38507,
+        43.276889,
+        43.851687
       ],
-      "spread": 0.022522788020675095,
+      "spread": 0.01324875124092231,
       "margin": 0.04
     },
     "parallel/primes:parity/cpp@1": {
-      "value": 522.342241,
+      "value": 516.606389,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        522.694937,
-        521.577896,
-        522.342241
+        517.29094,
+        514.923829,
+        516.606389
       ],
-      "spread": 0.0021385231986244283,
+      "spread": 0.004582039731607002,
       "margin": 0.04
     },
     "parallel/primes:parity/cpp@20": {
-      "value": 43.9339,
+      "value": 43.178445,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        43.9339,
-        43.894704,
-        44.049912
+        43.178445,
+        43.086548,
+        43.290293
       ],
-      "spread": 0.0035327617170340395,
+      "spread": 0.004718673866092163,
       "margin": 0.04
     },
     "parallel/sort:parity/node": {
-      "value": 851.316826,
+      "value": 836.088323,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        858.919218,
-        851.316826,
-        850.684619
+        832.9572099999999,
+        850.8122599999999,
+        836.088323
       ],
-      "spread": 0.009672778392847133,
+      "spread": 0.02135545911696701,
       "margin": 0.04
     },
     "parallel/sort:parity/gea@1": {
-      "value": 89.328255,
+      "value": 91.136864,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        89.328255,
-        95.733994,
-        88.100503
+        99.390618,
+        91.136864,
+        89.891459
       ],
-      "spread": 0.08545438394604252,
-      "margin": 0.12818157591906376
+      "spread": 0.10422960131698196,
+      "margin": 0.15634440197547295
     },
     "parallel/sort:parity/gea@20": {
-      "value": 23.289149,
+      "value": 23.39646,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        26.091431,
-        23.289149,
-        23.041032
+        23.39646,
+        23.406937,
+        22.131854
       ],
-      "spread": 0.13097941019656834,
-      "margin": 0.1964691152948525
+      "spread": 0.05449897121188413,
+      "margin": 0.08174845681782619
     },
     "parallel/sort:parity/rust@1": {
-      "value": 96.812704,
+      "value": 94.800579,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        97.655876,
-        95.208024,
-        96.812704
+        94.800579,
+        96.617313,
+        92.611641
       ],
-      "spread": 0.02528440895525459,
-      "margin": 0.04
+      "spread": 0.04225366598235639,
+      "margin": 0.0633804989735346
     },
     "parallel/sort:parity/rust@20": {
-      "value": 36.669117,
+      "value": 36.859045,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        36.802786,
-        36.669117,
-        36.171017
+        36.065539,
+        36.915289,
+        36.859045
       ],
-      "spread": 0.017228912275144188,
+      "spread": 0.023054042772947595,
       "margin": 0.04
     },
     "parallel/sort:parity/cpp@1": {
-      "value": 144.233392,
+      "value": 142.468983,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        145.398748,
-        142.493694,
-        144.233392
+        142.409182,
+        144.576896,
+        142.468983
       ],
-      "spread": 0.020141341472437995,
+      "spread": 0.015215339889104267,
       "margin": 0.04
     },
     "parallel/sort:parity/cpp@20": {
-      "value": 41.440878,
+      "value": 42.467806,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        41.440878,
-        40.881295,
-        41.524235
+        42.848492,
+        41.433752,
+        42.467806
       ],
-      "spread": 0.015514632677425316,
-      "margin": 0.04
+      "spread": 0.033313234971451125,
+      "margin": 0.04996985245717669
     },
     "parallel/sort:idiomatic/rust@1": {
-      "value": 100.897629,
+      "value": 101.276451,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        102.465284,
-        100.381698,
-        100.897629
+        101.856035,
+        100.850942,
+        101.276451
       ],
-      "spread": 0.020650495166739714,
+      "spread": 0.009924251788799375,
       "margin": 0.04
     },
     "parallel/sort:idiomatic/rust@20": {
-      "value": 24.632346,
+      "value": 24.697072,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        25.10517,
-        24.632346,
-        24.407892
+        25.663775,
+        24.427145,
+        24.697072
       ],
-      "spread": 0.02830741334990994,
-      "margin": 0.042461120024864914
+      "spread": 0.050071927554813045,
+      "margin": 0.07510789133221957
     },
     "parallel/sort:idiomatic/cpp@1": {
-      "value": 104.245527,
+      "value": 105.577282,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        104.981074,
-        104.245527,
-        102.945945
+        105.577282,
+        107.125693,
+        103.65595
       ],
-      "spread": 0.019522458743002104,
-      "margin": 0.04
+      "spread": 0.03286448499403493,
+      "margin": 0.04929672749105239
     },
     "parallel/sort:idiomatic/cpp@20": {
-      "value": 41.879474,
+      "value": 41.678829,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        42.343451,
-        41.879474,
-        41.358938
+        42.749895,
+        40.071231,
+        41.678829
       ],
-      "spread": 0.02350824654578994,
-      "margin": 0.04
+      "spread": 0.06426917608457773,
+      "margin": 0.0964037641268666
     },
     "parallel/spectral-norm:parity/node": {
-      "value": 460.705146,
+      "value": 442.208964,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        460.705146,
-        458.312957,
-        465.895717
+        440.872424,
+        443.434321,
+        442.208964
       ],
-      "spread": 0.016459030392510544,
+      "spread": 0.005793408113726043,
       "margin": 0.04
     },
     "parallel/spectral-norm:parity/gea@1": {
-      "value": 154.345234,
+      "value": 151.087927,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        153.345444,
-        154.616098,
-        154.345234
+        150.541965,
+        151.46315,
+        151.087927
       ],
-      "spread": 0.008232544452911371,
+      "spread": 0.0060970126355629215,
       "margin": 0.04
     },
     "parallel/spectral-norm:parity/gea@20": {
-      "value": 15.997449,
+      "value": 9.640797,
       "better": "lower",
       "unit": "ms",
       "role": "gated",
       "runs": [
-        13.551686,
-        15.997449,
-        19.201503
+        9.455693,
+        9.683909,
+        9.640797
       ],
-      "spread": 0.35316987102131087,
-      "margin": 0.5297548065319663
+      "spread": 0.023671901814756577,
+      "margin": 0.04
     },
     "parallel/spectral-norm:parity/rust@1": {
-      "value": 159.972286,
+      "value": 160.106717,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        159.972286,
-        160.45522,
-        159.632851
+        160.059243,
+        160.170206,
+        160.106717
       ],
-      "spread": 0.005140696682924248,
+      "spread": 0.0006930564943130908,
       "margin": 0.04
     },
     "parallel/spectral-norm:parity/rust@20": {
-      "value": 13.101764,
+      "value": 13.070564,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        12.794564,
-        13.101764,
-        14.074638
+        13.050092,
+        13.097232,
+        13.070564
       ],
-      "spread": 0.09770241625478836,
-      "margin": 0.14655362438218253
+      "spread": 0.003606577344328877,
+      "margin": 0.04
     },
     "parallel/spectral-norm:parity/cpp@1": {
-      "value": 149.459586,
+      "value": 150.69187,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        149.459586,
-        149.304765,
-        151.051053
+        150.86366,
+        150.511979,
+        150.69187
       ],
-      "spread": 0.011684014700803418,
+      "spread": 0.0023337755381230155,
       "margin": 0.04
     },
     "parallel/spectral-norm:parity/cpp@20": {
-      "value": 9.83799,
+      "value": 10.029031,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        9.766392,
-        9.83799,
-        10.755091
+        10.004085,
+        10.126791,
+        10.029031
       ],
-      "spread": 0.10049806921942393,
-      "margin": 0.1507471038291359
-    },
-    "parallel/strings:parity/node": {
-      "value": 564.404247,
-      "better": "lower",
-      "unit": "ms",
-      "role": "control",
-      "runs": [
-        564.404247,
-        561.106531,
-        592.720879
-      ],
-      "spread": 0.05601366071931763,
-      "margin": 0.08402049107897645
-    },
-    "parallel/strings:parity/gea@1": {
-      "value": 140.295267,
-      "better": "lower",
-      "unit": "ms",
-      "role": "gated",
-      "runs": [
-        140.295267,
-        137.190589,
-        140.396751
-      ],
-      "spread": 0.02285295910944741,
+      "spread": 0.012235080338270055,
       "margin": 0.04
     },
-    "parallel/strings:parity/gea@20": {
-      "value": 8.029143,
-      "better": "lower",
-      "unit": "ms",
-      "role": "gated",
-      "runs": [
-        7.917377,
-        8.029143,
-        8.61499
-      ],
-      "spread": 0.08688511339255019,
-      "margin": 0.1303276700888253
-    },
-    "parallel/strings:parity/rust@1": {
-      "value": 290.365017,
+    "parallel/strings:parity/node": {
+      "value": 556.454323,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        290.365017,
-        285.056036,
-        291.910431
+        547.3056250000001,
+        560.8023039999999,
+        556.454323
       ],
-      "spread": 0.023606132277291553,
+      "spread": 0.02425478326277619,
+      "margin": 0.04
+    },
+    "parallel/strings:parity/gea@1": {
+      "value": 134.232133,
+      "better": "lower",
+      "unit": "ms",
+      "role": "gated",
+      "runs": [
+        136.050281,
+        134.232133,
+        130.666252
+      ],
+      "spread": 0.04010983718779189,
+      "margin": 0.06016475578168783
+    },
+    "parallel/strings:parity/gea@20": {
+      "value": 7.838832,
+      "better": "lower",
+      "unit": "ms",
+      "role": "gated",
+      "runs": [
+        7.838832,
+        7.925808,
+        7.831446
+      ],
+      "spread": 0.012037762768739052,
+      "margin": 0.04
+    },
+    "parallel/strings:parity/rust@1": {
+      "value": 284.92396,
+      "better": "lower",
+      "unit": "ms",
+      "role": "control",
+      "runs": [
+        284.92396,
+        287.684488,
+        280.681142
+      ],
+      "spread": 0.024579701896604148,
       "margin": 0.04
     },
     "parallel/strings:parity/rust@20": {
-      "value": 18.933546,
+      "value": 18.320257,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        18.811162,
-        18.933546,
-        19.460359
+        18.320257,
+        18.133431,
+        18.920675
       ],
-      "spread": 0.034288188805203255,
-      "margin": 0.05143228320780488
+      "spread": 0.04297123124419038,
+      "margin": 0.06445684686628557
     },
     "parallel/strings:parity/cpp@1": {
-      "value": 219.24671,
+      "value": 219.882107,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        219.24671,
-        223.100096,
-        210.525721
+        220.13837,
+        216.888703,
+        219.882107
       ],
-      "spread": 0.05735262800522755,
-      "margin": 0.08602894200784132
-    },
-    "parallel/strings:parity/cpp@20": {
-      "value": 12.650861,
-      "better": "lower",
-      "unit": "ms",
-      "role": "control",
-      "runs": [
-        12.623843,
-        12.650861,
-        13.130505
-      ],
-      "spread": 0.040049606109813285,
-      "margin": 0.06007440916471993
-    },
-    "parallel/strings:idiomatic/rust@1": {
-      "value": 136.02258,
-      "better": "lower",
-      "unit": "ms",
-      "role": "control",
-      "runs": [
-        136.02258,
-        135.076675,
-        137.386312
-      ],
-      "spread": 0.016979805852822445,
+      "spread": 0.014779133438083784,
       "margin": 0.04
     },
-    "parallel/strings:idiomatic/rust@20": {
-      "value": 8.145991,
+    "parallel/strings:parity/cpp@20": {
+      "value": 12.768109,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        7.806587,
-        8.25157,
-        8.145991
+        12.480216,
+        12.768109,
+        13.14347
       ],
-      "spread": 0.05462601174000791,
-      "margin": 0.08193901761001186
+      "spread": 0.05194614175051295,
+      "margin": 0.07791921262576942
+    },
+    "parallel/strings:idiomatic/rust@1": {
+      "value": 140.476031,
+      "better": "lower",
+      "unit": "ms",
+      "role": "control",
+      "runs": [
+        140.476031,
+        147.904903,
+        138.309792
+      ],
+      "spread": 0.06830425754269781,
+      "margin": 0.10245638631404672
+    },
+    "parallel/strings:idiomatic/rust@20": {
+      "value": 8.220618,
+      "better": "lower",
+      "unit": "ms",
+      "role": "control",
+      "runs": [
+        8.220618,
+        8.883588,
+        7.983328
+      ],
+      "spread": 0.10951244784759484,
+      "margin": 0.16426867177139226
     },
     "parallel/strings:idiomatic/cpp@1": {
-      "value": 139.627875,
+      "value": 141.191171,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        140.064248,
-        139.371044,
-        139.627875
+        141.191171,
+        140.446274,
+        141.241039
       ],
-      "spread": 0.004964653368820375,
+      "spread": 0.005628999280698737,
       "margin": 0.04
     },
     "parallel/strings:idiomatic/cpp@20": {
-      "value": 8.400799,
+      "value": 8.241018,
       "better": "lower",
       "unit": "ms",
       "role": "control",
       "runs": [
-        8.124317,
-        8.400799,
-        8.7298
+        8.111577,
+        8.241018,
+        8.419732
       ],
-      "spread": 0.07207445387039967,
-      "margin": 0.10811168080559949
+      "spread": 0.0373928318079149,
+      "margin": 0.056089247711872355
     }
   }
 }
