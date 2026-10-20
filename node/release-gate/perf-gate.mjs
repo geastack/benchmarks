@@ -141,9 +141,11 @@ if (suites.includes('http') && !loopbackRoute().includes(' dev lo ')) {
 // Without idle=poll every vCPU halts between requests and the hypervisor's
 // wakeup latency (~100 us a hop under WSL2) caps a single worker at ~45k rps
 // for every fast server, against the published 154k-202k: the ordering of the
-// servers then says nothing about them.
+// servers then says nothing about them. Bare metal has no hypervisor hop.
+const wsl = /microsoft/i.test(fs.readFileSync('/proc/version', 'utf8'));
 if (
   suites.includes('http') &&
+  wsl &&
   !fs.readFileSync('/proc/cmdline', 'utf8').split(/\s+/).includes('idle=poll')
 )
   fail(
@@ -151,14 +153,17 @@ if (
       '[wsl2] section of %USERPROFILE%\\.wslconfig and run `wsl --shutdown`.',
   );
 
-// Two disjoint sets of whole physical cores: four for the server, four for wrk.
+// Two disjoint sets of whole physical cores, one for the server and one for
+// wrk: four each where there are eight, otherwise half each. The four HTTP
+// workers then still get a logical CPU apiece on a 4-core/8-thread machine.
 const topology = capture('lscpu', ['-p=CPU,CORE'])
   .split('\n')
   .filter((line) => !line.startsWith('#'))
   .map((line) => line.split(',').map(Number));
 
 const physical = [...new Set(topology.map(([, core]) => core))].sort((a, b) => a - b);
-if (physical.length < 8) fail(`needs 8 physical cores, found ${physical.length}`);
+if (physical.length < 4) fail(`needs 4 physical cores, found ${physical.length}`);
+const share = Math.min(4, physical.length >> 1);
 
 const cpusOf = (cores) =>
   topology
@@ -166,8 +171,8 @@ const cpusOf = (cores) =>
     .map(([cpu]) => cpu)
     .join(',');
 
-const serverCpus = cpusOf(physical.slice(0, 4));
-const loadCpus = cpusOf(physical.slice(4, 8));
+const serverCpus = cpusOf(physical.slice(0, share));
+const loadCpus = cpusOf(physical.slice(share, 2 * share));
 
 const versionOf = (packageName) => {
   const manifest = path.join(NODE_DIR, '..', 'node_modules', packageName, 'package.json');

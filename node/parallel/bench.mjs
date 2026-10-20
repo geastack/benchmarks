@@ -431,10 +431,17 @@ const cxx = process.env.CXX ?? 'clang++';
 // for bit the sequential one. rustc's LLVM 23 does this on x86 by default;
 // clang 18 and 22 only do it when asked, and without it spectral-norm's row
 // loop runs scalar in both C++ columns at twice Rayon's time.
+//
+// -mtune=generic: keeps the machine's instruction set but not its scheduling
+// model. On the Haswell benchmark machine clang 22's haswell tuning unrolls
+// primes' trial-division loop into a shape 4% slower than generic tuning
+// (1538 against 1481 ms, one thread), which alone put both C++ columns behind
+// Rayon's 1484 ms; rustc's LLVM 22 with target-cpu=native does not do it.
 const cxxFlags = [
   '-std=gnu++20',
   '-O3',
   '-march=native',
+  '-mtune=generic',
   '-DNDEBUG',
   '-ffp-contract=off',
   '-pthread',
