@@ -1,0 +1,26 @@
+/* Rounded overflow clips under transforms, each filled by a child that
+   repaints every frame: a half turn on even rows (its 410 x 40 bounds box
+   passes the shaped clip's save budget unless only the corners are saved)
+   and a translation on odd rows. */
+.transformed-clip-24 .clip {
+  border-radius: 14px;
+  overflow: hidden;
+}
+.transformed-clip-24 .turn {
+  transform: rotate(180deg);
+}
+.transformed-clip-24 .shift {
+  transform: translate(3px, 0);
+}
+.transformed-clip-24 .fill {
+  width: 410px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #2a5a7a;
+}
+.transformed-clip-24 .fill.selected {
+  background-color: #426622;
+}

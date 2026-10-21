@@ -1,0 +1,38 @@
+/* Rows of inline content that lay out again every frame. Each starts with a
+   contentless relative span whose absolute child sits at the span's content
+   area, in the padding beside the text, and holds a span split by an empty
+   block whose block-level absolute child takes its static position on the
+   next line: on the right in rtl rows. */
+.inline-abspos-24 .line {
+  width: 394px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0 8px;
+  background-color: #123444;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+}
+.inline-abspos-24 .rtl {
+  direction: rtl;
+}
+.inline-abspos-24 .cb {
+  position: relative;
+}
+.inline-abspos-24 .dot {
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 6px;
+  height: 6px;
+  background-color: #30c0e0;
+}
+.inline-abspos-24 .badge {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #e0a030;
+}
+.inline-abspos-24 .split {
+  height: 0;
+}
