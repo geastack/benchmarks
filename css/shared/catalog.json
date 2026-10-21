@@ -203,6 +203,12 @@
       "count": 24,
       "component": "fixtures/inline-abspos-24/Scene.tsx",
       "checks": ["text updated"]
+    },
+    {
+      "name": "vertical-text-24",
+      "count": 24,
+      "component": "fixtures/vertical-text-24/Scene.tsx",
+      "checks": ["text updated"]
     }
   ]
 }

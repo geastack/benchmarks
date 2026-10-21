@@ -1,0 +1,28 @@
+/* Columns of vertical text whose label changes every frame, so every box
+   lays its lines out again as columns and draws turned glyphs: vertical-rl
+   and vertical-lr in turn, every fourth one right to left (its lines run up). */
+.vertical-text-24 .band {
+  width: 410px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.vertical-text-24 .v {
+  height: 116px;
+  margin: 2px;
+  padding: 2px 4px;
+  background-color: #123444;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fff;
+}
+.vertical-text-24 .rl {
+  writing-mode: vertical-rl;
+}
+.vertical-text-24 .lr {
+  writing-mode: vertical-lr;
+}
+.vertical-text-24 .rtl {
+  direction: rtl;
+}
