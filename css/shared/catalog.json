@@ -215,6 +215,12 @@
       "count": 24,
       "component": "fixtures/background-image-24/Scene.tsx",
       "checks": ["text updated"]
+    },
+    {
+      "name": "table-24",
+      "count": 24,
+      "component": "fixtures/table-24/Scene.tsx",
+      "checks": ["text updated"]
     }
   ]
 }

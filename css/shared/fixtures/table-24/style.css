@@ -1,0 +1,23 @@
+/* A 24-row table whose middle column holds a label that changes length
+   every frame, so the columns are measured and the rows placed again. */
+.table-24 .t-table {
+  display: table;
+  border-spacing: 0 2px;
+  background-color: #0b1d26;
+}
+.table-24 .t-row {
+  display: table-row;
+}
+.table-24 .t-cell {
+  display: table-cell;
+  padding: 0 8px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #fff;
+  background-color: #123444;
+  vertical-align: middle;
+}
+.table-24 .t-num {
+  text-align: right;
+}
