@@ -34,6 +34,7 @@ import { start as start30 } from './fixtures/border-area-24/Scene';
 import { start as start31 } from './fixtures/transformed-clip-24/Scene';
 import { start as start32 } from './fixtures/inline-abspos-24/Scene';
 import { start as start33 } from './fixtures/vertical-text-24/Scene';
+import { start as start34 } from './fixtures/background-image-24/Scene';
 Display.setFrameRate(60);
 Display.setVSync(false);
 Display.setTextRasterCache(true);
@@ -75,7 +76,8 @@ function next(): void {
   if (index === 31) start31();
   if (index === 32) start32();
   if (index === 33) start33();
-  if (index === 34) benchmark.finish();
+  if (index === 34) start34();
+  if (index === 35) benchmark.finish();
   index++;
 }
 export function startSuite(): void {

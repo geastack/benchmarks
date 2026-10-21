@@ -1,0 +1,28 @@
+/* Rows whose label changes every frame over url() background layers: a
+   40px tile repeated across each row, and every fourth row a single
+   centered badge that does not repeat, over the row's colour, and the
+   same badge as an <img> whose width follows its natural ratio.
+   The layers use protocol-relative URLs: the library build inlines a plain
+   path as a data: URI, which the compiled rules cut at its ';', and rejects
+   a gea-asset URL. The desktop harness serves a synthetic 36x36 image for
+   any path; on the board these do not resolve yet. */
+.background-image-24 .line {
+  width: 394px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0 8px;
+  background-color: #123444;
+  background-image: url(//fixtures/background-image-24/tile.png);
+  font-size: 16px;
+  line-height: 40px;
+  color: #fff;
+}
+.background-image-24 .badge {
+  background-image: url(//fixtures/background-image-24/badge.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.background-image-24 .thumb {
+  height: 16px;
+  margin-left: 6px;
+}
