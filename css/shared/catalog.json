@@ -227,6 +227,12 @@
       "count": 24,
       "component": "fixtures/float-24/Scene.tsx",
       "checks": ["text updated"]
+    },
+    {
+      "name": "sizing-24",
+      "count": 24,
+      "component": "fixtures/sizing-24/Scene.tsx",
+      "checks": ["text updated"]
     }
   ]
 }

@@ -1,0 +1,51 @@
+/* 24 stat rows. Each row is a grid that aligns a 16px name and a 24px value
+   by their baselines, a media cell that trims the block margins of its
+   block-level image and centres a background image larger than itself, and
+   an absolutely positioned bar with height: stretch. The value changes every
+   frame. The background uses a protocol-relative URL like background-image-24;
+   the desktop harness serves a synthetic 36x36 image for any path. */
+.sizing-24 .s-list {
+  width: 360px;
+}
+.sizing-24 .s-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 1fr 72px;
+  align-items: baseline;
+  height: 40px;
+  margin-bottom: 4px;
+  padding-left: 8px;
+  background-color: #123444;
+  color: #fff;
+}
+.sizing-24 .s-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: stretch;
+  background-color: #5aa;
+}
+.sizing-24 .s-media {
+  width: 28px;
+  height: 28px;
+  margin-trim: block;
+  background-image: url(//fixtures/sizing-24/badge.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.sizing-24 .s-img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 6px 0;
+}
+.sizing-24 .s-name {
+  font-size: 16px;
+  line-height: 20px;
+}
+.sizing-24 .s-value {
+  font-size: 24px;
+  line-height: 28px;
+  text-align: right;
+}
