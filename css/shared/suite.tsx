@@ -36,6 +36,7 @@ import { start as start32 } from './fixtures/inline-abspos-24/Scene';
 import { start as start33 } from './fixtures/vertical-text-24/Scene';
 import { start as start34 } from './fixtures/background-image-24/Scene';
 import { start as start35 } from './fixtures/table-24/Scene';
+import { start as start36 } from './fixtures/float-24/Scene';
 Display.setFrameRate(60);
 Display.setVSync(false);
 Display.setTextRasterCache(true);
@@ -79,7 +80,8 @@ function next(): void {
   if (index === 33) start33();
   if (index === 34) start34();
   if (index === 35) start35();
-  if (index === 36) benchmark.finish();
+  if (index === 36) start36();
+  if (index === 37) benchmark.finish();
   index++;
 }
 export function startSuite(): void {

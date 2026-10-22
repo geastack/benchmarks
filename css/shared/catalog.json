@@ -221,6 +221,12 @@
       "count": 24,
       "component": "fixtures/table-24/Scene.tsx",
       "checks": ["text updated"]
+    },
+    {
+      "name": "float-24",
+      "count": 24,
+      "component": "fixtures/float-24/Scene.tsx",
+      "checks": ["text updated"]
     }
   ]
 }
