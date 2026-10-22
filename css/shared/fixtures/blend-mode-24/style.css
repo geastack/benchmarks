@@ -1,0 +1,4 @@
+.blend-mode-24 .card {
+  background-image: linear-gradient(90deg, #ff8800, #0088ff), linear-gradient(0deg, #ffffff, #404040);
+  background-blend-mode: multiply;
+}

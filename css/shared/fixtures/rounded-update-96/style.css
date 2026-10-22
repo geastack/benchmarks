@@ -1,0 +1,6 @@
+/* A rounded overflow clip whose top and bottom rows repaint each frame: the
+   dirty-region replay saves and restores only the corners those rows reach. */
+.rounded-update-96 {
+  border-radius: 24px;
+  overflow: hidden;
+}

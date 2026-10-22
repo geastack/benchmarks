@@ -119,6 +119,120 @@
       "count": 96,
       "component": "fixtures/dashboard-mixed-96/Scene.tsx",
       "checks": ["layout changed", "selection updated", "text updated", "scroll moved"]
+    },
+    {
+      "name": "border-image-24",
+      "count": 24,
+      "component": "fixtures/border-image-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "blend-mode-24",
+      "count": 24,
+      "component": "fixtures/blend-mode-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "multicol-3",
+      "count": 12,
+      "component": "fixtures/multicol-3/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "line-clamp-24",
+      "count": 24,
+      "component": "fixtures/line-clamp-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "box-shadow-24",
+      "count": 24,
+      "component": "fixtures/box-shadow-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "text-emphasis-24",
+      "count": 24,
+      "component": "fixtures/text-emphasis-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "sticky-scroll-96",
+      "count": 96,
+      "component": "fixtures/sticky-scroll-96/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "blend-modes-15",
+      "count": 15,
+      "component": "fixtures/blend-modes-15/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "rounded-update-96",
+      "count": 96,
+      "component": "fixtures/rounded-update-96/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "sticky-sections-96",
+      "count": 96,
+      "component": "fixtures/sticky-sections-96/Scene.tsx",
+      "checks": ["scroll moved"]
+    },
+    {
+      "name": "wrapped-text-update-24",
+      "count": 24,
+      "component": "fixtures/wrapped-text-update-24/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "border-area-24",
+      "count": 24,
+      "component": "fixtures/border-area-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "transformed-clip-24",
+      "count": 24,
+      "component": "fixtures/transformed-clip-24/Scene.tsx",
+      "checks": ["selection updated"]
+    },
+    {
+      "name": "inline-abspos-24",
+      "count": 24,
+      "component": "fixtures/inline-abspos-24/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "vertical-text-24",
+      "count": 24,
+      "component": "fixtures/vertical-text-24/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "background-image-24",
+      "count": 24,
+      "component": "fixtures/background-image-24/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "table-24",
+      "count": 24,
+      "component": "fixtures/table-24/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "float-24",
+      "count": 24,
+      "component": "fixtures/float-24/Scene.tsx",
+      "checks": ["text updated"]
+    },
+    {
+      "name": "sizing-24",
+      "count": 24,
+      "component": "fixtures/sizing-24/Scene.tsx",
+      "checks": ["text updated"]
     }
   ]
 }

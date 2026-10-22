@@ -1,0 +1,39 @@
+/* 24 chat rows: a floated avatar, then a bubble that establishes a block
+   formatting context beside it with a top margin, so the bubble is tried
+   before its margin and placed again with it. Each bubble holds a decorated
+   inline tag with a float inside, hoisted to the row's float context, and a
+   label that changes length every frame. */
+.float-24 .f-list {
+  width: 360px;
+}
+.float-24 .f-row {
+  margin-bottom: 4px;
+}
+.float-24 .f-avatar {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 12px;
+  background-color: #2a6f97;
+}
+.float-24 .f-bubble {
+  overflow: hidden;
+  margin-top: 2px;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  background-color: #123444;
+}
+.float-24 .f-tag {
+  padding: 0 4px;
+  border: 1px solid #5aa;
+}
+.float-24 .f-dot {
+  float: left;
+  width: 6px;
+  height: 6px;
+  margin: 6px 4px 0 0;
+  background-color: #5aa;
+}

@@ -17,6 +17,20 @@ to match it.
 | Desktop `--minimal`                                    | Two Git refs, shared one-box/four-box fixtures and compiler-derived box defines           | Frame work with unused CSS features disabled                            |
 | [ESP32-S3 AMOLED 2.06](esp32/s3/amoled-206/README.md)  | A matching package tree, shared compiled TSX/CSS scenes and the registered board          | Completed-frame work, cadence, memory and software gestures on hardware |
 
+## Results
+
+### October 13, 2026: css-fix against main
+
+Desktop, all 30 cases, on the compiler 1.0.29 stack. css-fix
+([geastack/core#59](https://github.com/geastack/core/pull/59)) takes 9243 µs per frame over all
+cases against 17218 µs on main (−46%). It is faster in 25 cases, level in 2 and slower in 3, each
+of which draws a feature main does not implement (`background-blend-mode` twice, multi-column
+layout). A box-only app built with feature stripping is 3% and 13% faster on css-fix, but its node
+grows from 72 to 104 bytes: the analyzer and CLI do not map css-fix's eight new feature families
+yet.
+
+- [Report](results/css-fix-2026-10-13.md) and [raw records](results/2026-10-13/)
+
 ## Shared timing fixtures
 
 [`shared/catalog.json`](shared/catalog.json) declares the case names, component paths

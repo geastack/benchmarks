@@ -1,0 +1,17 @@
+.line-clamp-24 .clamp {
+  height: auto;
+  display: block;
+  line-clamp: 2;
+  padding: 2px 8px;
+}
+.line-clamp-24 .clamp .label {
+  display: block;
+  width: 300px;
+  height: auto;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+}
+.line-clamp-24 .clamp.wide .label {
+  width: 380px;
+}

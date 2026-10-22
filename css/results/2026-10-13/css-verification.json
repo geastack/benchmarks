@@ -1,0 +1,1852 @@
+{
+  "mode": "verification",
+  "base": "dae2333a9b08c5736702caad3699295c2570b814",
+  "candidate": "8d721ae1fe5d78ce83eb1bc110085ebb4d4604e8",
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.3.2)",
+  "compiler_inputs": {
+    "compilerRoot": "compiler",
+    "compilerVersion": "1.0.29",
+    "compilerDistHash": "6b6cbcb00695115ce2f9d6174fa3ced4b35b7b502b21621505be287490363859",
+    "runtimeFiles": [
+      "gea_dictionary_view.h",
+      "gea_document_view.h",
+      "gea_dynamic_proxy.h",
+      "gea_eval.h",
+      "gea_native_class_prototype.h",
+      "gea_pcm.h",
+      "gea_runtime.h",
+      "gea_runtime_builtins.cpp",
+      "gea_runtime_rtc.h"
+    ],
+    "runtimeHash": "fd7a03fdb8dc7cd87e539e923abe270f245a08811a15d7c18d50573482252c5f"
+  },
+  "feature_profile": null,
+  "fixture_hashes": {
+    "desktop/test_css_performance_main.cpp": "b23fbb8d1ecf7cfcf1b6a7b0e2ffb3e4d6e1d942f60d450e6f9f31ffdb265b71",
+    "shared/benchmark-native.h": "600db393d38de831f90b1caa38b57d1be87479efebfa12b4c106a6e4cf6936bc",
+    "shared/benchmark-plugin.mjs": "c62a39c74404af76a132998f3e1c37617eef4c02c0a82f0b81ce8bdb6e7d844c",
+    "shared/benchmark.ts": "650b46afa093a7a5a980a90097557fbfce958a249eedd7241a28f9f39b749c24",
+    "shared/build-components.mjs": "65a3dd735ecb9b4e48b8bae4bd739c17c0269adf147bcd9b93c6298ecd315a1a",
+    "shared/catalog.json": "c2b6332d85bc94d245479cf6e573d3340c65d548249bb93e6ff30cdc87ed9302",
+    "shared/feature-profiles.mjs": "096b478bc9c9d7eb179fe284707bca31feaad7a2e9ad2be78fdb10b7ee77d1ab",
+    "shared/fixtures/base.css": "fdc3f5bb63651c44783e128991e38e148ef50df60d8cd556bfbb65561b583c44",
+    "shared/fixtures/blend-mode-24/Scene.tsx": "fe3fc296c77d189e52110f8c4f053919cb06de0ec5496a4546d30b4964bb9d19",
+    "shared/fixtures/blend-mode-24/style.css": "980f398423903146d2522bb167b3952c5a8ab017bed562f273a09ea4d8524f25",
+    "shared/fixtures/blend-modes-15/Scene.tsx": "3e2ccd1f9517292fb853655aeb50c1dd5c862fe01d82ee580f80f3650fd814a5",
+    "shared/fixtures/blend-modes-15/style.css": "e0de7240175bc03fda6fc2e2644900826716133b1fc5c81b65adce4c4220b976",
+    "shared/fixtures/border-image-24/Scene.tsx": "70588666b5e2501cbf8c15859ed489a06448a24de29c96cd449e4d198fe6a44c",
+    "shared/fixtures/border-image-24/style.css": "c9db737be1f01ad2909a578a4ec272ad13cda052b98c713460e7269ded23b056",
+    "shared/fixtures/box-shadow-24/Scene.tsx": "c62246ec0a5fcad0df9a7a36e09eda11171082ea792782526514f900087705f1",
+    "shared/fixtures/box-shadow-24/style.css": "f6a910ec904307408ec25ba755630ebd1d7558dda13cdae93f476376e18db540",
+    "shared/fixtures/class-update/Scene.tsx": "d2874e5f06d198c355acf48cecc0449973f2a796e22dcdff1bf03190f63a6584",
+    "shared/fixtures/dashboard-mixed-96/Scene.tsx": "9956329175168f975fd328ef05a39177a777c2b39196923cd513b9fa9509563a",
+    "shared/fixtures/dashboard-mixed-96/style.css": "38e6c431d922490db3ea6d431a4f5fe8d839e565fd25d0a0daf0795f7cb39471",
+    "shared/fixtures/flex-layout-16/Scene.tsx": "9112bbbaa7b5ef09bdb2a4dd7e72d0f2cafd601b6986f7a4f4fca68d785ae764",
+    "shared/fixtures/flex-layout-96/Scene.tsx": "a0578d37d2b21b52f9c399612201de12c1bbd73d508bf8c7c1e04e049209b1e0",
+    "shared/fixtures/grid-layout-64/Scene.tsx": "da9d100af5164a403162d2ee444e1c6a9cbdbbd6f496343e0adb251436672652",
+    "shared/fixtures/grid-layout-64/style.css": "ea95422470fe0bfd37decf46114c0e0d8d241450da39d8a344854d8b6380ae6e",
+    "shared/fixtures/horizontal-swipe/Scene.tsx": "5bcb5549e0967470974925931a6234f2dc8e94f12e5854aa8bf2b3eba76a884b",
+    "shared/fixtures/horizontal-swipe/style.css": "97408ec27cc70ad2db77f56f6024267589a3b4c673d5e45d9b5c2fe73bf3eaa9",
+    "shared/fixtures/line-clamp-24/Scene.tsx": "17eab2906241dc203a87f03dd741375ab64bb2642781959f52af78645bfe259e",
+    "shared/fixtures/line-clamp-24/style.css": "f4815b0f7f3a73708cd0f7fbbd88e17923e206748f7756c5d7c45ff3929db550",
+    "shared/fixtures/matching-sibling-update/Scene.tsx": "a16d11cfbba05856eb52ce682c3db78770695b22d2b763deb40336ea1cc5aa11",
+    "shared/fixtures/matching-sibling-update/style.css": "8f40e27c5a086deeda76a1aa1a243b744f5942e9296d7f0c9f96f92ab9f3fbc8",
+    "shared/fixtures/minimal-box-1/Scene.tsx": "8c12aefed5e9d3c44905f12b228ab8d6d82f61fed88d1cb7d32e548bdfdccecf",
+    "shared/fixtures/minimal-box-1/style.css": "5a2704f6917e47d16a6c44020bd2819c14dde61fbc302b6d6de26eb8d2d7395e",
+    "shared/fixtures/minimal-boxes-4/Scene.tsx": "23b67c37f05f352704b909b9bdb237a6dc107c695b7c901afe72b88ed582781f",
+    "shared/fixtures/minimal-boxes-4/style.css": "66e121c5731c0f408270e222a8b663a2b9c7481b69b5c8c251ac40e65e37cb7d",
+    "shared/fixtures/minimal-text-12/Scene.tsx": "7bb4937951fff46ac7d1d3dcde67a7eaa77865a68013de55a890e6b62a99f877",
+    "shared/fixtures/minimal-text-12/style.css": "e0fe6ff4e85f0818de91aec4a955004e9b9e94b9b7a25ecfeecb1df824605e0d",
+    "shared/fixtures/momentum-flick/Scene.tsx": "c8ffd3f8ff6768299e9d3c59edbccebf81758203e878546b792bc154cf83e12b",
+    "shared/fixtures/multicol-3/Scene.tsx": "39ef1d861a03be87f96ab975ba591eb9324bf13d2e176417be5a0c68971b7666",
+    "shared/fixtures/multicol-3/style.css": "72a772cc4476e7337693eb9c5224ccab7eade66c8bc44bf18e713528e7b9815f",
+    "shared/fixtures/nested-scroll/Scene.tsx": "164eef9b1ffaf74fe0a37b0693b39eab06a0b025a429fd7c3c5ad7a786dd91e0",
+    "shared/fixtures/nested-scroll/style.css": "c9b18c0e499288180a80e646dd816e2cde1d6483f7eef21a85956ba31ae1f309",
+    "shared/fixtures/rounded-scroll/Scene.tsx": "285902d3ae2228dcb1ca4de6d9c6031bb91beafbf67b32d578150ca927b6009c",
+    "shared/fixtures/rounded-scroll/style.css": "5dce66e37e079d5b9c43ae24284295c22dc9f64ec57c36c4bf3756e4572b0ed8",
+    "shared/fixtures/rounded-update-96/Scene.tsx": "a8d249181a6e5e5fc254e7d799ca99265dbe70ecd76c1dfe002d1020a46b3521",
+    "shared/fixtures/rounded-update-96/style.css": "3a9d97ea16576280e2a77128120b738342008657663f2ae4107b2c5be24849fd",
+    "shared/fixtures/scroll-16/Scene.tsx": "0b213fafbba1b2910fab5cb639fb0024df5d4b14102fb67d36509553415460d0",
+    "shared/fixtures/scroll-96/Scene.tsx": "dc0b58d6dc0d45cbf31e90b6f327d2468d7864f68bc707f606736475aa5659b4",
+    "shared/fixtures/selector-cascade-256/Scene.tsx": "992ee85e75447fd8b9859392e2b57a6d4c06c55297178ba938cd5d37c25fbe4c",
+    "shared/fixtures/selector-cascade-256/style.css": "8f1393734a1f17d2a24974d5f13c3174069e007fa768ade7e96d2b19481b75ae",
+    "shared/fixtures/sticky-scroll-96/Scene.tsx": "2843b56b5e3224cb0c4fabb8bede73baac48cc63d4e8b25bd3754e50043ae2ca",
+    "shared/fixtures/sticky-scroll-96/style.css": "31ffa5f04401ae85a91f57d83290de344412679faceb7a4620a509cf22784667",
+    "shared/fixtures/sticky-sections-96/Scene.tsx": "b22d85c8bf3b083358751f97822885414f7d7feba90b5dbf41b7cb8b1a683090",
+    "shared/fixtures/sticky-sections-96/style.css": "fcd3307fa2a34a726c998351abf851a1c0e63e7c3c9f98d94e3ab51c97577b9f",
+    "shared/fixtures/text-emphasis-24/Scene.tsx": "3630f0c8bc219270b00d1ee4c5ad103383d1a193afdd9cd9d7d70d29cfee2893",
+    "shared/fixtures/text-emphasis-24/style.css": "2f93ad41eb24009c697b1dfdebb2dbac5a522b19b876338e7290ad839b37872c",
+    "shared/fixtures/text-update/Scene.tsx": "cc1fde89cc313caf128bdf4120e6619a93a4d684af6272a02a52e020928547d6",
+    "shared/fixtures/vertical-drag/Scene.tsx": "6e157650ccb874723d1a1614be4eb3e9873ae4d6eb1f03d839a523f43d97b621",
+    "shared/fixtures/wrapped-layout-96/Scene.tsx": "a3c0cc534c50b9571c1b480e928384c22126054e64f08cb7a5b1ec7dbc0b35e6",
+    "shared/fixtures/wrapped-layout-96/style.css": "09fc339254159477b6829d309482d3876d5f38bb7cabd1835deb8c2faf27d70e",
+    "shared/fixtures/wrapped-text-update-24/Scene.tsx": "2e579e35251786cdf12515dfb6617054c3b439e1f765f8b05bfb457e005e4417",
+    "shared/fixtures/wrapped-text-update-24/style.css": "fbf87d0f0f08e4e28e56096136471fe7aa70534940453656d286ff9b7b6c8e34",
+    "shared/index.tsx": "348257ca1a77bbce338082776c3cc32dc0a736cc224ba8a46fcc26cd773bd89c",
+    "shared/minimal.tsx": "86ddea85380a80e097808dcd6634f0e133d7ad859d5a70355b0d1599e6a14f4e",
+    "shared/native-runtime.h": "78340a23141b0e543c02895f649a21c474b795530b8e48e5c71cea1438a2f836",
+    "shared/profiles/box.tsx": "fd2f47779f4f33a0a20883b4dedd5e23194dea75fb2b964e07fe948c52faecd1",
+    "shared/profiles/complex.css": "e58355f425de7e07174b918fdd973828f9825ede0de337ab6d7e21235cafc51c",
+    "shared/profiles/complex.tsx": "74c95dad2441e25844827fb1ea4819fd8d676af823788ef565ce9c59f669f069",
+    "shared/profiles/expectations.json": "735f36ae8ad98e3c918821b170f12003ebbef0eae6a01b1eb889552730963569",
+    "shared/profiles/flex.css": "0c21ab25f33631dd9f757d1d0bcd32cf80bafcbcd5ee1f233f567c3d99c14a0b",
+    "shared/profiles/flex.tsx": "829b78818589cadcac6bb5f6234e8b034474107e73c6bb2020967bd84f04b9da",
+    "shared/profiles/layout-size.cpp": "948f72d6d3558fff604e2f564b13512ad7ad7292d9abf201b745c83f12871ee1",
+    "shared/results.mjs": "e3c10572b86f266f00ace4fcc113f8b00583fbab1d3402134f7c87d99bfea8da",
+    "shared/results.test.mjs": "8ee682c928451e154933bb2efa073ec95364730d0dd423c08f8951c882ed284c",
+    "shared/suite.tsx": "6be18c7278efee4e35638fe43f25d41526981add9e826fb198bc41b76b27a864"
+  },
+  "width": 410,
+  "height": 502,
+  "warmup": 60,
+  "clock_step_ms": 16,
+  "machine": "darwin 25.6.0 arm64",
+  "flags": "-O2 -DNDEBUG -falign-functions=64",
+  "instrumented": false,
+  "rounds": 1,
+  "samples": 240,
+  "cases": [
+    {
+      "scenario": "flex-layout-16",
+      "rows": 16,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true
+      },
+      "candidate_checks": {
+        "layout changed": true
+      },
+      "base_hashes": {
+        "pixels": "5609406441011743673",
+        "geometry": "14405739209851016653"
+      },
+      "candidate_hashes": {
+        "pixels": "5609406441011743673",
+        "geometry": "14405739209851016653"
+      }
+    },
+    {
+      "scenario": "flex-layout-96",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true
+      },
+      "candidate_checks": {
+        "layout changed": true
+      },
+      "base_hashes": {
+        "pixels": "5609406441011743673",
+        "geometry": "6288497766328266445"
+      },
+      "candidate_hashes": {
+        "pixels": "5609406441011743673",
+        "geometry": "6288497766328266445"
+      }
+    },
+    {
+      "scenario": "grid-layout-64",
+      "rows": 64,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true
+      },
+      "candidate_checks": {
+        "layout changed": true
+      },
+      "base_hashes": {
+        "pixels": "16175031787668059329",
+        "geometry": "4456522322620208077"
+      },
+      "candidate_hashes": {
+        "pixels": "16175031787668059329",
+        "geometry": "4456522322620208077"
+      }
+    },
+    {
+      "scenario": "class-update",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "3447265823644862841",
+        "geometry": "6296361473491717717"
+      },
+      "candidate_hashes": {
+        "pixels": "3447265823644862841",
+        "geometry": "6296361473491717717"
+      }
+    },
+    {
+      "scenario": "matching-sibling-update",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "3447265823644862841",
+        "geometry": "6296361473491717717"
+      },
+      "candidate_hashes": {
+        "pixels": "3447265823644862841",
+        "geometry": "6296361473491717717"
+      }
+    },
+    {
+      "scenario": "text-update",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "text updated": true
+      },
+      "candidate_checks": {
+        "text updated": true
+      },
+      "base_hashes": {
+        "pixels": "12731213452873155481",
+        "geometry": "6296361473491717717"
+      },
+      "candidate_hashes": {
+        "pixels": "12731213452873155481",
+        "geometry": "6296361473491717717"
+      }
+    },
+    {
+      "scenario": "scroll-16",
+      "rows": 16,
+      "output_equal": true,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "5341411048021977665",
+        "geometry": "6546324534507979445"
+      },
+      "candidate_hashes": {
+        "pixels": "5341411048021977665",
+        "geometry": "6546324534507979445"
+      }
+    },
+    {
+      "scenario": "scroll-96",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "5341411048021977665",
+        "geometry": "6160133692717964309"
+      },
+      "candidate_hashes": {
+        "pixels": "5341411048021977665",
+        "geometry": "6160133692717964309"
+      }
+    },
+    {
+      "scenario": "rounded-scroll",
+      "rows": 96,
+      "output_equal": false,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "5341411048021977665",
+        "geometry": "6160133692717964309"
+      },
+      "candidate_hashes": {
+        "pixels": "4860930187078660173",
+        "geometry": "6160133692717964309"
+      }
+    },
+    {
+      "scenario": "nested-scroll",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "scroll moved": true,
+        "outer stayed stationary": true
+      },
+      "candidate_checks": {
+        "scroll moved": true,
+        "outer stayed stationary": true
+      },
+      "base_hashes": {
+        "pixels": "18158899266867926326",
+        "geometry": "9804374809075217587"
+      },
+      "candidate_hashes": {
+        "pixels": "18158899266867926326",
+        "geometry": "9804374809075217587"
+      }
+    },
+    {
+      "scenario": "horizontal-swipe",
+      "rows": 32,
+      "output_equal": true,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "9788166343208514969",
+        "geometry": "4460014321477194005"
+      },
+      "candidate_hashes": {
+        "pixels": "9788166343208514969",
+        "geometry": "4460014321477194005"
+      }
+    },
+    {
+      "scenario": "vertical-drag",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "5101298181040817119",
+        "geometry": "3780131755235875413"
+      },
+      "candidate_hashes": {
+        "pixels": "5101298181040817119",
+        "geometry": "3780131755235875413"
+      }
+    },
+    {
+      "scenario": "momentum-flick",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "scroll moved": true,
+        "momentum continued after release": true
+      },
+      "candidate_checks": {
+        "scroll moved": true,
+        "momentum continued after release": true
+      },
+      "base_hashes": {
+        "pixels": "10951403995030425261",
+        "geometry": "12273324538289744469"
+      },
+      "candidate_hashes": {
+        "pixels": "10951403995030425261",
+        "geometry": "12273324538289744469"
+      }
+    },
+    {
+      "scenario": "minimal-box-1",
+      "rows": 1,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true
+      },
+      "candidate_checks": {
+        "layout changed": true
+      },
+      "base_hashes": {
+        "pixels": "15336153313558489429",
+        "geometry": "6385068138444771573"
+      },
+      "candidate_hashes": {
+        "pixels": "15336153313558489429",
+        "geometry": "6385068138444771573"
+      }
+    },
+    {
+      "scenario": "minimal-boxes-4",
+      "rows": 4,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true
+      },
+      "candidate_checks": {
+        "layout changed": true
+      },
+      "base_hashes": {
+        "pixels": "12512366330552235861",
+        "geometry": "7576768901638337901"
+      },
+      "candidate_hashes": {
+        "pixels": "12512366330552235861",
+        "geometry": "7576768901638337901"
+      }
+    },
+    {
+      "scenario": "minimal-text-12",
+      "rows": 12,
+      "output_equal": false,
+      "base_checks": {
+        "text updated": true
+      },
+      "candidate_checks": {
+        "text updated": true
+      },
+      "base_hashes": {
+        "pixels": "16997464969039587445",
+        "geometry": "318974832879963917"
+      },
+      "candidate_hashes": {
+        "pixels": "10795719331104418728",
+        "geometry": "14237013949728538197"
+      }
+    },
+    {
+      "scenario": "wrapped-layout-96",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true
+      },
+      "candidate_checks": {
+        "layout changed": true
+      },
+      "base_hashes": {
+        "pixels": "2406074270899148897",
+        "geometry": "12222775069457083533"
+      },
+      "candidate_hashes": {
+        "pixels": "2406074270899148897",
+        "geometry": "12222775069457083533"
+      }
+    },
+    {
+      "scenario": "selector-cascade-256",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "3447265823644862841",
+        "geometry": "6296361473491717717"
+      },
+      "candidate_hashes": {
+        "pixels": "3447265823644862841",
+        "geometry": "6296361473491717717"
+      }
+    },
+    {
+      "scenario": "dashboard-mixed-96",
+      "rows": 96,
+      "output_equal": true,
+      "base_checks": {
+        "layout changed": true,
+        "selection updated": true,
+        "text updated": true,
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "layout changed": true,
+        "selection updated": true,
+        "text updated": true,
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "14513809918241664637",
+        "geometry": "9346485097622417901"
+      },
+      "candidate_hashes": {
+        "pixels": "14513809918241664637",
+        "geometry": "9346485097622417901"
+      }
+    },
+    {
+      "scenario": "border-image-24",
+      "rows": 24,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "10758123196182437277",
+        "geometry": "3225899729061194581"
+      },
+      "candidate_hashes": {
+        "pixels": "11296866584210923917",
+        "geometry": "3225899729061194581"
+      }
+    },
+    {
+      "scenario": "blend-mode-24",
+      "rows": 24,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "4214282773034380363",
+        "geometry": "11133077344942513877"
+      },
+      "candidate_hashes": {
+        "pixels": "17670341235242176481",
+        "geometry": "11133077344942513877"
+      }
+    },
+    {
+      "scenario": "multicol-3",
+      "rows": 12,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "6399177969525811653",
+        "geometry": "12501855901633333575"
+      },
+      "candidate_hashes": {
+        "pixels": "1529203389362716189",
+        "geometry": "1651162945820065073"
+      }
+    },
+    {
+      "scenario": "line-clamp-24",
+      "rows": 24,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "6137197404530070665",
+        "geometry": "64144482636054981"
+      },
+      "candidate_hashes": {
+        "pixels": "13858875607495786693",
+        "geometry": "3774972903609762277"
+      }
+    },
+    {
+      "scenario": "box-shadow-24",
+      "rows": 24,
+      "output_equal": true,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "903477815925312381",
+        "geometry": "3240635031697802453"
+      },
+      "candidate_hashes": {
+        "pixels": "903477815925312381",
+        "geometry": "3240635031697802453"
+      }
+    },
+    {
+      "scenario": "text-emphasis-24",
+      "rows": 24,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "2222468555314809729",
+        "geometry": "11133077344942513877"
+      },
+      "candidate_hashes": {
+        "pixels": "14414219063636384101",
+        "geometry": "11133077344942513877"
+      }
+    },
+    {
+      "scenario": "sticky-scroll-96",
+      "rows": 96,
+      "output_equal": false,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "15278656453576732251",
+        "geometry": "16667405187260626137"
+      },
+      "candidate_hashes": {
+        "pixels": "12550719507547081347",
+        "geometry": "3163810291054238517"
+      }
+    },
+    {
+      "scenario": "blend-modes-15",
+      "rows": 15,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "18275230919733896018",
+        "geometry": "13791900082801369347"
+      },
+      "candidate_hashes": {
+        "pixels": "11095935236844347683",
+        "geometry": "13791900082801369347"
+      }
+    },
+    {
+      "scenario": "rounded-update-96",
+      "rows": 96,
+      "output_equal": false,
+      "base_checks": {
+        "selection updated": true
+      },
+      "candidate_checks": {
+        "selection updated": true
+      },
+      "base_hashes": {
+        "pixels": "10852482346953288601",
+        "geometry": "6296361473491717717"
+      },
+      "candidate_hashes": {
+        "pixels": "10639604361825033505",
+        "geometry": "6296361473491717717"
+      }
+    },
+    {
+      "scenario": "sticky-sections-96",
+      "rows": 96,
+      "output_equal": false,
+      "base_checks": {
+        "scroll moved": true
+      },
+      "candidate_checks": {
+        "scroll moved": true
+      },
+      "base_hashes": {
+        "pixels": "12088648876442662158",
+        "geometry": "3638989598141174869"
+      },
+      "candidate_hashes": {
+        "pixels": "9485851663979895404",
+        "geometry": "5109734918638725937"
+      }
+    },
+    {
+      "scenario": "wrapped-text-update-24",
+      "rows": 24,
+      "output_equal": true,
+      "base_checks": {
+        "text updated": true
+      },
+      "candidate_checks": {
+        "text updated": true
+      },
+      "base_hashes": {
+        "pixels": "5832130218132208585",
+        "geometry": "64144482636054981"
+      },
+      "candidate_hashes": {
+        "pixels": "5832130218132208585",
+        "geometry": "64144482636054981"
+      }
+    }
+  ],
+  "raw_runs": {
+    "base": [
+      [
+        {
+          "mode": "verification",
+          "name": "flex-layout-16",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "14405739209851016653",
+          "pixel_hash": "5609406441011743673",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "flex-layout-16",
+          "rows": 16
+        },
+        {
+          "mode": "verification",
+          "name": "flex-layout-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6288497766328266445",
+          "pixel_hash": "5609406441011743673",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "flex-layout-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "grid-layout-64",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "4456522322620208077",
+          "pixel_hash": "16175031787668059329",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "grid-layout-64",
+          "rows": 64
+        },
+        {
+          "mode": "verification",
+          "name": "class-update",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "3447265823644862841",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "class-update",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "matching-sibling-update",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "3447265823644862841",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "matching-sibling-update",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "text-update",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "12731213452873155481",
+          "checks": {
+            "text updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "text-update",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "scroll-16",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6546324534507979445",
+          "pixel_hash": "5341411048021977665",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 138
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "scroll-16",
+          "rows": 16
+        },
+        {
+          "mode": "verification",
+          "name": "scroll-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6160133692717964309",
+          "pixel_hash": "5341411048021977665",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "scroll-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "rounded-scroll",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6160133692717964309",
+          "pixel_hash": "5341411048021977665",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "rounded-scroll",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "nested-scroll",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "9804374809075217587",
+          "pixel_hash": "18158899266867926326",
+          "checks": {
+            "scroll moved": true,
+            "outer stayed stationary": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "nested-scroll",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "horizontal-swipe",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "4460014321477194005",
+          "pixel_hash": "9788166343208514969",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 310
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "horizontal-swipe",
+          "rows": 32
+        },
+        {
+          "mode": "verification",
+          "name": "vertical-drag",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "3780131755235875413",
+          "pixel_hash": "5101298181040817119",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 342,
+            "scroll_max": 1710
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "vertical-drag",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "momentum-flick",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "12273324538289744469",
+          "pixel_hash": "10951403995030425261",
+          "checks": {
+            "scroll moved": true,
+            "momentum continued after release": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 3338
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "momentum-flick",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "minimal-box-1",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6385068138444771573",
+          "pixel_hash": "15336153313558489429",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "minimal-box-1",
+          "rows": 1
+        },
+        {
+          "mode": "verification",
+          "name": "minimal-boxes-4",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "7576768901638337901",
+          "pixel_hash": "12512366330552235861",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "minimal-boxes-4",
+          "rows": 4
+        },
+        {
+          "mode": "verification",
+          "name": "minimal-text-12",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "318974832879963917",
+          "pixel_hash": "16997464969039587445",
+          "checks": {
+            "text updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "minimal-text-12",
+          "rows": 12
+        },
+        {
+          "mode": "verification",
+          "name": "wrapped-layout-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "12222775069457083533",
+          "pixel_hash": "2406074270899148897",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "wrapped-layout-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "selector-cascade-256",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "3447265823644862841",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "selector-cascade-256",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "dashboard-mixed-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "9346485097622417901",
+          "pixel_hash": "14513809918241664637",
+          "checks": {
+            "layout changed": true,
+            "selection updated": true,
+            "text updated": true,
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "dashboard-mixed-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "border-image-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "3225899729061194581",
+          "pixel_hash": "10758123196182437277",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "border-image-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "blend-mode-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "11133077344942513877",
+          "pixel_hash": "4214282773034380363",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "blend-mode-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "multicol-3",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "12501855901633333575",
+          "pixel_hash": "6399177969525811653",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "multicol-3",
+          "rows": 12
+        },
+        {
+          "mode": "verification",
+          "name": "line-clamp-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "64144482636054981",
+          "pixel_hash": "6137197404530070665",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "line-clamp-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "box-shadow-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "3240635031697802453",
+          "pixel_hash": "903477815925312381",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "box-shadow-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "text-emphasis-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "11133077344942513877",
+          "pixel_hash": "2222468555314809729",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "text-emphasis-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "sticky-scroll-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "16667405187260626137",
+          "pixel_hash": "15278656453576732251",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "sticky-scroll-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "blend-modes-15",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "13791900082801369347",
+          "pixel_hash": "18275230919733896018",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "blend-modes-15",
+          "rows": 15
+        },
+        {
+          "mode": "verification",
+          "name": "rounded-update-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "10852482346953288601",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "rounded-update-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "sticky-sections-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "3638989598141174869",
+          "pixel_hash": "12088648876442662158",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "sticky-sections-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "wrapped-text-update-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 344,
+          "geometry_hash": "64144482636054981",
+          "pixel_hash": "5832130218132208585",
+          "checks": {
+            "text updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "wrapped-text-update-24",
+          "rows": 24
+        }
+      ]
+    ],
+    "candidate": [
+      [
+        {
+          "mode": "verification",
+          "name": "flex-layout-16",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "14405739209851016653",
+          "pixel_hash": "5609406441011743673",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "flex-layout-16",
+          "rows": 16
+        },
+        {
+          "mode": "verification",
+          "name": "flex-layout-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6288497766328266445",
+          "pixel_hash": "5609406441011743673",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "flex-layout-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "grid-layout-64",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "4456522322620208077",
+          "pixel_hash": "16175031787668059329",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "grid-layout-64",
+          "rows": 64
+        },
+        {
+          "mode": "verification",
+          "name": "class-update",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "3447265823644862841",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "class-update",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "matching-sibling-update",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "3447265823644862841",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "matching-sibling-update",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "text-update",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "12731213452873155481",
+          "checks": {
+            "text updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "text-update",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "scroll-16",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6546324534507979445",
+          "pixel_hash": "5341411048021977665",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 138
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "scroll-16",
+          "rows": 16
+        },
+        {
+          "mode": "verification",
+          "name": "scroll-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6160133692717964309",
+          "pixel_hash": "5341411048021977665",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "scroll-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "rounded-scroll",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6160133692717964309",
+          "pixel_hash": "4860930187078660173",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "rounded-scroll",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "nested-scroll",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "9804374809075217587",
+          "pixel_hash": "18158899266867926326",
+          "checks": {
+            "scroll moved": true,
+            "outer stayed stationary": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "nested-scroll",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "horizontal-swipe",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "4460014321477194005",
+          "pixel_hash": "9788166343208514969",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 310
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "horizontal-swipe",
+          "rows": 32
+        },
+        {
+          "mode": "verification",
+          "name": "vertical-drag",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "3780131755235875413",
+          "pixel_hash": "5101298181040817119",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 342,
+            "scroll_max": 1710
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "vertical-drag",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "momentum-flick",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "12273324538289744469",
+          "pixel_hash": "10951403995030425261",
+          "checks": {
+            "scroll moved": true,
+            "momentum continued after release": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 3338
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "momentum-flick",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "minimal-box-1",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6385068138444771573",
+          "pixel_hash": "15336153313558489429",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "minimal-box-1",
+          "rows": 1
+        },
+        {
+          "mode": "verification",
+          "name": "minimal-boxes-4",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "7576768901638337901",
+          "pixel_hash": "12512366330552235861",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "minimal-boxes-4",
+          "rows": 4
+        },
+        {
+          "mode": "verification",
+          "name": "minimal-text-12",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "14237013949728538197",
+          "pixel_hash": "10795719331104418728",
+          "checks": {
+            "text updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "minimal-text-12",
+          "rows": 12
+        },
+        {
+          "mode": "verification",
+          "name": "wrapped-layout-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "12222775069457083533",
+          "pixel_hash": "2406074270899148897",
+          "checks": {
+            "layout changed": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "wrapped-layout-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "selector-cascade-256",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "3447265823644862841",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "selector-cascade-256",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "dashboard-mixed-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "9346485097622417901",
+          "pixel_hash": "14513809918241664637",
+          "checks": {
+            "layout changed": true,
+            "selection updated": true,
+            "text updated": true,
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "dashboard-mixed-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "border-image-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "3225899729061194581",
+          "pixel_hash": "11296866584210923917",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "border-image-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "blend-mode-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "11133077344942513877",
+          "pixel_hash": "17670341235242176481",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "blend-mode-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "multicol-3",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "1651162945820065073",
+          "pixel_hash": "1529203389362716189",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "multicol-3",
+          "rows": 12
+        },
+        {
+          "mode": "verification",
+          "name": "line-clamp-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "3774972903609762277",
+          "pixel_hash": "13858875607495786693",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "line-clamp-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "box-shadow-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "3240635031697802453",
+          "pixel_hash": "903477815925312381",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "box-shadow-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "text-emphasis-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "11133077344942513877",
+          "pixel_hash": "14414219063636384101",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "text-emphasis-24",
+          "rows": 24
+        },
+        {
+          "mode": "verification",
+          "name": "sticky-scroll-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "3163810291054238517",
+          "pixel_hash": "12550719507547081347",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "sticky-scroll-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "blend-modes-15",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "13791900082801369347",
+          "pixel_hash": "11095935236844347683",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "blend-modes-15",
+          "rows": 15
+        },
+        {
+          "mode": "verification",
+          "name": "rounded-update-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "6296361473491717717",
+          "pixel_hash": "10639604361825033505",
+          "checks": {
+            "selection updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "rounded-update-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "sticky-sections-96",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "5109734918638725937",
+          "pixel_hash": "9485851663979895404",
+          "checks": {
+            "scroll moved": true
+          },
+          "observations": {
+            "scroll_min": 0,
+            "scroll_max": 160
+          },
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "sticky-sections-96",
+          "rows": 96
+        },
+        {
+          "mode": "verification",
+          "name": "wrapped-text-update-24",
+          "ok": true,
+          "samples": 240,
+          "warmup": 60,
+          "node_bytes": 368,
+          "geometry_hash": "64144482636054981",
+          "pixel_hash": "5832130218132208585",
+          "checks": {
+            "text updated": true
+          },
+          "observations": {},
+          "internal_min_bytes": null,
+          "psram_min_bytes": null,
+          "scenario": "wrapped-text-update-24",
+          "rows": 24
+        }
+      ]
+    ]
+  },
+  "complete": true,
+  "ok": false
+}
